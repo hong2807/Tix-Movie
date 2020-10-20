@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat Bold';
+    src: url('/fonts/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat SemiBold';
+    src: url('/fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Coiny Regular';
+    src: url('/fonts/Coiny-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Montserrat SemiBold';
+    color: $color-white-default;
+    font-size: rem(14);
+    background-image: url('/images/black-wall.jpg');
+    background-size: cover;
+}
+ 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+
