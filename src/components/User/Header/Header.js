@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './Header.scss'
 export default function Header() {
     return (
-        <div class="header-component container-fluid">
+        <div className="header-component container-fluid">
             {/* <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                 <NavLink className="navbar-brand" to="/">Cybersoft</NavLink>
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />

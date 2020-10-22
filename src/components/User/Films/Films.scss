@@ -1,0 +1,41 @@
+@import "src/scss/Helper/variables.scss";
+
+
+.filmsComponent {
+
+    .banner-item {
+        padding: 0 10px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .ant-tabs {
+        overflow: unset;
+    }
+
+    .ant-tabs-top > .ant-tabs-nav::before {
+        border-bottom: unset;
+    }
+    .ant-tabs-tab-btn {
+        color: white;
+    }
+
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        color: white;
+    }
+
+    .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap {
+        justify-content: center;
+    }
+
+    .ant-tabs-ink-bar {
+        background: unset;
+    }
+
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        color: $color-green-default;
+    }
+
+}

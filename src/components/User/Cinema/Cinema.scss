@@ -1,0 +1,136 @@
+.cinemaComponent {
+    .container {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .cinema__brand {
+        position: relative;
+
+        ul {
+            &::after {
+                content: "";
+                display: block;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                border-bottom: 1px solid white;
+            }
+        }
+       
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            display: inline-block;
+            padding: 15px 30px;
+        }
+    }
+
+    .cinema__detail {
+       
+
+        .cinema__detailItem {
+            width: 100%;
+            display: flex;   
+        }
+
+        .cinema__address {
+            width: 35%;
+
+            .cinema__addressItem {
+                background-color: #1c2936;
+                margin-bottom: 25px;
+                
+                .inside {
+                    padding: 10px;
+                }
+
+                .inside-text {
+                    .title {
+                        color: #ffffff;
+                        font-size: 16px;
+                    }
+
+                    p {
+                        color: #90a0ba;
+                        font-size: 12px;
+                    }
+                }
+
+                .detail {
+                    background-color: #42af33;
+                    text-align: center;
+                    padding: 5px 0;
+                }
+            }
+        }
+
+        .cinema__showtime {
+            width: 65%;
+            padding: 0 50px;
+
+            .cinema__showtimeItem {
+                margin-bottom: 15px;
+
+                .inside-img {
+                    img {
+                        width: 100px;
+                        background-size: cover;
+                    }
+                }
+
+                .inside-text {
+                    .film-type {
+                        margin-bottom: 10px;    
+
+                        .film-version {
+                            background: #42af33;
+                            padding: 5px;
+                            margin-right: 10px;
+                        }
+    
+                        .film-rating {
+                            padding: 3px;
+                            border: 2px solid #f8090f;
+                            color: #f8090f;
+                        } 
+                    }
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .cinema__timedetail {
+                    margin-top: 15px;
+
+                    li {
+                        display: inline-block;
+                        a {
+                            display: block;
+                            font-size: 20px;
+                            color: #97a5be;
+                            width: 100px;
+                            text-align: center;
+                            background: black;
+                            border: 2px solid black;
+                            margin-right: 10px;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+  
+}

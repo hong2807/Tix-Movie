@@ -11,7 +11,7 @@ import './App.scss';
 function App() {
   return (
     <BrowserRouter>
-      <Preloader/>
+      {/* <Preloader/> */}
         <Switch>
           <UserTemplate exact path='/home' Component={Home}></UserTemplate>
           <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>
