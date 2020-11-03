@@ -1,13 +1,25 @@
 // variable color
-$color-black-0: #000000; // default
+$color-black-0: #000000; 
+$color-black-1: rgba(0, 0, 0, 0.5); 
 
-$color-yellow: yellow;
+$color-green-0: #87C146;
+
+$color-red-0: #f8090f;
+
+$color-grey-0: rgba(255,255,255,0.2);
+$color-grey-1: #97a5be;
 
 
-
-$color-green-default: #87C146;
+$color-background-default: #1a191f;
+$color-yellow-default: #ffd80e;
 $color-white-default: #ffffff;
+$color-grey-default: rgba(255,255,255,0.5);
+
+
+
+
 // variable font-size
 $font-size-base-px: 16;
 $font-size-base: 1rem;
 
+//  #97a5be

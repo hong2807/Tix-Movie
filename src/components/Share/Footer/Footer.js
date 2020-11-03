@@ -6,67 +6,7 @@ export default function Footer() {
     return (
         <div className="footerComponent mt-5">
             <div className="container">
-                <div className="footer__partner">
-                    <div className="footer__partnerContent">
-                        <ul className="text-center">
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/cgv.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/bhd.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/galaxycine.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/cinestar.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/lotteria.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/megags.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/bt.jpg"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/TOUCH.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/cnx.jpg"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/STARLIGHT.png"></img>
-                            </a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="">
-                                <img src="./images/dcine.png"></img>
-                            </a>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
+              
 
                 <div className="footer__policy">
                     <div className="footer__policyContent">
@@ -132,7 +72,7 @@ export default function Footer() {
                             </div>
                             <div className="col-10">
                                 <div className="footer__addressText">
-                                <h3>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</h3>
+                                <h5>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</h5>
                                 <p>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam..</p>
                                 <p>Giấy chứng nhận đăng ký kinh doanh số: 0101659783, đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020  do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.</p>
                                 <p>Số Điện Thoại (Hotline): 1900 545 436</p>
@@ -146,3 +86,67 @@ export default function Footer() {
         </div>
     )
 }
+
+
+
+//   <div className="footer__partner">
+//                     <div className="footer__partnerContent">
+//                         <ul className="text-center">
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/cgv.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/bhd.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/galaxycine.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/cinestar.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/lotteria.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/megags.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/bt.jpg"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/TOUCH.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/cnx.jpg"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/STARLIGHT.png"></img>
+//                             </a>
+//                         </li>
+//                         <li>
+//                             <a target="_blank" href="">
+//                                 <img src="./images/dcine.png"></img>
+//                             </a>
+//                         </li>
+//                     </ul>
+//                     </div>
+//                 </div>

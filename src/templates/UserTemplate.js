@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
-import Header from '../components/User/Header/Header';
+import Header from '../components/Share/Header/Header';
+
 
 
 

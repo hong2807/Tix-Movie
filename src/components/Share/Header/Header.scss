@@ -1,0 +1,130 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.header-component {
+    .navigation {
+        background-color: $color-background-default;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    li {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    .menu {
+        .nav-link {
+            color: $color-grey-default;
+            padding: 0;
+            transition: all 0.2s ease-in;
+
+            &:hover {
+            color: $color-yellow-default;
+            }
+        }
+    }
+
+    .logo {
+        a {
+            font-family: "Ranchers Regular";
+            color: $color-white-default;
+            margin: 0;
+            font-size: rem(45);
+
+            span {
+                color: $color-yellow-default;
+            }
+        }
+    }
+
+    .sign {
+        li {
+            text-align: center;
+            line-height: 20px;
+            height: 40px;
+            width: 120px;
+            border: 1px solid $color-yellow-default;
+            border-radius: 6px;
+            transition: all 0.2s ease-in;
+
+            &:hover {
+                background-color: $color-yellow-default;
+                color: $color-black-0;
+                font-weight: bold;
+            }
+
+            a {
+                color: $color-grey-default;
+            }
+        }
+
+        .signup {
+            margin-right: 10px;
+        }
+        
+    }
+}
+
+
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+.animate__swing:hover {
+    -webkit-transform-origin: top center;
+    transform-origin: top center;
+//   -webkit-animation-name: swing;
+//   animation-name: swing;
+    animation: swing 2s infinite;
+}

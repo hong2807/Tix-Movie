@@ -30,19 +30,13 @@ export default function Cinema() {
                         <div className="cinema__address">
                             <div className="cinema__addressItem">
                                 <div className="inside">
-                                    <div className="row m-0">
-                                        <div className="col-3 p-0">
-                                            <div className="inside-img">
-                                                <img className="w-100" src="./images/bhd-star-bitexco.jpg"></img>
-                                                    
-                                            </div>
-                                        </div>
-                                        <div className="col-9">
-                                            <div className="inside-text">
-                                                <h4 className="title">BHD Star Bitexco</h4>
-                                                    <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
-                                            </div>
-                                        </div>
+                                    <div className="inside-img">
+                                        <img src="./images/bhd-star-bitexco.jpg"></img>
+                                            
+                                    </div>
+                                    <div className="inside-text">
+                                        <h4 className="title">BHD Star Bitexco</h4>
+                                            <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
                                     </div>
                                 </div>
                                 <div className="detail">
@@ -51,20 +45,14 @@ export default function Cinema() {
                             </div>
                             <div className="cinema__addressItem">
                                 <div className="inside">
-                                    <div className="row m-0">
-                                        <div className="col-3 p-0">
-                                            <div className="inside-img">
-                                                <img className="w-100" src="./images/bhd-star-bitexco.jpg"></img>
-                                                    
-                                            </div>
-                                        </div>
-                                        <div className="col-9">
-                                            <div className="inside-text">
-                                                <h4 className="title">BHD Star Bitexco</h4>
-                                                    <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
-                                            </div>
-                                        </div>
+                                    <div className="inside-img">
+                                        <img src="./images/bhd-star-bitexco.jpg"></img>
+                                            
                                     </div>
+                                    <div className="inside-text">
+                                        <h4 className="title">BHD Star Bitexco</h4>
+                                            <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
+                                    </div>  
                                 </div>
                                 <div className="detail">
                                     <a>XEM CHI TIẾT</a>
@@ -72,19 +60,13 @@ export default function Cinema() {
                             </div>
                             <div className="cinema__addressItem">
                                 <div className="inside">
-                                    <div className="row m-0">
-                                        <div className="col-3 p-0">
-                                            <div className="inside-img">
-                                                <img className="w-100" src="./images/bhd-star-bitexco.jpg"></img>
-                                                    
-                                            </div>
-                                        </div>
-                                        <div className="col-9">
-                                            <div className="inside-text">
-                                                <h4 className="title">BHD Star Bitexco</h4>
-                                                    <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
-                                            </div>
-                                        </div>
+                                    <div className="inside-img">
+                                        <img src="./images/bhd-star-bitexco.jpg"></img>
+                                            
+                                    </div>
+                                    <div className="inside-text">
+                                        <h4 className="title">BHD Star Bitexco</h4>
+                                            <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
                                     </div>
                                 </div>
                                 <div className="detail">

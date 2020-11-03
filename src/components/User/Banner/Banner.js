@@ -16,7 +16,7 @@ export default function Banner() {
   
 
   return (
-    <div className="bannerComponent mt-5">
+    <div className="bannerComponent">
       <div className="container-fluid">
             <Slider {...settings}>
               <div className="banner__item">

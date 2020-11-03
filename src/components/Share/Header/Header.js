@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './Header.scss'
 export default function Header() {
     return (
-        <div className="header-component container-fluid">
+        <div className="header-component">
             {/* <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                 <NavLink className="navbar-brand" to="/">Cybersoft</NavLink>
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
@@ -34,18 +34,38 @@ export default function Header() {
                     </form>
                 </div>
             </nav> */}
-            <ul>
-                <li>Lịch Chiếu</li>
-                <li>Cụm Rạp</li>
-                <li>Ứng dụng</li>
-            </ul>
-            <div className="logo-wrapper">
-                <img className="logo" src="/images/Logo.png"></img>
+            <div className="navigation container-fluid">
+                <ul className="menu">
+                    <li><NavLink 
+                            exact 
+                            className="nav-link" 
+                            to="/home"
+                            > LỊCH CHIẾU 
+                        </NavLink>
+                    </li>
+                    <li><NavLink 
+                            exact 
+                            className="nav-link" 
+                            to="/home"
+                            > CỤM RẠP
+                        </NavLink>
+                    </li>
+                    <li><NavLink 
+                            exact 
+                            className="nav-link" 
+                            to="/home"
+                            > ỨNG DỤNG
+                        </NavLink>
+                    </li>
+                </ul>
+                <div className="logo animate__swing">
+                   <a><span>Tix</span>Movie</a>
+                </div>
+                <ul className="sign">
+                    <li className="signup"><a>ĐĂNG KÝ</a></li>
+                    <li className="signin"><a>ĐĂNG NHẬP</a></li>
+                </ul>
             </div>
-            <ul>
-                <li>Đăng ký</li>
-                <li>Đăng nhập</li>
-            </ul>
         </div>
 
     )

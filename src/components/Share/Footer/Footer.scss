@@ -1,17 +1,17 @@
 @import "src/scss/Helper/variables.scss";
 
 .footerComponent {
-    background-color: #111111;
+    background-color: $color-background-default;
     position: relative;
+    color: $color-grey-default;
 
     h5 {
         color: white;
         font-size: 14px;
+        color: $color-white-default;
+        margin-bottom: 15px;
     }
 
-    a {
-        color: #87C146 !important;
-    }
 
     .footer__partner {
         &::before {
@@ -21,7 +21,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            border-top: 2px solid #87C146;
+            border-top: 1px solid $color-yellow-default;
         }
 
         &::after {
@@ -30,7 +30,7 @@
             width: 100%;
             position: absolute;
             left: 0;
-            border-bottom: 2px solid #87C146;
+            border-bottom: 1px solid $color-yellow-default;
         }
 
         img {
@@ -47,17 +47,30 @@
     }
 
     .footer__policy {
-        &::after {
+        &::before { 
             content: "";
             display: block;
             width: 100%;
             position: absolute;
             left: 0;
-            border-bottom: 2px solid #87C146;
+            top: 0;
+            border-top: 1px solid $color-yellow-default;
+        }
+
+        a {
+            transition: all 0.2s ease-in;
+
+            &:hover {
+                color: $color-yellow-default;
+            }
         }
 
         .footer__policyContent {
             padding: 30px 0;
+
+            li {
+                margin-bottom: 10px;
+            }
 
             .footer__tixFollowus {
                 img {
@@ -67,12 +80,12 @@
         
                 li {
                     display: inline-block;
-                    padding: 5px;
+                    padding: 5px 5px 5px 0;
                 }
         
                 .footer__permission {
                     img {
-                        width: 200px;
+                        width: 150px;
                         height: unset;
                     }
                 }
@@ -81,7 +94,7 @@
             .footer__tixPay {         
                 li {
                     display: inline-block;
-                    padding: 5px;
+                    padding: 5px 5px 5px 0;
                 }
         
                 img {
@@ -95,6 +108,8 @@
     }
 
     .footer__address {
+        border-top: 1px solid $color-grey-0;
+
         .footer__addressContent {
             padding: 30px 0;
 
