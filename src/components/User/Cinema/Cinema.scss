@@ -34,7 +34,7 @@
 
         li {
             display: inline-block;
-            padding: 15px 30px;
+            padding: rem(15) rem(30);
         }
     }
 
@@ -51,8 +51,8 @@
 
             .cinema__addressItem {
                 background-color: $color-background-default;
-                padding: 15px 25px;
-                margin-bottom: 25px;
+                padding: rem(15) rem(25);
+                margin-bottom: rem(25);
                 text-align: center;
                 
                 .inside {
@@ -64,7 +64,7 @@
                     }
 
                     .inside-text {
-                        margin-top: 10px;
+                        margin-top: rem(10);
 
                         .title {
                             color: $color-white-default;
@@ -82,7 +82,7 @@
 
                 .detail {
                     text-align: center;
-                    padding: 5px 0;
+                    padding: rem(5) 0;
                     border: 1px solid $color-green-0;
                     border-radius: 5px;
                 }
@@ -91,10 +91,10 @@
 
         .cinema__showtime {
             width: 65%;
-            padding: 0 50px;
+            padding: 0 rem(50);
 
             .cinema__showtimeItem {
-                margin-bottom: 15px;
+                margin-bottom: rem(15);
 
                 .inside-img {
                     img {
@@ -105,18 +105,18 @@
 
                 .inside-text {
                     .film-type {
-                        margin-bottom: 10px;    
+                        margin-bottom: rem(10);    
                         
 
                         .film-version {
                             border: 1px solid $color-green-0;
-                            padding: 3px 5px;
-                            margin-right: 10px;
+                            padding: rem(3) rem(5);
+                            margin-right: rem(10);
                             display: inline-block;
                         }
     
                         .film-rating {
-                            padding: 3px 5px;
+                            padding: rem(3) rem(5);
                             border: 1px solid $color-red-0;
                             color: $color-red-0;
                             display: inline-block;
@@ -129,7 +129,7 @@
                 }
 
                 .cinema__timedetail {
-                    margin-top: 15px;
+                    margin-top: rem(15);
 
                     li {
                         display: inline-block;
@@ -141,8 +141,8 @@
                             text-align: center;
                             background: black;
                             border: 2px solid black;
-                            margin-right: 10px;
-                            margin-bottom: 10px;
+                            margin-right: rem(10);
+                            margin-bottom: rem(10);
                         }
                     }
                 }
