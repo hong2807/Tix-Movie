@@ -1,0 +1,72 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.mobileappComponent {
+    background-image: url(/images/backapp.jpg);
+    color: $color-white-default;
+
+    .mobileapp__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: rem(50) rem(0);
+    }
+
+    .mobileapp__left {
+        h2 {
+            color: $color-white-default;
+            font-weight: 700;
+            font-size: rem(28);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: rem(16);
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #fb4226;
+            padding: 10px 20px;
+            font-size: rem(16);
+            font-weight: 700;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .textApp {
+            padding-top: 10px;
+
+            .version {
+                color: $color-white-default;
+                border-bottom: 1px solid #fff;
+            }
+        }
+
+    }
+
+    .mobileapp__right {
+        text-align: center;
+        // position: relative;
+
+        img {
+            height: 400px;
+        }
+
+        .mobileapp__slider {
+            width: 100%;
+        }
+
+        // .mobileapp__slider {
+        //     img {
+        //         position: absolute;
+        //         padding: 1.5% 29.3% 0 29.3%;
+        //         top: 0;
+        //         left: 0;
+        //         width: 100%;
+        //     }
+            
+        // }
+
+    }
+}

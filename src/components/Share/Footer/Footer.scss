@@ -78,10 +78,14 @@
                     width: 40px;
                     height: 40px;
                 }
+
+                ul {
+                    margin-left: rem(-5);
+                }
         
                 li {
                     display: inline-block;
-                    padding: 5px 5px 5px 0;
+                    padding: rem(5);
                 }
         
                 .footer__permission {
@@ -92,10 +96,14 @@
                 }
             }
         
-            .footer__tixPay {         
+            .footer__tixPay {     
+                ul {
+                    margin-left: rem(-5);
+                }
+                    
                 li {
                     display: inline-block;
-                    padding: 5px 5px 5px 0;
+                    padding: rem(5);
                 }
         
                 img {
