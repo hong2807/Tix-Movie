@@ -43,10 +43,7 @@ export default function MobileApp() {
          
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <Slider {...settings}>
+                            <Slider {...settings}>
                     <div classname="item">
                         {/* <img src="/images/mobile1.jpg" alt="mobile1" /> */}
                         1
@@ -60,6 +57,10 @@ export default function MobileApp() {
                         3
                     </div>
                 </Slider>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     );
