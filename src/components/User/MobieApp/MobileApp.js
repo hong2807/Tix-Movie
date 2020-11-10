@@ -40,23 +40,22 @@ export default function MobileApp() {
                             <div className="mobileapp__right">
                                 {/* <img className="mobileapp-mobile" src="/images/mobile.png" alt /> */}
                                 <div className="mobileapp__slider">
-         
+                                    <Slider {...settings}>
+                                        <div className="item">
+                                            {/* <img src="/images/mobile1.jpg" alt="mobile1" /> */}
+                                            1
+                                        </div>
+                                        <div className="item">
+                                            {/* <img src="/images/mobile2.jpg" alt="mobile1" /> */}
+                                            2
+                                        </div>
+                                        <div className="item">
+                                            {/* <img src="/images/mobile3.jpg" alt="mobile1" /> */}
+                                            3
+                                        </div>
+                                    </Slider>
                                 </div>
                             </div>
-                            <Slider {...settings}>
-                    <div classname="item">
-                        {/* <img src="/images/mobile1.jpg" alt="mobile1" /> */}
-                        1
-                    </div>
-                    <div classname="item">
-                        {/* <img src="/images/mobile2.jpg" alt="mobile1" /> */}
-                        2
-                    </div>
-                    <div classname="item">
-                        {/* <img src="/images/mobile3.jpg" alt="mobile1" /> */}
-                        3
-                    </div>
-                </Slider>
                         </div>
                     </div>
                 </div>

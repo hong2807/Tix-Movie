@@ -5,8 +5,10 @@ import Login from './pages/Share/Login/Login';
 import PageNotFound from './pages/Share/PageNotFound/PageNotFound';
 import { AdminTemplate } from './templates/AdminTemplate';
 import { UserTemplate } from './templates/UserTemplate';
+import { LoginTemplate } from './templates/LoginTemplate';
 import Preloader from './components/Share/Preloader/Preloader';
 import './App.scss';
+import SignIn from './pages/Share/SignIn/SignIn';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Switch>
           <UserTemplate exact path='/home' Component={Home}></UserTemplate>
           <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>
+          <LoginTemplate exact path='/signin' Component={SignIn}></LoginTemplate>
+        
 
           <UserTemplate exact path='/' Component={Home}></UserTemplate>
           <Route exact path='*' component={PageNotFound}></Route>

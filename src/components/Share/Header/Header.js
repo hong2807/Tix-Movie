@@ -62,7 +62,11 @@ export default function Header() {
                    <a><span>Tix</span>Movie</a>
                 </div>
                 <ul className="sign">
-                    <li className="signup"><a>ĐĂNG KÝ</a></li>
+                    <li className="signup"><NavLink 
+                            exact 
+                            to="/signin"
+                            > ĐĂNG KÝ
+                        </NavLink></li>
                     <li className="signin"><a>ĐĂNG NHẬP</a></li>
                 </ul>
             </div>
