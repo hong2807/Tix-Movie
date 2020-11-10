@@ -20,13 +20,13 @@ export default function Films() {
              <div className="container">
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
-
             <Coverflow
-              width={960}
-              height={480}
+              // width={960}
+              height={600}
               displayQuantityOfSide={2}
               navigation={false}
               enableHeading={false}
+              enableScroll={false}
             >
               <div
                 // onClick={() => fn()}
@@ -40,10 +40,21 @@ export default function Films() {
                   style={{ display: 'block', width: '100%' }}
                 />
               </div>
-              <img src='/images/slider1.jpg' alt='' data-action="" />
+              <div>
+                <img src='/images/slider1.jpg' alt='' data-action="" />
+                
+              </div>
               <img src='/images/slider2.jpg' alt='' data-action="" />
               <img src='/images/slider3.png' alt='' data-action="" />
-              <img src='/images/slider4.jpg' alt='' data-action="" />
+              <div>
+                <img className="w-100" src='/images/slider4.jpg' alt='' data-action="" />
+                <h6 className="mb-0" style={{color: "white"}}>SÀI GÒN TRONG MƯA</h6>
+                <div>
+                  <p className="mb-0" style={{color: "white"}}>Khởi chiếu: 13/11/2020</p>
+                  <p style={{color: "white"}}>8.5</p>
+                </div>
+              </div>
+             
               <img src='/images/slider5.jpg' alt='' data-action="" />
               <img src='/images/slider6.jpg' alt='' data-action="" />
               <img src='/images/slider7.jpg' alt='' data-action="" />
@@ -57,6 +68,7 @@ export default function Films() {
                 displayQuantityOfSide={2}
                 navigation={false}
                 enableHeading={false}
+                enableScroll={false}
               >
                 <div
                   // onClick={() => fn()}

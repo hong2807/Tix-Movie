@@ -1,0 +1,75 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.signup-component {
+    background-image: url('/images/signin-bg.jpg');
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sign__content {
+        padding: rem(50) rem(60);
+        background-color: $color-background-default;
+        max-width: 700px;
+        width: 100%;
+
+        .logo {
+            margin-bottom: rem(30);
+
+            a {
+                font-family: "Ranchers Regular";
+                color: $color-white-default;
+                margin: 0;
+                font-size: rem(45);
+    
+                span {
+                    color: $color-yellow-default;
+                }
+            }
+        }
+
+        form {
+            h2 {
+                font-size: rem(25);
+                color: $color-white-default;
+            }
+
+            .sign__group {
+                margin-bottom: rem(20);
+            }
+
+            input {
+                background-color:rgba(210,201,255,0.04);
+                border: unset;
+
+                &:focus {
+                    box-shadow: unset;
+                    border: 1px solid $color-yellow-default;
+                }
+            }
+
+            .btn-submit {
+                border: 1px solid $color-yellow-default;
+                color: $color-white-default;
+                width: 100%;
+                margin: rem(20) 0;
+
+                &:focus {
+                    box-shadow: unset;
+                }
+            }
+
+            .sign__text {
+                span {
+                    a {
+                        color: $color-yellow-default;
+                    }
+                }
+            }
+        }
+    }
+}

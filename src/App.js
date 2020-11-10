@@ -9,6 +9,7 @@ import { LoginTemplate } from './templates/LoginTemplate';
 import Preloader from './components/Share/Preloader/Preloader';
 import './App.scss';
 import SignIn from './pages/Share/SignIn/SignIn';
+import SignUp from './pages/Share/SignUp/SignUp';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Switch>
           <UserTemplate exact path='/home' Component={Home}></UserTemplate>
           <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>
-          <LoginTemplate exact path='/signin' Component={SignIn}></LoginTemplate>
+          <LoginTemplate exact path='/dangnhap' Component={SignIn}></LoginTemplate>
+          <LoginTemplate exact path='/dangky' Component={SignUp}></LoginTemplate>
         
 
           <UserTemplate exact path='/' Component={Home}></UserTemplate>

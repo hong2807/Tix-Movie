@@ -12,19 +12,22 @@
 
     li {
         display: inline-block;
-        padding: rem(10);
     }
 
     .menu {
-        .nav-link {
-            color: $color-grey-default;
-            padding: 0;
-            transition: all 0.2s ease-in;
+      .nav-item {
+        padding: rem(10);
 
-            &:hover {
-            color: $color-yellow-default;
-            }
-        }
+        .nav-text {
+          color: $color-grey-default;
+          padding: 0;
+          transition: all 0.2s ease-in;
+
+          &:hover {
+          color: $color-yellow-default;
+          }
+        }  
+      }
     }
 
     .logo {
@@ -35,7 +38,7 @@
             font-size: rem(45);
 
             span {
-                color: $color-yellow-default;
+              color: $color-yellow-default;
             }
         }
     }
@@ -48,21 +51,26 @@
             width: 120px;
             border: 1px solid $color-yellow-default;
             border-radius: 6px;
-            transition: all 0.2s ease-in;
+            
 
-            &:hover {
+            .nav-text {
+              display: block;
+              width: 100%;
+              height: 100%;
+              line-height: 38px;
+              color: $color-grey-default;
+              transition: all 0.2s ease-in;
+
+              &:hover {
                 background-color: $color-yellow-default;
                 color: $color-black-0;
                 font-weight: bold;
-            }
-
-            a {
-                color: $color-grey-default;
+              }
             }
         }
 
         .signup {
-            margin-right: rem(10);
+          margin-right: rem(10);
         }
         
     }
