@@ -2,14 +2,98 @@
 @import "src/scss/Helper/mixin.scss";
 
 
-.filmsComponent {
+.films-component {
+    .film__item {
+        position: relative;
 
-    .banner-item {
-        padding: 0 rem(10);
-
-        img {
+        .film-overlay {
+            position: absolute;
             width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(to top,#000,transparent 100%);
+           
+            opacity: 0;
+            transition: all .2s;
+            -webkit-transform: scale3d(0.3, 0.3, 0.3);
+            transform: scale3d(0.3, 0.3, 0.3);
         }
+
+        .film-icon {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: all .2s;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: $color-white-default;
+
+            .icon {
+                font-size: rem(30);
+                color: $color-orange-0;
+                background-color: white;
+                border: 1px solid $color-orange-0;
+                border-radius: 50%;
+                margin: 0 rem(10);
+            }
+        }
+
+        &:hover .film-overlay {
+            opacity: 1;
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+
+        &:hover .film-icon {
+            opacity: 1;
+        }
+    }
+
+    .film-text {
+        padding: rem(10) rem(20);
+        background-color: $color-black-0;
+        color: $color-white-default;
+        font-size: rem(10);
+
+        .film-name {
+            color: $color-orange-0;
+            font-size: calc(18);
+        }
+
+       
+
+        .sub-text {
+            display: flex;
+            justify-content: space-between;
+            color: $color-white-default;
+
+            p {
+                display: inline-block;
+            }
+
+            .film-calendar {
+                .icon{
+                    color: $color-orange-0;
+                    margin-right: rem(5);
+                }
+            }
+
+            .film-rating {
+                .icon{
+                    color: $color-orange-0;
+                    margin-right: rem(5);
+                }
+            }
+        }
+
+      
     }
 
     .ant-tabs {

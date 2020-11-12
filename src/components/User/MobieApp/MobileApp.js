@@ -13,7 +13,7 @@ export default function MobileApp() {
     };
 
     return (
-        <div className="mobileappComponent">
+        <div className="mobileapp-component mt-5">
             <div className="container">
                 <div className="mobileapp__content">
                     <div className="row">

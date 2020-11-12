@@ -1,0 +1,38 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+
+.partner-component {
+    .partner__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        text-align: center;
+
+        .partner__content {
+            .title {
+                color: $color-white-default;
+            }
+
+            li {
+                display: inline-block;
+                padding: rem(10);
+                opacity: 0.4;
+                transition: all .2s;
+        
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            img {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                background-color: $color-white-default;
+            }   
+        }
+    }
+    
+}

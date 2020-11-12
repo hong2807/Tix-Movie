@@ -4,10 +4,8 @@ import './Footer.scss'
 
 export default function Footer() {
     return (
-        <div className="footerComponent mt-5">
+        <div className="footer-component mt-5">
             <div className="container">
-              
-
                 <div className="footer__policy">
                     <div className="footer__policyContent">
                         <div className="row">
@@ -86,67 +84,3 @@ export default function Footer() {
         </div>
     )
 }
-
-
-
-//   <div className="footer__partner">
-//                     <div className="footer__partnerContent">
-//                         <ul className="text-center">
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/cgv.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/bhd.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/galaxycine.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/cinestar.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/lotteria.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/megags.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/bt.jpg"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/TOUCH.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/cnx.jpg"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/STARLIGHT.png"></img>
-//                             </a>
-//                         </li>
-//                         <li>
-//                             <a target="_blank" href="">
-//                                 <img src="./images/dcine.png"></img>
-//                             </a>
-//                         </li>
-//                     </ul>
-//                     </div>
-//                 </div>

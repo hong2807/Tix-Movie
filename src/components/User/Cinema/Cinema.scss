@@ -1,8 +1,8 @@
 @import "src/scss/Helper/variables.scss";
 @import "src/scss/Helper/mixin.scss";
 
-.cinemaComponent {
-    .container {
+.cinema-component {
+    .cinema-content {
         background-color: $color-black-1;
     }
 
@@ -38,12 +38,32 @@
         }
     }
 
+    .scrollbar {
+        height: 200px;
+       
+        overflow-y: scroll;
+        // overflow-y: scroll;
+    }
+
+   
+    .styleScrollBar::-webkit-scrollbar {
+        width: 5px;
+        background-color: green;
+        border-radius: 5px;
+        height: 500px;
+    }
+
     .cinema__detail {
+        padding: rem(50) 0;
+         
+        height: 950px;
        
 
-        .cinema__detailItem {
+       
+
+        .cinema__detailContent {
             width: 100%;
-            display: flex;   
+            display: flex; 
         }
 
         .cinema__address {
@@ -94,7 +114,7 @@
             padding: 0 rem(50);
 
             .cinema__showtimeItem {
-                margin-bottom: rem(15);
+                margin-bottom: rem(60);
 
                 .inside-img {
                     img {

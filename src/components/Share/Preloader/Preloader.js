@@ -14,7 +14,7 @@ export default function Preloader() {
     window.onload = hidePreloader;
 
     return (
-        isShow && (<div className="predloader-component">
+        isShow && (<div className="preloader-component">
             <div className="preloader-wrapper">
                 <h1 class="title">Wellcome To Tix !</h1>
                 <div class="rainbow-marker-loader">TIX</div>

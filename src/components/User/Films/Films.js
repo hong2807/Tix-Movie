@@ -1,6 +1,8 @@
 import React from 'react'
-import { Tabs } from 'antd';
 import './Films.scss'
+import { Tabs } from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarAlt, faCoffee, faInfoCircle, faMoneyBillAlt, faPlayCircle, faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function Films() {
     // Tab anzt
@@ -16,13 +18,13 @@ export default function Films() {
 
     
     return (
-        <div className="filmsComponent">
+        <div className="films-component">
              <div className="container">
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
             <Coverflow
               // width={960}
-              height={600}
+              height={"580"}
               displayQuantityOfSide={2}
               navigation={false}
               enableHeading={false}
@@ -46,16 +48,51 @@ export default function Films() {
               </div>
               <img src='/images/slider2.jpg' alt='' data-action="" />
               <img src='/images/slider3.png' alt='' data-action="" />
+              <div >
+                <div className="film__item">
+                  <img className="w-100" src='/images/slider4.jpg' alt='' data-action="" />
+                  <div class="film-overlay"></div>
+                  <div class="film-icon">
+                    <div className="film-group">
+                      <FontAwesomeIcon className="icon" icon={faPlayCircle} />
+                      <p className="text-center">Trailer</p>
+                    </div>
+
+                    <div className="film-group">
+                      <FontAwesomeIcon className="icon" icon={faInfoCircle} />
+                      <p className="text-center">Detail</p>
+                    </div>
+                  </div>
+               
+                </div>
+                <div className="film-text">
+                  <h6 className="text-center film-name">SÀI GÒN TRONG MƯA</h6>
+                  <div className="sub-text">
+                    <div className="film-calendar">
+                      <FontAwesomeIcon className="icon" icon={faCalendarAlt} /> 
+                      <p>Khởi chiếu: 13/11/2020</p>
+                    </div>
+
+                    <div className="film-rating">
+                      <FontAwesomeIcon className="icon" icon={faStar} /> 
+                      <p>8.5</p>
+                    </div>
+                  </div>
+                
+                  
+                </div>
+              </div>
+
               <div>
-                <img className="w-100" src='/images/slider4.jpg' alt='' data-action="" />
-                <h6 className="mb-0" style={{color: "white"}}>SÀI GÒN TRONG MƯA</h6>
+                <img className="w-100" src='/images/slider5.jpg' alt='' data-action="" />
+                <h6 className="mb-0 text-center" style={{color: "white"}}>SÀI GÒN TRONG MƯA</h6>
                 <div>
                   <p className="mb-0" style={{color: "white"}}>Khởi chiếu: 13/11/2020</p>
                   <p style={{color: "white"}}>8.5</p>
                 </div>
               </div>
              
-              <img src='/images/slider5.jpg' alt='' data-action="" />
+             
               <img src='/images/slider6.jpg' alt='' data-action="" />
               <img src='/images/slider7.jpg' alt='' data-action="" />
               <img src='/images/slider8.jpg' alt='' data-action="" />

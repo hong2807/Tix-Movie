@@ -1,7 +1,7 @@
 @import "src/scss/Helper/variables.scss";
 @import "src/scss/Helper/mixin.scss";
 
-.footerComponent {
+.footer-component {
     background-color: $color-background-default;
     position: relative;
     color: $color-grey-default;
@@ -11,40 +11,6 @@
         font-size: 14px;
         color: $color-white-default;
         margin-bottom: rem(15);
-    }
-
-
-    .footer__partner {
-        &::before {
-            content: "";
-            display: block;
-            width: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            border-top: 1px solid $color-yellow-default;
-        }
-
-        &::after {
-            content: "";
-            display: block;
-            width: 100%;
-            position: absolute;
-            left: 0;
-            border-bottom: 1px solid $color-yellow-default;
-        }
-
-        img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background-color: $color-white-default;
-        }
-
-        li {
-            display: inline-block;
-            padding: rem(10);
-        }
     }
 
     .footer__policy {
