@@ -5,10 +5,10 @@ import './Cinema.scss'
 
 
 export default function Cinema() {
+    // Tab anzt
     const { TabPane } = Tabs;
-
     function callback(key) {
-        console.log(key);
+      console.log(key);
     }
 
     return (
@@ -17,12 +17,36 @@ export default function Cinema() {
                 <div className="cinema-content">
                     <div className="cinema__brand">
                         <ul>
-                            <li><a><img src="./images/brand1.png"/></a></li>
-                            <li><a><img src="./images/brand2.png"/></a></li>
-                            <li><a><img src="./images/brand3.png"/></a></li>
-                            <li><a><img src="./images/brand4.png"/></a></li>
-                            <li><a><img src="./images/brand5.jpg"/></a></li>
-                            <li><a><img src="./images/brand6.png"/></a></li>
+                            <li>
+                                <img src="./images/brand1.png"/>
+                                <br></br>
+                                BHD Star Cineplex
+                            </li>
+                            <li>
+                                <img src="./images/brand2.png"/>
+                                <br></br>
+                                Cinestar
+                            </li>
+                            <li>
+                                <img src="./images/brand3.png"/>
+                                <br></br>
+                                DDC - Đống Đa
+                            </li>
+                            <li>
+                                <img src="./images/brand4.png"/>
+                                <br></br>
+                                Mega GS
+                            </li>
+                            <li>
+                                <img src="./images/brand5.jpg"/>
+                                <br></br>
+                                DCINE Cinemas
+                            </li>
+                            <li>
+                                <img src="./images/brand6.png"/>
+                                <br></br>
+                                Lotte Cinema
+                            </li>
                         </ul>
                     </div>
 

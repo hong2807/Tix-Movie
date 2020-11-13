@@ -10,6 +10,7 @@ import Preloader from './components/Share/Preloader/Preloader';
 import './App.scss';
 import SignIn from './pages/Share/SignIn/SignIn';
 import SignUp from './pages/Share/SignUp/SignUp';
+import DetailFilm from './pages/User/DetailFilm/DetailFilm';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       {/* <Preloader/> */}
         <Switch>
           <UserTemplate exact path='/home' Component={Home}></UserTemplate>
+          <UserTemplate exact path='/phim' Component={DetailFilm}></UserTemplate>
           <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>
           <LoginTemplate exact path='/dangnhap' Component={SignIn}></LoginTemplate>
           <LoginTemplate exact path='/dangky' Component={SignUp}></LoginTemplate>

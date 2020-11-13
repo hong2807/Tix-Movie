@@ -1,0 +1,83 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+
+.detailFilm-component {
+    background-color: $color-black-0;
+
+    ul {
+        display: flex;
+    }
+
+   
+
+    .detailFilm__showtimes {
+        .detailFilm__day {
+            p {
+                width: rem(65);
+                height: rem(65);
+                text-align: center;
+                font-size: rem(18);
+                
+
+                span {
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 14px;
+                    line-height: 30px;
+                    height: 26px;
+                    margin-bottom: 8px;
+                }
+            }
+
+            li.active {
+                p {
+                    background: #fff;
+                    border-radius: 5px;
+                    color: black;
+                    font-weight: bold;
+
+                    span {
+                        background: #ff4444;
+                        border-top-left-radius: 5px;
+                        border-top-right-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .detailFilm__time {
+        .detailFilm__timeContent {
+            display: flex;
+        }
+
+        .detailFilm__timeLeft {
+            width: 35%;
+
+            .detailFilm__timeItem {
+                background-color: $color-background-default;
+                padding: rem(15) rem(25);
+                margin-bottom: rem(25);
+                
+
+                
+                .inside {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                    }
+
+                    .inside-text {
+                        margin-top: rem(10);
+                    }
+                }
+            }
+        }
+    }
+}

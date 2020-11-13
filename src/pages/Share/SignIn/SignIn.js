@@ -12,7 +12,7 @@ export default function SignIn() {
                             exact 
                             to="/home"
                             > <span>Tix</span>Movie
-                        </NavLink>
+                    </NavLink>
                 </div>
                 <div className="sign__group">
                     <input type="text" className="form-control"  placeholder="Tên tài khoản" />

@@ -53,7 +53,11 @@ export default function Header() {
                     </li>
                 </ul>
                 <div className="logo animate__swing">
-                   <a><span>Tix</span>Movie</a>
+                    <NavLink
+                            exact 
+                            to="/home"
+                            > <span>Tix</span>Movie
+                    </NavLink>
                 </div>
                 <ul className="sign">
                     <li className="signup">

@@ -10,6 +10,9 @@
         position: relative;
 
         ul {
+            display: flex;
+            justify-content: center;
+
             &::after {
                 content: "";
                 display: block;
@@ -21,20 +24,15 @@
             }
         }
        
-
         img {
             width: 50px;
             height: 50px;
-        }
-
-        ul {
-            display: flex;
-            justify-content: center;
+            margin-bottom: rem(10);
         }
 
         li {
-            display: inline-block;
             padding: rem(15) rem(30);
+            text-align: center;
         }
     }
 
@@ -54,12 +52,8 @@
     }
 
     .cinema__detail {
-        padding: rem(50) 0;
-         
+        padding: rem(50);
         height: 950px;
-       
-
-       
 
         .cinema__detailContent {
             width: 100%;
