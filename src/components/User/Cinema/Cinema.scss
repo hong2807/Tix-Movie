@@ -33,6 +33,17 @@
         li {
             padding: rem(15) rem(30);
             text-align: center;
+            filter: grayscale(1);
+            transition: 0.2s; 
+
+            &.active {
+                filter: grayscale(0);
+            }
+
+            &:hover {
+                filter: grayscale(0);
+                transform: scale(1.2);
+            }
         }
     }
 
@@ -61,19 +72,17 @@
         }
 
         .cinema__address {
-            width: 35%;
-
             .cinema__addressItem {
                 background-color: $color-background-default;
-                padding: rem(15) rem(25);
+                padding: rem(15);
                 margin-bottom: rem(25);
                 text-align: center;
                 
                 .inside {
 
                     img {
-                        width: 100px;
-                        height: 100px;
+                        width: 80px;
+                        height: 80px;
                         border-radius: 50%;
                     }
 
@@ -104,15 +113,14 @@
         }
 
         .cinema__showtime {
-            width: 65%;
-            padding: 0 rem(50);
+            padding-left: rem(30);
 
             .cinema__showtimeItem {
                 margin-bottom: rem(60);
 
                 .inside-img {
                     img {
-                        width: 100px;
+                        width: 100%;
                         background-size: cover;
                     }
                 }

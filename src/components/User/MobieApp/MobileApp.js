@@ -8,7 +8,7 @@ export default function MobileApp() {
           dots: true,
           infinite: true,
           speed: 500,
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1
     };
 
@@ -42,16 +42,13 @@ export default function MobileApp() {
                                 <div className="mobileapp__slider">
                                     <Slider {...settings}>
                                         <div className="item">
-                                            {/* <img src="/images/mobile1.jpg" alt="mobile1" /> */}
-                                            1
+                                            <img src="/images/mobile2.jpg" alt="mobile2" />
                                         </div>
                                         <div className="item">
-                                            {/* <img src="/images/mobile2.jpg" alt="mobile1" /> */}
-                                            2
+                                            <img src="/images/mobile3.jpg" alt="mobile3" />
                                         </div>
                                         <div className="item">
-                                            {/* <img src="/images/mobile3.jpg" alt="mobile1" /> */}
-                                            3
+                                            <img src="/images/mobile4.jpg" alt="mobile4" />
                                         </div>
                                     </Slider>
                                 </div>
