@@ -10,58 +10,58 @@ export default function Partner() {
                         <h2 className="title">Đối Tác</h2>
                         <ul className="text-center">
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/cgv.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/cgv.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/bhd.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/bhd.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/galaxycine.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/galaxycine.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/cinestar.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/cinestar.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/lotteria.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/lotteria.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/megags.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/megags.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/bt.jpg"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/bt.jpg" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/TOUCH.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/TOUCH.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/cnx.jpg"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/cnx.jpg" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/STARLIGHT.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/STARLIGHT.png" alt=""></img>
                                 </a>
                             </li>
                             <li>
-                                <a target="_blank" href="">
-                                    <img src="./images/dcine.png"></img>
+                                <a target="_blank" href="./">
+                                    <img src="./images/dcine.png" alt=""></img>
                                 </a>
                             </li>
                         </ul>

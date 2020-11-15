@@ -47,29 +47,23 @@
         }
     }
 
-    .scrollbar {
-        height: 200px;
-       
+    .scrollbarCinema {
+        height: 920px;
         overflow-y: scroll;
-        // overflow-y: scroll;
     }
 
-   
     .styleScrollBar::-webkit-scrollbar {
         width: 5px;
-        background-color: green;
         border-radius: 5px;
-        height: 500px;
+    }
+
+    .styleScrollBar::-webkit-scrollbar-thumb {
+        background-color: $color-background-default;
     }
 
     .cinema__detail {
         padding: rem(50);
-        height: 950px;
-
-        .cinema__detailContent {
-            width: 100%;
-            display: flex; 
-        }
+       
 
         .cinema__address {
             .cinema__addressItem {

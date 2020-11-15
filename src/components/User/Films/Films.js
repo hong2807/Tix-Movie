@@ -2,7 +2,7 @@ import React from 'react'
 import './Films.scss'
 import { Tabs } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarAlt, faCoffee, faInfoCircle, faMoneyBillAlt, faPlayCircle, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function Films() {
     // Tab anzt
@@ -12,8 +12,6 @@ export default function Films() {
     }
 
     // Coverflow
-    var React = require('react');
-    var ReactDOM = require('react-dom');
     var Coverflow = require('react-coverflow');
 
     
@@ -38,7 +36,7 @@ export default function Films() {
               >
                 <img
                   src='/images/slider1.jpg'
-                  // alt='title or description'
+                  alt=''
                   style={{ display: 'block', width: '100%' }}
                 />
               </div>
@@ -51,8 +49,8 @@ export default function Films() {
               <div >
                 <div className="film__item">
                   <img className="w-100" src='/images/slider4.jpg' alt='' data-action="" />
-                  <div class="film-overlay"></div>
-                  <div class="film-icon">
+                  <div className="film-overlay"></div>
+                  <div className="film-icon">
                     <div className="film-group">
                       <FontAwesomeIcon className="icon" icon={faPlayCircle} />
                       <p className="text-center">Trailer</p>
@@ -115,7 +113,7 @@ export default function Films() {
                 >
                   <img
                     src='/images/slider3.png'
-                    // alt='title or description'
+                    alt=''
                     style={{ display: 'block', width: '100%' }}
                   />
                 </div>

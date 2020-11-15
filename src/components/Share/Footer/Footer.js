@@ -4,7 +4,7 @@ import './Footer.scss'
 
 export default function Footer() {
     return (
-        <div className="footer-component mt-5">
+        <div className="footer-component">
             <div className="container">
                 <div className="footer__policy">
                     <div className="footer__policyContent">
@@ -13,8 +13,8 @@ export default function Footer() {
                                 <div className="footer__tix">
                                     <h5>TIX</h5>
                                     <ul>
-                                        <li><a>FAQ</a></li>
-                                        <li><a>Brand Guidelines</a></li>
+                                        <li><a href="./">FAQ</a></li>
+                                        <li><a href="./">Brand Guidelines</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -22,8 +22,8 @@ export default function Footer() {
                                 <div className="footer__tixPolicy">
                                     <h5>Điều khoản sử dụng</h5>
                                     <ul>
-                                        <li><a>Thỏa thuận sử dụng</a></li>
-                                        <li><a>Chính sách bảo mật</a></li>
+                                        <li><a href="./">Thỏa thuận sử dụng</a></li>
+                                        <li><a href="./">Chính sách bảo mật</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -31,13 +31,13 @@ export default function Footer() {
                                 <div className="footer__tixFollowus">
                                     <h5>Kết nối với chúng tôi</h5>
                                     <ul>
-                                        <li><a><img src="./images/facebook.png"></img></a></li>
-                                        <li><a><img src="./images/zalo-logo.png"></img></a></li>
-                                        <li><a><img src="./images/android.png"></img></a></li>
-                                        <li><a><img src="./images/apple.png"></img></a></li>
+                                        <li><a href="./"><img src="./images/facebook.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/zalo-logo.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/android.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/apple.png" alt=""></img></a></li>
                                     </ul>
                                     <div className="footer__permission">
-                                        <img  src="./images/daThongBao.png"></img>
+                                        <img src="./images/daThongBao.png" alt=''></img>
                                     </div>
                                 </div>
                             </div>
@@ -45,14 +45,14 @@ export default function Footer() {
                                 <div className="footer__tixPay">
                                     <h5>Thanh toán</h5>
                                     <ul>
-                                        <li><a><img src="./images/zalopay_icon.png"></img></a></li>
-                                        <li><a><img src="./images/payoo.jpg"></img></a></li>
-                                        <li><a><img src="./images/VCB.png"></img></a></li>
-                                        <li><a><img src="./images/AGRIBANK.png"></img></a></li>
-                                        <li><a><img src="./images/VIETTINBANK.png"></img></a></li>
-                                        <li><a><img src="./images/IVB.png"></img></a></li>
-                                        <li><a><img src="./images/123go.png"></img></a></li>
-                                        <li><a><img src="./images/laban.png"></img></a></li>
+                                        <li><a href="./"><img src="./images/zalopay_icon.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/payoo.jpg" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/VCB.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/AGRIBANK.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/VIETTINBANK.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/IVB.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/123go.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="./images/laban.png" alt=""></img></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ export default function Footer() {
                         <div className="row">
                             <div className="col-2">
                                 <div className="footer__addressLogo">
-                                    <img src="./images/zion-logo.jpg"></img>
+                                    <img src="./images/zion-logo.jpg" alt=''></img>
                                 </div>
                             </div>
                             <div className="col-10">

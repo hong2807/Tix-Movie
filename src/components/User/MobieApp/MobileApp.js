@@ -26,11 +26,11 @@ export default function MobileApp() {
                                 <button className="btn btn-danger">App miễn phí - Tải về ngay!</button>
                                 <p className="textApp">
                                 TIX có hai phiên bản
-                                <a className="version" target="_blank" href="https://itunes.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197?mt=8">
+                                <a className="version" target="_blank" rel="noopener noreferrer" href="https://itunes.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197?mt=8">
                                     iOS
                                 </a>
                                 &amp;
-                                <a className="version" target="_blank" href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123">
+                                <a className="version" target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123">
                                     Android
                                 </a>
                                 </p>

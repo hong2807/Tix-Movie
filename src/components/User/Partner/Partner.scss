@@ -3,11 +3,14 @@
 
 
 .partner-component {
+    background-color: $color-background-default;
+    padding: rem(40) 0;
+
     .partner__wrapper {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px 0;
+        padding: rem(20) 0;
         text-align: center;
 
         .partner__content {
@@ -18,17 +21,16 @@
             li {
                 display: inline-block;
                 padding: rem(10);
-                opacity: 0.4;
                 transition: all .2s;
         
                 &:hover {
-                    opacity: 1;
+                    transform: scale(1.2);
                 }
             }
 
             img {
-                width: 45px;
-                height: 45px;
+                width: rem(70);
+                height: rem(70);
                 border-radius: 50%;
                 background-color: $color-white-default;
             }   

@@ -6,7 +6,7 @@ import PageNotFound from './pages/Share/PageNotFound/PageNotFound';
 import { AdminTemplate } from './templates/AdminTemplate';
 import { UserTemplate } from './templates/UserTemplate';
 import { LoginTemplate } from './templates/LoginTemplate';
-import Preloader from './components/Share/Preloader/Preloader';
+// import Preloader from './components/Share/Preloader/Preloader';
 import './App.scss';
 import SignIn from './pages/Share/SignIn/SignIn';
 import SignUp from './pages/Share/SignUp/SignUp';

@@ -1,15 +1,9 @@
 import React from 'react'
-import { Tabs } from 'antd';
-
 import './Cinema.scss'
 
 
 export default function Cinema() {
-    // Tab anzt
-    const { TabPane } = Tabs;
-    function callback(key) {
-      console.log(key);
-    }
+   
 
     return (
         <div className="cinema-component pt-5">
@@ -18,39 +12,39 @@ export default function Cinema() {
                     <div className="cinema__brand">
                         <ul>
                             <li className="active">
-                                <img src="./images/brand1.png"/>
+                                <img src="./images/brand1.png" alt=""/>
                                 <br></br>
                                 BHD Star Cineplex
                             </li>
                             <li>
-                                <img src="./images/brand2.png"/>
+                                <img src="./images/brand2.png" alt=""/>
                                 <br></br>
                                 Cinestar
                             </li>
                             <li>
-                                <img src="./images/brand3.png"/>
+                                <img src="./images/brand3.png" alt=""/>
                                 <br></br>
                                 DDC - Đống Đa
                             </li>
                             <li>
-                                <img src="./images/brand4.png"/>
+                                <img src="./images/brand4.png" alt=""/>
                                 <br></br>
                                 Mega GS
                             </li>
                             <li>
-                                <img src="./images/brand5.jpg"/>
+                                <img src="./images/brand5.jpg" alt=""/>
                                 <br></br>
                                 DCINE Cinemas
                             </li>
                             <li>
-                                <img src="./images/brand6.png"/>
+                                <img src="./images/brand6.png" alt=""/>
                                 <br></br>
                                 Lotte Cinema
                             </li>
                         </ul>
                     </div>
 
-                    <div className="cinema__detail scrollbar styleScrollBar ">
+                    <div className="cinema__detail scrollbarCinema styleScrollBar ">
                         <div className="cinema__detailContent "> 
                             <div className="row">
                                 <div className="col-4">
@@ -58,7 +52,7 @@ export default function Cinema() {
                                         <div className="cinema__addressItem">
                                             <div className="inside">
                                                 <div className="inside-img">
-                                                    <img src="./images/bhd-star-bitexco.jpg"></img>
+                                                    <img src="./images/bhd-star-bitexco.jpg" alt=""></img>
                                                         
                                                 </div>
                                                 <div className="inside-text">
@@ -67,13 +61,13 @@ export default function Cinema() {
                                                 </div>
                                             </div>
                                             <div className="detail">
-                                                <a>XEM CHI TIẾT</a>
+                                                <a href="./">XEM CHI TIẾT</a>
                                             </div>                   
                                         </div>
                                         <div className="cinema__addressItem">
                                             <div className="inside">
                                                 <div className="inside-img">
-                                                    <img src="./images/bhd-star-bitexco.jpg"></img>
+                                                    <img src="./images/bhd-star-bitexco.jpg" alt=""></img>
                                                         
                                                 </div>
                                                 <div className="inside-text">
@@ -82,13 +76,13 @@ export default function Cinema() {
                                                 </div>  
                                             </div>
                                             <div className="detail">
-                                                <a>XEM CHI TIẾT</a>
+                                                <a href="./">XEM CHI TIẾT</a>
                                             </div>                   
                                         </div>
                                         <div className="cinema__addressItem">
                                         <div className="inside">
                                             <div className="inside-img">
-                                                <img src="./images/bhd-star-bitexco.jpg"></img>
+                                                <img src="./images/bhd-star-bitexco.jpg" alt=""></img>
                                                     
                                             </div>
                                             <div className="inside-text">
@@ -97,7 +91,7 @@ export default function Cinema() {
                                             </div>
                                         </div>
                                         <div className="detail">
-                                            <a>XEM CHI TIẾT</a>
+                                            <a href="./">XEM CHI TIẾT</a>
                                         </div>                   
                                     </div>
                                     </div>
@@ -110,7 +104,7 @@ export default function Cinema() {
                                                 <div className="row">
                                                     <div className="col-2">
                                                         <div className="inside-img">
-                                                            <img src="./images/tiec-trang-mau-small.png"></img>
+                                                            <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                         </div>
                                                     </div>
                                                     <div className="col-10">
@@ -127,25 +121,25 @@ export default function Cinema() {
                                             </div>
                                             <div className="cinema__timedetail">
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                             </div>
                                         </div> 
@@ -154,7 +148,7 @@ export default function Cinema() {
                                                 <div className="row">
                                                     <div className="col-2">
                                                         <div className="inside-img">
-                                                            <img src="./images/tiec-trang-mau-small.png"></img>
+                                                            <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                         </div>
                                                     </div>
                                                     <div className="col-10">
@@ -171,25 +165,25 @@ export default function Cinema() {
                                             </div>
                                             <div className="cinema__timedetail">
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -198,7 +192,7 @@ export default function Cinema() {
                                                 <div className="row">
                                                     <div className="col-2">
                                                         <div className="inside-img">
-                                                            <img src="./images/tiec-trang-mau-small.png"></img>
+                                                            <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                         </div>
                                                     </div>
                                                     <div className="col-10">
@@ -215,25 +209,25 @@ export default function Cinema() {
                                             </div>
                                             <div className="cinema__timedetail">
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                             </div>
                                         </div>   
@@ -242,7 +236,7 @@ export default function Cinema() {
                                                 <div className="row">
                                                     <div className="col-2">
                                                         <div className="inside-img">
-                                                            <img src="./images/tiec-trang-mau-small.png"></img>
+                                                            <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                         </div>
                                                     </div>
                                                     <div className="col-10">
@@ -259,25 +253,25 @@ export default function Cinema() {
                                             </div>
                                             <div className="cinema__timedetail">
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
+                                                    <li> <a href="./">13:55</a></li>
                                                 </ul>
                                             </div>
                                         </div>     
@@ -286,7 +280,7 @@ export default function Cinema() {
                                         <div className="row">
                                             <div className="col-2">
                                                 <div className="inside-img">
-                                                    <img src="./images/tiec-trang-mau-small.png"></img>
+                                                    <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                 </div>
                                             </div>
                                             <div className="col-10">
@@ -303,25 +297,25 @@ export default function Cinema() {
                                     </div>
                                     <div className="cinema__timedetail">
                                         <ul>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
                                         </ul>
                                         <ul>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
-                                            <li><a>13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
+                                            <li> <a href="./">13:55</a></li>
                                         </ul>
                                     </div>
                                 </div> 

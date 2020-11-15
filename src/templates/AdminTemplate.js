@@ -1,11 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import { NavLink, Route } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import React, { Fragment } from 'react';
+import { Route } from 'react-router-dom';
 
 
 
 export const AdminTemplate = ({ Component, ...restProps }) => {
-    return <Route {...restProps} render={(propsRoute) => {
+    return <Route {...restProps} render={() => {
         return <Fragment>
            
         </Fragment>

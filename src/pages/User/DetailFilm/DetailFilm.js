@@ -10,7 +10,7 @@ export default function DetailFilm() {
                     <div className="row">
                         <div className="col-4">
                             <div className="detailFilm__infoLeft">
-                                <img className="w-100" src="/images/tiec-trang-mau-blood-moon-party.png"></img>
+                                <img className="w-100" src="/images/tiec-trang-mau-blood-moon-party.png" alt=""></img>
                             </div>
                         </div>
                         <div className="col-8">
@@ -28,8 +28,8 @@ export default function DetailFilm() {
                                     </li>
                                 </ul>
                                 <div className="group-btn mt-3">
-                                    <a href="#" className="btn btn-success mr-3">Trailer</a>
-                                    <a href="#" className="btn btn-success">Mua vé</a>
+                                    <a href="./" className="btn btn-success mr-3">Trailer</a>
+                                    <a href="./" className="btn btn-success">Mua vé</a>
                                 </div>
                             </div>
                         </div>
@@ -40,32 +40,32 @@ export default function DetailFilm() {
                     <div className="detailFilm__brand">
                         <ul>
                             <li className="active">
-                                <img src="./images/brand1.png"/>
+                                <img src="./images/brand1.png" alt=""/>
                                 <br></br>
                                 BHD Star Cineplex
                             </li>
                             <li>
-                                <img src="./images/brand2.png"/>
+                                <img src="./images/brand2.png" alt=""/>
                                 <br></br>
                                 Cinestar
                             </li>
                             <li>
-                                <img src="./images/brand3.png"/>
+                                <img src="./images/brand3.png" alt=""/>
                                 <br></br>
                                 DDC - Đống Đa
                             </li>
                             <li>
-                                <img src="./images/brand4.png"/>
+                                <img src="./images/brand4.png" alt=""/>
                                 <br></br>
                                 Mega GS
                             </li>
                             <li>
-                                <img src="./images/brand5.jpg"/>
+                                <img src="./images/brand5.jpg" alt=""/>
                                 <br></br>
                                 DCINE Cinemas
                             </li>
                             <li>
-                                <img src="./images/brand6.png"/>
+                                <img src="./images/brand6.png" alt=""/>
                                 <br></br>
                                 Lotte Cinema
                             </li>
@@ -147,21 +147,21 @@ export default function DetailFilm() {
                                         <div className="detailFilm__rightItem">
                                             <div className="cinema__timedetail">
                                                     <ul>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
-                                                        <li><a>13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
+                                                        <li><a href="./">13:55</a></li>
                                                     </ul>
                                                 </div>
                                         </div> 
@@ -189,21 +189,21 @@ export default function DetailFilm() {
                                         <div className="detailFilm__rightItem">
                                             <div className="cinema__timedetail">
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
                                                 </ul>
                                             </div>
                                         </div> 
@@ -231,21 +231,21 @@ export default function DetailFilm() {
                                         <div className="detailFilm__rightItem">
                                             <div className="cinema__timedetail">
                                                 <ul>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
-                                                    <li><a>13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
+                                                    <li><a href="./">13:55</a></li>
                                                 </ul>
                                             </div>
                                         </div> 

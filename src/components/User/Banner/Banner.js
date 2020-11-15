@@ -20,13 +20,13 @@ export default function Banner() {
       <div className="container-fluid">
             <Slider {...settings}>
               <div className="banner__item">
-                <img src="/images/banner-tiec-trang-mau.png"></img>
+                <img src="/images/banner-tiec-trang-mau.png" alt=""></img>
               </div>
               <div className="banner__item">
-                <img src="/images/banner-rom.png"></img>
+                <img src="/images/banner-rom.png" alt=""></img>
               </div>
               <div className="banner__item">
-                <img src="/images/banner-cuc-no-hoa-cuc-cung.png"></img>
+                <img src="/images/banner-cuc-no-hoa-cuc-cung.png" alt=""></img>
               </div>
             </Slider>
       </div>

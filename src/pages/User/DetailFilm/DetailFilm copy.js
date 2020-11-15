@@ -12,32 +12,32 @@ export default function DetailFilm() {
                     <div className="detailFilm__brand">
                         <ul>
                             <li>
-                                <img src="./images/brand1.png"/>
+                                <img src="./images/brand1.png" alt=""/>
                                 <br></br>
                                 BHD Star Cineplex
                             </li>
                             <li>
-                                <img src="./images/brand2.png"/>
+                                <img src="./images/brand2.png" alt=""/>
                                 <br></br>
                                 Cinestar
                             </li>
                             <li>
-                                <img src="./images/brand3.png"/>
+                                <img src="./images/brand3.png" alt=""/>
                                 <br></br>
                                 DDC - Đống Đa
                             </li>
                             <li>
-                                <img src="./images/brand4.png"/>
+                                <img src="./images/brand4.png" alt=""/>
                                 <br></br>
                                 Mega GS
                             </li>
                             <li>
-                                <img src="./images/brand5.jpg"/>
+                                <img src="./images/brand5.jpg" alt=""/>
                                 <br></br>
                                 DCINE Cinemas
                             </li>
                             <li>
-                                <img src="./images/brand6.png"/>
+                                <img src="./images/brand6.png" alt=""/>
                                 <br></br>
                                 Lotte Cinema
                             </li>
@@ -136,7 +136,7 @@ export default function DetailFilm() {
                                             <div className="row">
                                                 <div className="col-2">
                                                     <div className="inside-img">
-                                                        <img src="./images/tiec-trang-mau-small.png"></img>
+                                                        <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                     </div>
                                                 </div>
                                                 <div className="col-10">
@@ -180,7 +180,7 @@ export default function DetailFilm() {
                                             <div className="row">
                                                 <div className="col-2">
                                                     <div className="inside-img">
-                                                        <img src="./images/tiec-trang-mau-small.png"></img>
+                                                        <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                     </div>
                                                 </div>
                                                 <div className="col-10">
@@ -224,7 +224,7 @@ export default function DetailFilm() {
                                             <div className="row">
                                                 <div className="col-2">
                                                     <div className="inside-img">
-                                                        <img src="./images/tiec-trang-mau-small.png"></img>
+                                                        <img src="./images/tiec-trang-mau-small.png" alt=""></img>
                                                     </div>
                                                 </div>
                                                 <div className="col-10">
