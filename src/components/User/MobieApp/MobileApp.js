@@ -5,7 +5,7 @@ import Slider from "react-slick";
 export default function MobileApp() {
     // Slick
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -46,7 +46,7 @@ export default function MobileApp() {
                         <div className="col-12 col-md-12 col-lg-6">
                             <div className="mobileapp__right">
                                 {/* <img className="mobileapp-mobile" src="/images/mobile.png" alt /> */}
-                                <img src="/images/mobile1.jpg" alt="mobile1" />
+                                <img src="/images/mobile.png" alt="mobile" />
                                 <div className="mobileapp__slider">
                                     <Slider {...settings}>
                                         <div className="item">

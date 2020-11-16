@@ -14,7 +14,7 @@ export default function DetailFilm() {
                             </div>
                         </div>
                         <div className="col-7">
-                            <div className="detailFilm__infoRight">
+                            <div className="detailFilm__infoCenter">
                                 <h3 className="film-name">Tiệc trăng máu</h3>
                                 <p>
                                 Trong buổi họp mặt của nhóm bạn thân, một thành viên bất ngờ đề xuất trò chơi chia sẻ điện thoại nhằm tăng tinh thần “đoàn kết”. Từ đó, những góc khuất của từng người dần hé lộ và khiến cho mối quan hệ vốn khắng khít của họ bắt đầu lay chuyển.
@@ -36,8 +36,10 @@ export default function DetailFilm() {
                             </div>
                         </div>
                         <div className="col-2">
-                            <div className="borderRating">
-                                <span>7.8</span>
+                            <div className="detailFilm__infoRight">
+                                <div className="borderRating">
+                                    <span>7.8</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -137,7 +139,7 @@ export default function DetailFilm() {
                     <div className="detailFilm__time">
                         <div className="detailFilm__timeItem">
                             <div className="row">
-                                <div className="col-4">
+                                <div className="col-5">
                                     <div className="detailFilm__left">
                                         <div className="detailFilm__leftItem">
                                             <div className="inside">
@@ -149,7 +151,7 @@ export default function DetailFilm() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-8">
+                                <div className="col-7">
                                     <div className="detailFilm__right">
                                         <div className="detailFilm__rightItem">
                                             <div className="cinema__timedetail">
@@ -179,7 +181,7 @@ export default function DetailFilm() {
 
                         <div className="detailFilm__timeItem">
                             <div className="row">
-                                <div className="col-4">
+                                <div className="col-5">
                                     <div className="detailFilm__left">
                                         <div className="detailFilm__leftItem">
                                             <div className="inside">
@@ -191,7 +193,7 @@ export default function DetailFilm() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-8">
+                                <div className="col-7">
                                     <div className="detailFilm__right">
                                         <div className="detailFilm__rightItem">
                                             <div className="cinema__timedetail">
@@ -221,7 +223,7 @@ export default function DetailFilm() {
 
                         <div className="detailFilm__timeItem">
                             <div className="row">
-                                <div className="col-4">
+                                <div className="col-5">
                                     <div className="detailFilm__left">
                                         <div className="detailFilm__leftItem">
                                             <div className="inside">
@@ -233,7 +235,7 @@ export default function DetailFilm() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-8">
+                                <div className="col-7">
                                     <div className="detailFilm__right">
                                         <div className="detailFilm__rightItem">
                                             <div className="cinema__timedetail">

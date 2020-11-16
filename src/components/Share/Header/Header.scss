@@ -2,35 +2,55 @@
 @import "src/scss/Helper/mixin.scss";
 
 .header-component {
-    .navigation {
-        background-color: $color-background-default;
+    background-color: $color-background-default;
+
+    .header__content {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         position: relative;
+        padding: 5px 0;
     }
 
     li {
         display: inline-block;
     }
 
-    .menu {
+    .header__left {
+ 
+
       .nav-item {
-        padding: rem(10);
+        padding: 0 rem(20);
+        transition: all 0.2s ease-in;
+
+        &:nth-child(odd):hover {
+          transform: rotate(-10deg) scale(1.2);
+          
+          a {
+            color: $color-yellow-default;
+          }
+        }
+
+        &:nth-child(even):hover {
+          transform: rotate(10deg) scale(1.2);
+
+          a {
+            color: $color-yellow-default;
+          }
+        }
 
         .nav-text {
+          display: inline-block;
           color: $color-grey-default;
           padding: 0;
-          transition: all 0.2s ease-in;
+          
 
-          &:hover {
-          color: $color-yellow-default;
-          }
+          
         }  
       }
     }
 
-    .logo {
+    .header__logo {
         a {
             font-family: "Ranchers Regular";
             color: $color-white-default;
@@ -43,12 +63,15 @@
         }
     }
 
-    .sign {
+    .header__right {
+    
+
         li {
           text-align: center;
           line-height: 20px;
           height: 40px;
           width: 120px;
+          margin: 0 rem(10);
           border: 1px solid $color-yellow-default;
           border-radius: 6px;
           transition: all 0.2s ease-in;
@@ -69,13 +92,9 @@
             height: 100%;
             line-height: 38px;
             color: $color-grey-default;
+           
           }
-        }
-
-        .signup {
-          margin-right: rem(10);
-        }
-        
+        } 
     }
 }
 

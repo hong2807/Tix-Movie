@@ -36,43 +36,45 @@ export default function Header() {
                     </form>
                 </div>
             </nav> */}
-            <div className="navigation container-fluid">
-                <ul className="menu">
-                    <li className="nav-item">
-                        <NavLink className="nav-text" exact to="/home"> 
-                            LỊCH CHIẾU 
+            <div className="container">
+                <div className="header__content">
+                    <ul className="header__left">
+                        <li className="nav-item">
+                            <NavLink className="nav-text" exact to="/home"> 
+                                LỊCH CHIẾU 
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-text" exact to="/home"> 
+                                CỤM RẠP    
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-text" exact to="/home"> 
+                                ỨNG DỤNG
+                            </NavLink>
+                        </li>
+                    </ul>
+                    <div className="header__logo animate__swing">
+                        <NavLink
+                                exact 
+                                to="/home"
+                                > <span>Tix</span>Movie
                         </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-text" exact to="/home"> 
-                            CỤM RẠP    
-                        </NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-text" exact to="/home"> 
-                            ỨNG DỤNG
-                        </NavLink>
-                    </li>
-                </ul>
-                <div className="logo animate__swing">
-                    <NavLink
-                            exact 
-                            to="/home"
-                            > <span>Tix</span>Movie
-                    </NavLink>
+                    </div>
+                    <ul className="header__right">
+                        <li className="signup">
+                            <NavLink className="nav-text" exact to="/dangky"> 
+                                ĐĂNG KÝ
+                            </NavLink>
+                        </li>
+                        <li className="signin"> 
+                            <NavLink className="nav-text" exact to="/dangnhap"> 
+                                ĐĂNG NHẬP
+                            </NavLink>
+                        </li>
+                    </ul>
                 </div>
-                <ul className="sign">
-                    <li className="signup">
-                        <NavLink className="nav-text" exact to="/dangky"> 
-                            ĐĂNG KÝ
-                        </NavLink>
-                    </li>
-                    <li className="signin"> 
-                        <NavLink className="nav-text" exact to="/dangnhap"> 
-                            ĐĂNG NHẬP
-                        </NavLink>
-                    </li>
-                </ul>
             </div>
         </div>
     )
