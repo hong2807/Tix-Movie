@@ -8,22 +8,24 @@ export default function DetailFilm() {
             <div className="container">
                 <div className="detailFilm__info">
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-3">
                             <div className="detailFilm__infoLeft">
                                 <img className="w-100" src="/images/tiec-trang-mau-blood-moon-party.png" alt=""></img>
                             </div>
                         </div>
-                        <div className="col-8">
+                        <div className="col-7">
                             <div className="detailFilm__infoRight">
-                                <h3 style={{color: "white", textTransform: "uppercase"}}>Tiệc trăng máu</h3>
+                                <h3 className="film-name">Tiệc trăng máu</h3>
                                 <p>
                                 Trong buổi họp mặt của nhóm bạn thân, một thành viên bất ngờ đề xuất trò chơi chia sẻ điện thoại nhằm tăng tinh thần “đoàn kết”. Từ đó, những góc khuất của từng người dần hé lộ và khiến cho mối quan hệ vốn khắng khít của họ bắt đầu lay chuyển.
                                 </p>
                                 <ul>
-                                    <li>Khởi chiếu
+                                    <li>    
+                                        <label>Khởi chiếu:</label>
                                         <span>23.10.2020</span>
                                     </li>
-                                    <li>Thời lượng
+                                    <li>
+                                        <label>Thời lượng:</label>
                                         <span>100 phút</span>
                                     </li>
                                 </ul>
@@ -31,6 +33,11 @@ export default function DetailFilm() {
                                     <a href="./" className="btn btn-success mr-3">Trailer</a>
                                     <a href="./" className="btn btn-success">Mua vé</a>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="col-2">
+                            <div className="borderRating">
+                                <span>7.8</span>
                             </div>
                         </div>
                     </div>

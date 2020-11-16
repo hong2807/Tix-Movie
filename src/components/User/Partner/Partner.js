@@ -1,6 +1,7 @@
 import React from 'react'
 import './Partner.scss'
 
+
 export default function Partner() {
     return (
         <div className="partner-component">
@@ -68,7 +69,6 @@ export default function Partner() {
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div>   
     )
 }

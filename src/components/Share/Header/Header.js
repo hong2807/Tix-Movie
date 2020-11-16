@@ -1,6 +1,8 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import './Header.scss'
+import { NavLink } from 'react-router-dom'
+
+
 export default function Header() {
     return (
         <div className="header-component">
@@ -73,6 +75,5 @@ export default function Header() {
                 </ul>
             </div>
         </div>
-
     )
 }

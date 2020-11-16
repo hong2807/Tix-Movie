@@ -3,12 +3,27 @@
 
 
 .detailFilm-component {
-    background-image: url(/images/black-wall.jpg);
+    background-image: url(/images/movie-details-bg.jpg);
     background-size: cover;
     background-attachment: fixed;
 
     .container {
-        background-color: rgba(0,0,0,0.5);
+        // background-color: rgba(0,0,0,0.5);
+    }
+
+    .detailFilm__info {
+        .detailFilm__infoRight {
+            .film-name {
+                color: $color-white-default;
+                text-transform: uppercase;
+            }
+
+            ul {
+                label {
+                    width: rem(100);
+                }
+            }
+        }
     }
 
     .detailFilm__showtimes {
@@ -29,6 +44,7 @@
             li {
                 padding: rem(15) rem(30);
                 text-align: center;
+                cursor: pointer;
                 filter: grayscale(1);
                 transition: 0.2s; 
 
@@ -65,6 +81,10 @@
             
             ul {
                 display: flex;
+            }
+
+            li {
+                cursor: pointer;
             }
 
             li.active {

@@ -3,8 +3,6 @@ import './Cinema.scss'
 
 
 export default function Cinema() {
-   
-
     return (
         <div className="cinema-component pt-5">
             <div className="container">

@@ -1,7 +1,7 @@
 import React from 'react'
+import './Banner.scss'
 import Slider from "react-slick";
 
-import './Banner.scss'
 
 export default function Banner() {
   // Slider
@@ -16,8 +16,8 @@ export default function Banner() {
   
 
   return (
-    <div className="bannerComponent">
-      <div className="container-fluid">
+    <div className="banner-component">
+      <div className="banner__content"> 
             <Slider {...settings}>
               <div className="banner__item">
                 <img src="/images/banner-tiec-trang-mau.png" alt=""></img>

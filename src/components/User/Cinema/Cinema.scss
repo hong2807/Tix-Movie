@@ -33,6 +33,7 @@
         li {
             padding: rem(15) rem(30);
             text-align: center;
+            cursor: pointer;
             filter: grayscale(1);
             transition: 0.2s; 
 
@@ -98,10 +99,19 @@
                
 
                 .detail {
+                    font-size: rem(14);
+                    font-weight: bold;
                     text-align: center;
                     padding: rem(5) 0;
                     border: 1px solid $color-green-0;
                     border-radius: 5px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        background-color:  $color-green-0;
+                        color: black;
+                    }
                 }
             }
         }
@@ -165,6 +175,4 @@
             }
         }
     }
-
-  
 }

@@ -1,15 +1,19 @@
 import React from "react";
-import Slider from "react-slick";
 import './MobileApp.scss'
+import Slider from "react-slick";
 
 export default function MobileApp() {
     // Slick
     const settings = {
-          dots: true,
-          infinite: true,
-          speed: 500,
-          slidesToShow: 1,
-          slidesToScroll: 1
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        // autoplay: true,
+        speed: 200,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        arrows: false,
     };
 
     return (
@@ -33,12 +37,16 @@ export default function MobileApp() {
                                 <a className="version" target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123">
                                     Android
                                 </a>
+                                <br/>
+                                <img src="/images/download-ios.svg" alt="ios"></img>
+                                <img style={{width: 140}} src="/images/download-android.png" alt="android"></img>
                                 </p>
                             </div>
                             </div>
                         <div className="col-12 col-md-12 col-lg-6">
                             <div className="mobileapp__right">
                                 {/* <img className="mobileapp-mobile" src="/images/mobile.png" alt /> */}
+                                <img src="/images/mobile1.jpg" alt="mobile1" />
                                 <div className="mobileapp__slider">
                                     <Slider {...settings}>
                                         <div className="item">
@@ -56,7 +64,6 @@ export default function MobileApp() {
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     );

@@ -1,15 +1,13 @@
 @import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
 
-
-.bannerComponent {
-    background-color: $color-black-1;
-
-    .banner__item {
-
-        img {
-            width: 100%;
+.banner-component {
+    .banner__content {
+        .banner__item {
+            img {
+                width: 100%;
+            }
         }
     }
-
 }
 

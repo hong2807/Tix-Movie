@@ -6,9 +6,6 @@
     color: $color-white-default;
 
     .mobileapp__content {
-        // display: flex;
-        justify-content: center;
-        align-items: center;
         padding: rem(50) rem(0);
     }
 
@@ -47,7 +44,7 @@
 
     .mobileapp__right {
         text-align: center;
-        // position: relative;
+        position: relative;
 
         img {
             height: 400px;
@@ -55,18 +52,15 @@
 
         .mobileapp__slider {
             width: 100%;
+            max-width: 186px;
+            position: absolute;
+            top: 0;
+            
+            img {
+                
+            }
         }
 
-        // .mobileapp__slider {
-        //     img {
-        //         position: absolute;
-        //         padding: 1.5% 29.3% 0 29.3%;
-        //         top: 0;
-        //         left: 0;
-        //         width: 100%;
-        //     }
-            
-        // }
 
     }
 }
