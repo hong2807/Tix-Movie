@@ -99,15 +99,20 @@
         overflow: unset;
     }
 
+    .ant-tabs-tab {
+        padding: 0;
+    }
+
     .ant-tabs-top > .ant-tabs-nav::before {
         border-bottom: unset;
     }
     .ant-tabs-tab-btn {
-        color: white;
+        color: $color-white-default;
+        font-size: rem(28);
     }
 
     .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-        color: white;
+        color: $color-white-default;
     }
 
     .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap {

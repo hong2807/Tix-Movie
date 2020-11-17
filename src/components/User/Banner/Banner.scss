@@ -8,6 +8,30 @@
                 width: 100%;
             }
         }
+
+        .slick-prev {
+            left: rem(60);
+        }
+
+        .slick-next {
+            right: rem(60);
+        }
+
+        .slick-prev:before, .slick-next:before {
+            color: white;
+            font-size: rem(35);
+        }
+
+        // .slick-dots li.slick-active button:before {
+        //     color: $color-yellow-default;
+
+        // }
+
+        // .slick-dots li button:before {
+        //     color: $color-white-default;
+        //     font-size: rem(12);
+        //     opacity: 1;
+        // }
     }
 }
 

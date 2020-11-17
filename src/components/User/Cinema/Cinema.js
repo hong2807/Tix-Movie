@@ -4,7 +4,7 @@ import './Cinema.scss'
 
 export default function Cinema() {
     return (
-        <div className="cinema-component pt-5">
+        <div className="cinema-component">
             <div className="container">
                 <div className="cinema-content">
                     <div className="cinema__brand">

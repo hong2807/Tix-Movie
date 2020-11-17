@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Films.scss";
 import { Tabs } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
+import ModalVideo from 'react-modal-video'
+
 
 export default function Films() {
   // Tab anzt
@@ -14,8 +16,12 @@ export default function Films() {
   // Coverflow
   var Coverflow = require("react-coverflow");
 
+  // Popup video
+  const [isOpen, setOpen] = useState(false)
+  const [isOpen1, setOpen1] = useState(false)
+
   return (
-    <div className="films-component">
+    <div className="films-component component-padding">
       <div className="container">
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
@@ -46,13 +52,16 @@ export default function Films() {
                   <div className="film-overlay"></div>
                   <div className="film-icon">
                     <div className="film-group">
-                      <FontAwesomeIcon className="icon" icon={faPlayCircle} />
+                    {/* <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} /> */}
+                      <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faPlayCircle} />
                       <p className="text-center">Trailer</p>
                     </div>
 
                     <div className="film-group">
-                      <FontAwesomeIcon className="icon" icon={faInfoCircle} />
+                    <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
+                      <FontAwesomeIcon onClick={()=> setOpen1(true)} className="icon" icon={faInfoCircle} />
                       <p className="text-center">Detail</p>
+                    
                     </div>
                   </div>
                 </div>
@@ -71,7 +80,6 @@ export default function Films() {
                   </div>
                 </div>
               </div>
-
               <div>
                 <img className="w-100" src="/images/slider5.jpg" alt="" data-action="" />
                 <h6 className="mb-0 text-center" style={{ color: "white" }}>
@@ -106,6 +114,10 @@ export default function Films() {
             </Coverflow>
           </TabPane>
         </Tabs>
+
+        <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
+ 
+        {/* <button className="btn-primary" onClick={()=> setOpen(true)}>VIEW DEMO</button> */}
       </div>
     </div>
   );

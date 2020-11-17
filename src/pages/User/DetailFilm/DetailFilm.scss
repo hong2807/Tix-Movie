@@ -3,18 +3,15 @@
 
 
 .detailFilm-component {
-    background-image: url(/images/movie-details-bg.jpg);
+    background-image: url(/images/black-wall.jpg);
     background-size: cover;
     background-attachment: fixed;
-
-    .container {
-        // background-color: rgba(0,0,0,0.5);
-    }
 
     .detailFilm__info {
         .detailFilm__infoCenter {
             .film-name {
-                color: $color-white-default;
+                font-family: 'SourceSansPro Bold';
+                color: $color-yellow-default;
                 text-transform: uppercase;
             }
 
@@ -23,26 +20,68 @@
                     width: rem(100);
                 }
             }
+
+            .group-btn {
+                .btn:focus {
+                    box-shadow: unset;
+                }
+
+                a {
+                    color: $color-white-default;
+                    background-color: $color-green-0;
+                    border-color: $color-green-0;
+
+                    .icon {
+                        margin-right: rem(10);
+                    }
+                }
+            }
         }
 
         .detailFilm__infoRight {
             .borderRating {
                 span {
-                    width: 70px;
-                    height: 70px;
-                    border: 2px solid red;
+                    width: rem(70);
+                    height: rem(70);
+                    border: 2px solid $color-red-0;
                     display: inline-block;
                     text-align: center;
-                    line-height: 68px;
+                    line-height: rem(68);
                     border-radius: 50%;
                     font-weight: bold;
-                    font-size: 25px;
+                    font-size: rem(25);
                 }
             }
         }
     }
 
     .detailFilm__showtimes {
+        .detailFilm__day__title {
+            position: relative;
+            background: #ffd70c;
+            display: inline-block;
+            padding: 5px 10px;
+            z-index: 1;
+            margin-top: 30px;
+        
+            &::after {
+                content: '';
+                position: absolute;
+                display: inline-block;
+                width: 50px;
+                height: 100%;
+                transform: skew(-30deg, 0);
+                right: -30px;
+                top: 0;
+                z-index: -1;
+                background: #ffd70c;
+            }
+        
+            span {
+                font-size: 1.2em;
+            }
+        }
+
         .detailFilm__brand {
             margin-bottom: rem(30);
             
@@ -79,8 +118,8 @@
             margin-bottom: rem(30);
 
             p {
-                width: rem(65);
-                height: rem(65);
+                width: rem(70);
+                height: rem(70);
                 text-align: center;
                 font-size: rem(18);
                 
@@ -88,10 +127,9 @@
                 span {
                     display: inline-block;
                     width: 100%;
-                    font-size: 14px;
-                    line-height: 30px;
-                    height: 26px;
-                    margin-bottom: 8px;
+                    line-height: rem(30);
+                    height: rem(26);
+                    margin-bottom: rem(8);
                 }
             }
             
@@ -101,17 +139,18 @@
 
             li {
                 cursor: pointer;
+                margin-right: rem(15);
             }
 
             li.active {
                 p {
-                    background: #fff;
+                    background: $color-white-default;
                     border-radius: 5px;
-                    color: black;
+                    color: $color-black-0;
                     font-weight: bold;
 
                     span {
-                        background: #ff4444;
+                        background: $color-red-1;
                         border-top-left-radius: 5px;
                         border-top-right-radius: 5px;
                     }
@@ -149,11 +188,11 @@
                             z-index: 10;
                             text-align: center;
                             cursor: pointer;
-                            width: 90px;
-                            height: 40px;
-                            line-height: 40px;
-                            margin-right: 10px;
-                            margin-bottom: 10px;
+                            width: rem(90);
+                            height: rem(40);
+                            line-height: rem(40);
+                            margin-right: rem(10);
+                            margin-bottom: rem(10);
                             transition: 0.2s;
 
                             &::before {
@@ -182,15 +221,6 @@
 
                             a {
                                 color: $color-black-0;
-                                // display: block;
-                                // font-size: 20px;
-                                // color: $color-grey-1;
-                                // width: 100px;
-                                // text-align: center;
-                                // background: black;
-                                // border: 2px solid black;
-                                // margin-right: rem(10);
-                                // margin-bottom: rem(10);
                             }
                         }
                     }

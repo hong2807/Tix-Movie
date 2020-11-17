@@ -1,5 +1,7 @@
 import React from 'react'
 import './DetailFilm.scss'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlayCircle, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function DetailFilm() {
@@ -30,8 +32,14 @@ export default function DetailFilm() {
                                     </li>
                                 </ul>
                                 <div className="group-btn mt-3">
-                                    <a href="./" className="btn btn-success mr-3">Trailer</a>
-                                    <a href="./" className="btn btn-success">Mua vé</a>
+                                    <a href="./" className="btn mr-3">
+                                    <FontAwesomeIcon className="icon" icon={faPlayCircle} />
+                                    Trailer
+                                </a>
+                                    <a href="./" className="btn">
+                                    <FontAwesomeIcon className="icon" icon={faTicketAlt} />
+                                    Mua vé
+                                </a>
                                 </div>
                             </div>
                         </div>
@@ -46,6 +54,7 @@ export default function DetailFilm() {
                 </div>
 
                 <div className="detailFilm__showtimes">
+                    <h3 className='detailFilm__day__title'><span>01. </span>Chọn Rạp</h3>
                     <div className="detailFilm__brand">
                         <ul>
                             <li className="active">
@@ -82,6 +91,7 @@ export default function DetailFilm() {
                     </div>
 
                     <div className="detailFilm__day">
+                        <h3 className='detailFilm__day__title'><span>02. </span>Chọn Ngày</h3>
                         <ul>
                             <li className="active">
                                 <p className="mb-0">
@@ -137,6 +147,7 @@ export default function DetailFilm() {
                     </div>
                     
                     <div className="detailFilm__time">
+                        <h3 className='detailFilm__day__title'><span>03. </span>Chọn Suất Chiếu</h3>
                         <div className="detailFilm__timeItem">
                             <div className="row">
                                 <div className="col-5">

@@ -17,33 +17,27 @@ export default function MobileApp() {
     };
 
     return (
-        <div className="mobileapp-component mt-5">
+        <div className="mobileapp-component component-padding">
             <div className="container">
                 <div className="mobileapp__content">
                     <div className="row">
-                        <div className="col-12 col-md-12 col-lg-6">
+                        <div className="col-12 col-md-12 col-lg-7">
                             <div className="mobileapp__left">
-                                <h2>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h2>
-                                <br />
+                                <h3>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h3>
                                 <p>Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm điểm rạp và đổi quà hấp dẫn.</p>
-                                <br />
                                 <button className="btn btn-danger">App miễn phí - Tải về ngay!</button>
-                                <p className="textApp">
-                                TIX có hai phiên bản
-                                <a className="version" target="_blank" rel="noopener noreferrer" href="https://itunes.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197?mt=8">
-                                    iOS
-                                </a>
-                                &amp;
-                                <a className="version" target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123">
-                                    Android
-                                </a>
-                                <br/>
-                                <img src="/images/download-ios.svg" alt="ios"></img>
-                                <img style={{width: 140}} src="/images/download-android.png" alt="android"></img>
-                                </p>
+                                <div className="download">
+                                    <a className="version" target="_blank" rel="noopener noreferrer" href="https://itunes.apple.com/us/app/123phim-mua-ve-lien-tay-chon/id615186197?mt=8">
+                                        <img src="/images/download-ios.svg" alt="ios"></img>
+                                    </a>
+                                
+                                    <a className="version" target="_blank" rel="noopener noreferrer" href="https://play.google.com/store/apps/details?id=vn.com.vng.phim123">
+                                        <img src="/images/download-android.png" alt="android"></img>
+                                    </a>
+                                </div>
                             </div>
-                            </div>
-                        <div className="col-12 col-md-12 col-lg-6">
+                        </div>
+                        <div className="col-12 col-md-12 col-lg-5">
                             <div className="mobileapp__right">
                                 {/* <img className="mobileapp-mobile" src="/images/mobile.png" alt /> */}
                                 <img src="/images/mobile.png" alt="mobile" />

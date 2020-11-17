@@ -8,7 +8,7 @@ export default function Partner() {
             <div className="container">
                 <div className="partner__wrapper">
                     <div className="partner__content">
-                        <h2 className="title">Đối Tác</h2>
+                        <h3 className="title">ĐỐI TÁC</h3>
                         <ul className="text-center">
                             <li>
                                 <a target="_blank" href="./">

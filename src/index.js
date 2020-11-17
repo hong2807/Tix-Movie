@@ -11,9 +11,10 @@ import 'antd/dist/antd.css';
 // Slick Slider
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+// Popup video
+import 'react-modal-video/scss/modal-video.scss';
 // Main Scss
 import './scss/main.scss';
-
 
 
 ReactDOM.render(
