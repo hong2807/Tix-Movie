@@ -10,28 +10,18 @@
         }
 
         .slick-prev {
-            left: rem(60);
+            left: rem(40);
+            z-index: 10;
         }
 
         .slick-next {
-            right: rem(60);
+            right: rem(40);
         }
 
         .slick-prev:before, .slick-next:before {
-            color: white;
+            color: $color-orange-0;
             font-size: rem(35);
         }
-
-        // .slick-dots li.slick-active button:before {
-        //     color: $color-yellow-default;
-
-        // }
-
-        // .slick-dots li button:before {
-        //     color: $color-white-default;
-        //     font-size: rem(12);
-        //     opacity: 1;
-        // }
     }
 }
 

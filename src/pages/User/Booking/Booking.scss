@@ -1,0 +1,134 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.booking-component {
+    background-image: url('/images/black-wall.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: $color-black-0;
+
+
+    .booking-left {
+        .booking-screen {
+            position: relative;
+            text-align: center;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 400px;
+                background-color: red;
+                height: 5px;
+                left: 50%;
+                bottom: -10px;
+                transform: translateX(-50%);
+            }
+        }
+
+        .booking-viewseat {
+            .booking-line {
+                ul {
+                    width: 30px;
+                    li {
+                        text-align: center;
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        border: 1px solid white;
+                        margin: 5px 0;
+                    }
+                }
+            }
+    
+            .booking-seats {
+                max-width: 400px;
+                margin: auto;
+
+                ul {
+                    li {
+                        text-align: center;
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 29px;
+                        background-color: green;
+                        border: 1px solid green;
+                        margin: 5px;
+                      
+                    }
+                }
+            }
+        }
+    }
+
+    .booking-right {
+        width: 300px;
+        
+        color: black;
+
+        p {
+            color: black;
+        }
+
+        .outer {
+            overflow: hidden;
+            width: 300px;
+            background-color: #bc9b7b;
+          }
+          .inner {
+            border: 1px solid #888;
+          }
+          .inner i {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #888;
+            border-radius: 50%;
+            background-color: #fff;
+            // background-color: transparent;
+          }
+          .inner .top {
+            margin-top: -20px;
+          }
+          .inner .bottom {
+            margin-top: -20px;
+            margin-bottom: -22px;
+          }
+          .inner .left {
+            float: left;
+            margin-left: -20px;
+          }
+          .inner .right {
+            float: right;
+            margin-right: -20px;
+          }
+          .content {
+            min-height: 500px;
+          }
+          
+          .test {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          hr {
+              border: 1px;
+            border-style: dashed;
+            margin: 0;
+          }
+
+          .header__logo {
+          
+                font-family: "Ranchers Regular";
+                color: $color-white-default;
+                margin: 0;
+                font-size: rem(45);
+    
+                span {
+                  color: $color-yellow-default;
+                }
+            
+        }
+    }
+}

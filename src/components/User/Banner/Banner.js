@@ -6,7 +6,7 @@ import Slider from "react-slick";
 export default function Banner() {
   // Slider
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     arrows: true,
     speed: 500,
