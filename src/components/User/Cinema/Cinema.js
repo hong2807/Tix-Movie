@@ -124,15 +124,11 @@ export default function Cinema() {
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
@@ -168,15 +164,11 @@ export default function Cinema() {
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
@@ -212,15 +204,11 @@ export default function Cinema() {
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
@@ -256,15 +244,11 @@ export default function Cinema() {
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
-                                                </ul>
-                                                <ul>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
                                                     <li> <a href="./">13:55</a></li>
@@ -300,15 +284,11 @@ export default function Cinema() {
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>
-                                        </ul>
-                                        <ul>
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>
-                                        </ul>
-                                        <ul>
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>
                                             <li> <a href="./">13:55</a></li>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Films.scss";
 import { Tabs } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 import ModalVideo from 'react-modal-video'
 
 
@@ -59,7 +59,7 @@ export default function Films() {
 
                     <div className="film-group">
                     <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
-                      
+                      <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faInfoCircle} />
                       <p className="text-center">Detail</p>
                     
                     </div>

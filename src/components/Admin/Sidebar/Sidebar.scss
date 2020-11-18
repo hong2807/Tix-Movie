@@ -1,0 +1,73 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.sidebar-component {
+    width: 280px;
+    background-color: $color-background-default;
+    
+    .sidebar__content {
+        width: 100%;
+        height: 100vh;
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+
+        .sidebar__logo {
+            border-bottom: 1px solid $color-grey-2;
+            padding: 0 rem(30);
+            height: 80px;
+
+            a {
+                font-family: "Ranchers Regular";
+                color: $color-white-default;
+                margin: 0;
+                font-size: rem(45);
+    
+                span {
+                  color: $color-yellow-default;
+                }
+            }
+        }
+
+        .sidebar__user {
+            border-bottom: 1px solid $color-grey-2;
+            display: flex;
+            padding: rem(20) rem(30);
+            justify-content: flex-start;
+            align-items: center;
+
+            .sidebar__user-img {
+                width: rem(40);
+                height: rem(40);
+                margin-right: rem(12);
+
+                .icon {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .sidebar__user-btn {
+                width: rem(40);
+                height: rem(40);
+                margin-left: auto;
+                border: 1px solid $color-yellow-default;
+                border-radius: 6px;
+                text-align: center;
+                line-height: rem(39);
+                cursor: pointer;
+            }
+        
+        }
+
+        .sidebar__nav {
+            padding: rem(30);
+
+            .sidebar__nav-item {
+                margin-bottom: rem(20);
+
+                .icon {
+                    margin-right: rem(15);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,133 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.usermanagement-component {
+    min-height: 100vh;
+
+    .usermanagement__content {
+        .usermanagement__title {
+            height: 80px;
+            border-bottom: 1px solid $color-grey-2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .title {
+                color: $color-white-default;
+            }
+
+            &-right {
+                display: flex;
+                align-items: center;
+
+                .search {
+                    position: relative;
+
+                    input {
+                        width: rem(240);
+                        height: 40px;
+                        border-radius: 6px;
+                        background-color: $color-grey-3;
+                        border: 1px solid transparent;
+                        padding-left: 10px;
+                    }
+    
+                    .icon {
+                        position: absolute;
+                        top: 0;
+                        right: 20px;
+                        height: 40px;
+                    }
+                }
+            }
+
+            .add {
+                display: inline-block;
+                padding: rem(10) rem(15);
+                border-radius: 6px;
+                border: 2px solid $color-green-1;
+                text-align: center;
+            }
+        }
+
+        .usermanagement__table {
+            .table {
+                color: $color-white-default;
+                th {
+                    font-size: rem(12);
+                    border-top: unset;
+                    border-bottom: unset;
+                }
+
+                td {
+                    border-top: unset;
+                }
+
+                tbody {
+                    tr {
+                        background-color: $color-grey-3;
+                        border-bottom: 10px solid $color-background-default;
+                    }
+                }
+
+                .group-icon {
+                    .icon-bg {
+                        display: inline-block;
+                        width: rem(30);
+                        height: 30px;
+                        text-align: center;
+                        line-height: rem(30);
+                        border-radius: 6px;
+                    }
+
+                    .icon-edit {
+                        color: $color-blue-0;
+                        margin-right: 10px;
+                        background-color: $color-grey-4;
+                    }
+                    .icon-delete {
+                        color: $color-red-2;
+                        background-color: $color-grey-4;
+                    }
+                }
+            } 
+        }
+
+        .usermanagement__pagination {
+            display: flex;
+            justify-content: space-between;
+            margin: rem(30) 0;
+
+            span {
+                background-color: $color-grey-3;
+                padding: 0 rem(15);
+                line-height: 40px;
+            }
+
+            .paginator {
+                display: flex; 
+                background-color: $color-grey-3;
+                align-items: center;
+
+                &__item {
+                    &:hover a {
+                        color: $color-yellow-default;
+                    }
+
+                    &.active a {
+                        border-radius: 6px;
+                        border: 1px solid $color-yellow-default;
+                    }
+
+                    a {
+                        display: inline-block;
+                        height: 40px;
+                        width: rem(40);  
+                        line-height: rem(39);
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

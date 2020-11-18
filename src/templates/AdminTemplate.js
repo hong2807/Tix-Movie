@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
-import Dashboard from '../components/Admin/Dashboard/Dashboard';
-
-
+import Sidebar from '../components/Admin/Sidebar/Sidebar';
 
 export const AdminTemplate = ({ Component, ...restProps }) => {
-    return <Route {...restProps} render={() => {
-        return <Fragment>
-           <Dashboard></Dashboard>s
-        </Fragment>
+    return <Route {...restProps} render={(propsRoute) => {
+        return <div className="d-flex">
+           <Sidebar></Sidebar>
+           <div className='right-content' style={{width: "calc(100% - 280px)", backgroundColor: "#1a191f"}}>
+                <Component {...propsRoute} />
+           </div>
+        </div>
     }} />
 }

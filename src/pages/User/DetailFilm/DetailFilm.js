@@ -6,7 +6,7 @@ import { faPlayCircle, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function DetailFilm() {
     return (
-        <div className="detailFilm-component componnet-padding">
+        <div className="detailFilm-component component-padding">
             <div className="container">
                 <div className="detailFilm__info">
                     <div className="row">

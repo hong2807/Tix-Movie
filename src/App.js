@@ -13,7 +13,8 @@ import SignUp from './pages/Share/SignUp/SignUp';
 import DetailFilm from './pages/User/DetailFilm/DetailFilm';
 import DetailCinema from './pages/User/DetailCinema/DetailCinema';
 import Booking from './pages/User/Booking/Booking';
-import QuanLy from './pages/Admin/QuanLy/QuanLy';
+import MovieManagement from './pages/Admin/MovieManagement/MovieManagement';
+import UserManagement from './pages/Admin/UserManagement/UserManagement';
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
 
 
           <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>
-          <AdminTemplate exact path='/quanly' Component={QuanLy}></AdminTemplate>
+          <AdminTemplate exact path='/quanlyphim' Component={MovieManagement}></AdminTemplate>
+          <AdminTemplate exact path='/quanlynguoidung' Component={UserManagement}></AdminTemplate>
 
           <LoginTemplate exact path='/dangnhap' Component={SignIn}></LoginTemplate>
           <LoginTemplate exact path='/dangky' Component={SignUp}></LoginTemplate>

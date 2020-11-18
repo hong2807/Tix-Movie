@@ -1,7 +1,7 @@
 import React from 'react'
 import './DetailCinema.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
+import { faLandmark, faPlayCircle, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function DetailCinema() {
@@ -17,16 +17,31 @@ export default function DetailCinema() {
                         </div>
                         <div className="col-9">
                             <div className="detailCinema__infoCenter">
+                                <div>
                                 <h3 className="film-name">BHD Star Bitexco</h3>
                                 <p>
                                 L3-Bitexco Icon 68, 2 Hải Triều, Quận 1.
                                 </p>
                                
-                                <div className="group-btn mt-3">
+                                <div className="group-btn mt-3 mb-3">
                                     <a href="./" className="btn">
                                     <FontAwesomeIcon className="icon" icon={faTicketAlt} />
                                     Mua vé
-                                </a>
+                                    </a>
+                                </div>
+
+                                </div>
+
+                                {/* <div class="ticket mr-3">BHD Quan 3</div>
+                                <div class="ticket">BHD Quan 7</div> */}
+                                <div className="mt-5 group-btn">
+                                <button className="btn mr-3 mb-3">
+                                    <FontAwesomeIcon className="icon" icon={faLandmark} />
+                                    BHD Star Vincom Thảo Điền
+                                </button>
+                                <button className="btn mr-3 mb-3">BHD Star Vincom 3/2</button>
+                                <button className="btn mr-3 mb-3">BHD Star Phạm Hùng</button>
+                                <button className="btn mr-3 mb-3">BHD Star Vincom Quang Trung</button>
                                 </div>
                             </div>
                         </div>

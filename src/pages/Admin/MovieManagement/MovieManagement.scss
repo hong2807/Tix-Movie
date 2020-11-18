@@ -1,0 +1,51 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.moviemanagement-component {
+    min-height: 100vh;
+
+    .moviemanagement__content {
+        .moviemanagement__title {
+            height: 80px;
+            border-bottom: 1px solid $color-grey-2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .title {
+                color: $color-white-default;
+            }
+
+            .add {
+                display: inline-block;
+                padding: rem(10) rem(15);
+                border-radius: 6px;
+                border: 1px solid #ffd80e;
+                text-align: center;
+            }
+        }
+
+        .moviemanagement__table {
+            .table {
+                color: $color-white-default;
+                th {
+                    font-size: 12px;
+                    border-top: unset;
+                    border-bottom: unset;
+                }
+
+                td {
+                    border-top: unset;
+                }
+
+                tbody {
+                    tr {
+                        background-color: rgba(210,201,255,0.04);
+                    }
+                }
+
+
+            } 
+        }
+    }
+}
