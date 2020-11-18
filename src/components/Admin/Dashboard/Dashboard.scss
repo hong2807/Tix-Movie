@@ -1,0 +1,91 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.dashboard-component {
+    background-color: $color-background-default;
+    height: 100vh;
+    display: flex;
+
+    .dashboard__sidebar {
+        width: 280px;
+        height: 100vh;
+        border-right: 1px solid rgba(210,201,255,0.1);
+
+        .dashboard__logo {
+            border-bottom: 1px solid rgba(210,201,255,0.1);
+            padding: 0 30px;
+            height: 80px;
+
+            a {
+                font-family: "Ranchers Regular";
+                color: $color-white-default;
+                margin: 0;
+                font-size: rem(45);
+    
+                span {
+                  color: $color-yellow-default;
+                }
+            }
+        }
+
+        .dashboard__user {
+            border-bottom: 1px solid rgba(210,201,255,0.1);
+            display: flex;
+            padding: 20px 30px;
+            justify-content: flex-start;
+            align-items: center;
+
+            .sidebar__user-img {
+                width: 40px;
+                height: 40px;
+                margin-right: 12px;
+
+                .icon {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .sidebar-user-btn {
+                width: 40px;
+                height: 40px;
+                margin-left: auto;
+                border: 1px solid $color-yellow-default;
+                border-radius: 6px;
+                text-align: center;
+                line-height: 39px;
+                cursor: pointer;
+            }
+        
+        }
+
+        .dashboard__nav {
+            padding: 30px;
+
+            .sidebar-nav-item {
+                margin-bottom: 20px;
+
+                .icon {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    .dashboard__main {
+        width: calc(100% - 280px);
+
+        .dashboard__title {
+            height: 80px;
+            border-bottom: 1px solid rgba(210,201,255,0.1);
+        }
+
+        .dashboard__table {
+            .table {
+                color: $color-white-default;
+            }
+            
+        }
+        
+    }
+}

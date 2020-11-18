@@ -11,7 +11,9 @@ import './App.scss';
 import SignIn from './pages/Share/SignIn/SignIn';
 import SignUp from './pages/Share/SignUp/SignUp';
 import DetailFilm from './pages/User/DetailFilm/DetailFilm';
+import DetailCinema from './pages/User/DetailCinema/DetailCinema';
 import Booking from './pages/User/Booking/Booking';
+import QuanLy from './pages/Admin/QuanLy/QuanLy';
 
 function App() {
   return (
@@ -20,10 +22,12 @@ function App() {
         <Switch>
           <UserTemplate exact path='/home' Component={Home}></UserTemplate>
           <UserTemplate exact path='/phim' Component={DetailFilm}></UserTemplate>
+          <UserTemplate exact path='/rapphim' Component={DetailCinema}></UserTemplate>
           <UserTemplate exact path='/datve' Component={Booking}></UserTemplate>
 
 
           <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>
+          <AdminTemplate exact path='/quanly' Component={QuanLy}></AdminTemplate>
 
           <LoginTemplate exact path='/dangnhap' Component={SignIn}></LoginTemplate>
           <LoginTemplate exact path='/dangky' Component={SignUp}></LoginTemplate>
