@@ -2,8 +2,43 @@ import React from 'react'
 import './UserManagement.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faEdit, faPlus, faSearch, faTrashAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+    Form,
+    Input,
+    Button,
+    Select,
+    Modal
+  } from 'antd';
+import { useState } from 'react';
 
 export default function UserManagement() {
+    // Form
+    const [componentSize, setComponentSize] = useState('default');
+  const onFormLayoutChange = ({ size }) => {
+    setComponentSize(size);
+  };
+    //Modal
+    const [visible, setVisible] = React.useState(false);
+    const [confirmLoading, setConfirmLoading] = React.useState(false);
+    const [modalText, setModalText] = React.useState('Content of the modal');
+  
+    const showModal = () => {
+      setVisible(true);
+    };
+  
+    const handleOk = () => {
+      setModalText('The modal will be closed after two seconds');
+      setConfirmLoading(true);
+      setTimeout(() => {
+        setVisible(false);
+        setConfirmLoading(false);
+      }, 2000);
+    };
+  
+    const handleCancel = () => {
+      console.log('Clicked cancel button');
+      setVisible(false);
+    };
     return (
         // <div className="usermanagement-component">
         //     <div className="container-fluid">
@@ -34,7 +69,7 @@ export default function UserManagement() {
         //                             <th>Mã loại người dùng</th>
         //                             <th>Mã nhóm</th>
         //                             <th>Email</th>
-        //                             <th>Action</th>
+        //                             <th>Thao tác</th>
         //                         </tr>
         //                     </thead>
         //                     <tbody>
@@ -274,89 +309,187 @@ export default function UserManagement() {
                         <div className="row">
                             <div className="col-6">
                                 <div className="profile__details-left">
-                                    <form className="profile__form">
-                                        <h5 className="title">Chi tiết thành viên</h5>
-                                        <div className="row">
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Tài khoản</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div> 
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Mật khẩu</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div>
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Họ tên</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div> 
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Số điện thoại</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div> 
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Email</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div> 
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Mã loại người dùng</label>
-                                                    <select className="form-control profile__select">
-                                                        <option>Quản trị</option>
-                                                        <option>Khách hàng</option>
-                                                    </select>
-                                                </div>
-                                            </div> 
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Mã nhóm</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <button className="btn-update">Cập nhật</button>
-                                    </form>
+                                    <h5 className="title">Chi tiết thành viên</h5>
+                                    <Form
+                                        className="profile__form"
+                                        labelCol={{ span: 24 }}
+                                        wrapperCol={{ span: 24 }}
+                                        layout="vertical"
+                                        initialValues={{ size: componentSize }}
+                                        onValuesChange={onFormLayoutChange}
+                                        size={componentSize}
+                                    >
+                                        
+                                        <Form.Item label="Tài khoản" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Mật khẩu" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Họ tên" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Số điện thoại" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Email" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Mã loại người dùng">
+                                            <Select defaultValue="Quản trị">
+                                                <Select.Option className="option" value="quantri" selected>Quản trị</Select.Option>
+                                                <Select.Option className="option" value="khachhang">Khách hàng</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item label="Mã nhóm" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item className="form-btn">
+                                            <Button className="btn-update">Cập nhật</Button>
+                                        </Form.Item>
+                                    </Form>
                                 </div>
                             </div>
                             <div className="col-6">
                                 <div className="profile__details-right">
-                                    <form className="profile__form">
-                                        <h5 className="title">Thay đổi mật khẩu</h5>
-                                        <div className="row">
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Mật khẩu cũ</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div> 
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Mật khẩu mới</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div>
-                                            <div className="col-6">
-                                                <div className="profile__group">
-                                                    <label className="profile__label" for="username">Nhập lại mật khẩu</label>
-                                                    <input id="username" type="text" name="username" class="profile__input" placeholder="User 123"/>
-                                                </div>
-                                            </div> 
-                                        </div>
-                                        <button className="btn-change">Thay đổi</button>
-                                    </form>
+                                    <h5 className="title">Thay đổi mật khẩu</h5>
+                                    <Form
+                                        className="profile__form"
+                                        labelCol={{ span: 24 }}
+                                        wrapperCol={{ span: 24 }}
+                                        layout="vertical"
+                                        initialValues={{ size: componentSize }}
+                                        onValuesChange={onFormLayoutChange}
+                                        size={componentSize}
+                                    >
+                                    
+
+                                        <Form.Item label="Mật khẩu cũ" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Mật khẩu mới" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Nhập lại mật khẩu" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+
+                                        <Form.Item className="form-btn">
+                                            <Button className="btn-update">Thay đổi</Button>
+                                        </Form.Item>
+                                    </Form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <a className="icon-edit icon-bg" onClick={showModal}>
+                                          <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                    {/* <Button type="primary" onClick={showModal}>
+                        Click
+                    </Button> */}
+                    <Modal
+                        title=""
+                        visible={visible}
+                        onOk={handleOk}
+                        confirmLoading={confirmLoading}
+                        onCancel={handleCancel}
+                        footer={null}
+                    >
+                         <div className="profile__title">
+                        <div className="profile__user">
+							<div className="profile__avatar">
+                                <FontAwesomeIcon className="icon" icon={faUserCircle} />
+							</div>
+					
+							<div className="profile__text">
+								<p className="mb-0">honghuynh</p>
+							</div>
+						</div>
+
+                        <div className="profile__action">
+                            <a className="btn btn-delete">Xóa thành viên</a>
+                        </div>
+                    </div>
+
+                    <div className="profile__details">
+                        <div className="row">
+                            <div className="col-6">
+                                <div className="profile__details-left">
+                                    <h5 className="title">Chi tiết thành viên</h5>
+                                    <Form
+                                        className="profile__form"
+                                        labelCol={{ span: 24 }}
+                                        wrapperCol={{ span: 24 }}
+                                        layout="vertical"
+                                        initialValues={{ size: componentSize }}
+                                        onValuesChange={onFormLayoutChange}
+                                        size={componentSize}
+                                    >
+                                        
+                                        <Form.Item label="Tài khoản" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Mật khẩu" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Họ tên" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Số điện thoại" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Email" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Mã loại người dùng">
+                                            <Select defaultValue="Quản trị">
+                                                <Select.Option className="option" value="quantri" selected>Quản trị</Select.Option>
+                                                <Select.Option className="option" value="khachhang">Khách hàng</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                        <Form.Item label="Mã nhóm" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item className="form-btn">
+                                            <Button className="btn-update">Cập nhật</Button>
+                                        </Form.Item>
+                                    </Form>
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="profile__details-right">
+                                    <h5 className="title">Thay đổi mật khẩu</h5>
+                                    <Form
+                                        className="profile__form"
+                                        labelCol={{ span: 24 }}
+                                        wrapperCol={{ span: 24 }}
+                                        layout="vertical"
+                                        initialValues={{ size: componentSize }}
+                                        onValuesChange={onFormLayoutChange}
+                                        size={componentSize}
+                                    >
+                                    
+
+                                        <Form.Item label="Mật khẩu cũ" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Mật khẩu mới" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+                                        <Form.Item label="Nhập lại mật khẩu" >
+                                            <Input type="text" placeholder="User 123" />
+                                        </Form.Item>
+
+                                        <Form.Item className="form-btn">
+                                            <Button className="btn-update">Thay đổi</Button>
+                                        </Form.Item>
+                                    </Form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </Modal>
                 </div>
             </div>
         </div>
