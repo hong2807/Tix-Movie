@@ -21,7 +21,7 @@ export default function Films() {
  
 
   return (
-    <div className="films-component component-padding">
+    <div id="films-component" className="films-component component-padding">
       <div className="container">
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">

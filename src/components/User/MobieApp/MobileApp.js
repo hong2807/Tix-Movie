@@ -17,7 +17,7 @@ export default function MobileApp() {
     };
 
     return (
-        <div className="mobileapp-component component-padding">
+        <div id="mobileapp-component" className="mobileapp-component component-padding">
             <div className="container">
                 <div className="mobileapp__content">
                     <div className="row">

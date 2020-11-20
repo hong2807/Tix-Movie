@@ -30,6 +30,11 @@
                         background-color: $color-grey-3;
                         border: 1px solid transparent;
                         padding-left: 10px;
+
+                        &:focus {
+                            outline: unset;
+                            border: 1px solid $color-yellow-default;
+                        }
                     }
     
                     .icon {
@@ -133,25 +138,24 @@
 }
 
 
-.profile__title {
+.editUserModal__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    margin-bottom: 30px;
-    height: 80px;
-    background-color: rgba(210,201,255,0.04);
+    padding: rem(20);
+    margin-bottom: rem(30);
+    background-color: $color-grey-3;
     color: $color-white-default;
     font-size: rem(16);
 
-    .profile__user {
+    .editUserModal__user {
         display: flex;
         align-items: center;
 
-        .profile__avatar {
-            width: 40px;
-            height: 40px;
-            margin-right: 12px;
+        .editUserModal__avatar {
+            width: rem(40);
+            height: height(40);
+            margin-right: rem(12);
 
             .icon {
                 width: 100%;
@@ -159,36 +163,34 @@
             }
         }
     }
-    .profile__action {
+    .editUserModal__action {
         .btn-delete {
             background-color: $color-red-2;
         }
     }
 }
 
-.profile__details {
-    .profile__details-left {
-        padding: 30px;
-        // margin-bottom: 30px;
+.editUserModal__details {
+    .editUserModal__details-left {
+        padding: rem(30);
         border-radius: 6px;
-        border: 1px solid rgba(210,201,255,0.1);
+        border: 1px solid $color-grey-2;
     }
 
-    .profile__details-right {
+    .editUserModal__details-right {
         padding: 30px;
         border-radius: 6px;
-        border: 1px solid rgba(210,201,255,0.1);
+        border: 1px solid $color-grey-2;
     }
 
     .title {
-        color: $color-white-default;
-        font-weight: bold;
-        margin-bottom: 25px;
+        color: $color-yellow-default;
+        margin-bottom: rem(25);
     }
 
-    .profile__form {
-        margin-left: -15px;
-        margin-right: -15px;
+    .editUserModal__form {
+        margin-left: rem(-15);
+        margin-right: rem(-15);
     
         .ant-form-item-label > label {
             color: $color-white-default;
@@ -197,11 +199,11 @@
         
         .ant-input {
             color: $color-white-default;
-            background-color: rgba(210,201,255,0.04);
+            background-color: $color-grey-3;
             border: 1px solid transparent;
             height: 46px;
             border-radius: 6px;
-            padding: 0 20px;
+            padding: 0 rem(20);
 
             &:focus {
                 box-shadow: unset;
@@ -210,18 +212,18 @@
         }
         
         .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-            background-color: rgba(210,201,255,0.04);
+            background-color: $color-grey-3;
             border: 1px solid transparent;
             height: 46px;
             border-radius: 6px;
-            padding: 0 20px;
+            padding: 0 rem(20);
             
         }
         
         .ant-form-item {
             display: inline-block;
             width: 50%;
-            padding: 0 15px;
+            padding: 0 rem(15);
         }
     
         .ant-form-item.form-btn {
@@ -229,21 +231,104 @@
         }
 
         .ant-select-arrow .anticon > svg {
-            color: yellow;
+            color: $color-yellow-default;
         }
         
         .ant-btn {
             font-size: rem(16);
             height: auto;
             background-color: transparent;
-            color: rgba(255,255,255,0.7);
+            color:  rgba(255,255,255,0.7);
             border-radius: 6px;
-            border: 1px solid #ffd80e;
-            padding: 10px 20px;
+            border: 1px solid $color-yellow-default;
+            padding: rem(10) rem(20);
         }
         
         input::placeholder {
-            color:rgb(117, 117, 117);
+            color: $color-grey-6;
+            font-size: rem(16);
+        }
+    }
+}
+
+
+.addUserModal__title {
+    margin-bottom: rem(30);
+    background-color: $color-grey-3;
+    color: $color-white-default;
+    font-size: rem(16);
+
+    .title {
+        color: $color-yellow-default;
+        padding: rem(20);
+    }
+}
+
+.addUserModal__details {
+    .addUserModal__details-content {
+        padding: rem(30);
+        border-radius: 6px;
+        border: 1px solid $color-grey-2;
+    }
+
+    .addUserModal__form {
+        margin-left: rem(-15);
+        margin-right: rem(-15);
+    
+        .ant-form-item-label > label {
+            color: $color-white-default;
+            font-size: rem(16);
+        }
+        
+        .ant-input {
+            color: $color-white-default;
+            background-color: $color-grey-3;
+            border: 1px solid transparent;
+            height: 46px;
+            border-radius: 6px;
+            padding: 0 rem(20);
+
+            &:focus {
+                box-shadow: unset;
+                border: 1px solid $color-yellow-default;
+            }
+        }
+        
+        .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+            background-color: $color-grey-3;
+            border: 1px solid transparent;
+            height: 46px;
+            border-radius: 6px;
+            padding: 0 rem(20);
+            
+        }
+        
+        .ant-form-item {
+            display: inline-block;
+            width: 50%;
+            padding: 0 rem(15);
+        }
+    
+        .ant-form-item.form-btn {
+            width: 100%;
+        }
+
+        .ant-select-arrow .anticon > svg {
+            color: $color-yellow-default;
+        }
+        
+        .ant-btn {
+            font-size: rem(16);
+            height: auto;
+            background-color: transparent;
+            color:  rgba(255,255,255,0.7);
+            border-radius: 6px;
+            border: 1px solid $color-yellow-default;
+            padding: rem(10) rem(20);
+        }
+        
+        input::placeholder {
+            color: $color-grey-6;
             font-size: rem(16);
         }
     }
@@ -256,58 +341,3 @@
 
 
 
-.ant-select {
-    color: $color-white-default !important;
-}
-
-.ant-select-dropdown {
-    padding: 0 !important;
-    background-color:#1a191f !important;
-}
-
-.ant-select-item  {
-    background-color:#1a191f !important;
-    color: rgba(255,255,255,0.7) !important;
-    padding: 10px 20px !important;
-
-    &:hover, &:focus {
-        color: $color-yellow-default !important;
-        background-color: transparent !important;
-    }
-}
-
-.ant-select-single .ant-select-selector .ant-select-selection-item {
-    line-height: 44px !important;
-}
-
-.ant-select-focused .ant-select-selector,
-.ant-select-selector:focus,
-.ant-select-selector:active,
-.ant-select-open .ant-select-selector {
-  border-color: $color-yellow-default !important;
-  box-shadow: none !important;
-}
-
-
-.ant-modal {
-    width: 1000px !important;
-    top: 20px !important;
-}
-
-.ant-modal-body {
-    background-color: $color-background-default;
-}
-
-.ant-modal-close {
-    top: -19px !important;
-    right: -15px !important;
-    color: $color-white-default !important;
-
-    &:hover {
-        color: unset;
-    }
-
-    &:focus {
-        outline: none;
-    }
-}

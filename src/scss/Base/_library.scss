@@ -1,0 +1,93 @@
+// Custom css library
+
+// Ant Design
+    //Form
+.ant-select {
+    color: $color-white-default !important;
+}
+
+.ant-select-dropdown {
+    padding: 0 !important;
+    background-color: $color-background-default !important;
+}
+
+.ant-select-item  {
+    background-color: $color-background-default !important;
+    color: $color-grey-5 !important;
+    padding: rem(10) rem(20) !important;
+
+    &:hover, &:focus {
+        color: $color-yellow-default !important;
+        background-color: transparent !important;
+    }
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-item {
+    line-height: 44px !important;
+}
+
+.ant-select-focused .ant-select-selector,
+.ant-select-selector:focus,
+.ant-select-selector:active,
+.ant-select-open .ant-select-selector {
+  border-color: $color-yellow-default !important;
+  box-shadow: none !important;
+}
+
+    //Back to top
+.icon-to-top {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: $color-white-default;
+    background-color: $color-background-default;
+    border-radius: 6px;
+    border: 1px solid $color-yellow-default;
+}
+
+
+// Sweet Alert2
+.ant-modal {
+    width: rem(1000) !important;
+    top: rem(20) !important;
+}
+
+.ant-modal-body {
+    background-color: $color-background-default;
+}
+
+.ant-modal-close {
+    top: rem(-19) !important;
+    right: rem(-15) !important;
+    color: $color-white-default !important;
+
+    &:hover {
+        color: unset;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.swal2-popup {
+    background-color: #1a191f !important;
+}
+
+.swal2-title {
+    color: $color-white-default !important;
+}
+
+.swal2-content {
+    color: $color-white-default !important;
+}
+
+.swal2-styled:focus {
+    box-shadow: unset !important;
+}
+
+.swal2-styled.swal2-confirm, .swal2-styled.swal2-cancel {
+    background-color: unset !important;
+    border: 1px solid $color-yellow-default !important;
+}
