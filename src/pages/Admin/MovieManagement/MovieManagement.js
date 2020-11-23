@@ -16,10 +16,10 @@ export default function MovieManagement() {
                                 <FontAwesomeIcon className="icon" icon={faSearch} />
                             </div>
 
-                            <a className="add">
+                            <button className="add">
                                 <FontAwesomeIcon className="icon mr-2" icon={faPlus} />
                                 Thêm phim
-                            </a>
+                            </button>
                         </div>
                     </div>
                 
@@ -96,12 +96,12 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
+                                        </button>
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -113,9 +113,9 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
+                                        </button>
                                         <a className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
                                         </a>
@@ -215,18 +215,18 @@ export default function MovieManagement() {
 
 						<ul className="paginator">
 							<li className="paginator__item paginator__item--prev">
-								<a href="#">
+								<a href="./">
                                     <FontAwesomeIcon className="icon" icon={faAngleLeft} />
                                 </a>
 							</li>
-							<li className="paginator__item active"><a href="#">1</a></li>
-							<li className="paginator__item"><a href="#">2</a></li>
-							<li className="paginator__item"><a href="#">3</a></li>
-							<li className="paginator__item"><a href="#">4</a></li>
+							<li className="paginator__item active"><a href="./">1</a></li>
+							<li className="paginator__item"><a href="./">2</a></li>
+							<li className="paginator__item"><a href="./">3</a></li>
+							<li className="paginator__item"><a href="./">4</a></li>
 							<li className="paginator__item paginator__item--next">
-								<a href="#">
+								<button>
                                     <FontAwesomeIcon className="icon" icon={faAngleRight} />
-                                </a>
+                                </button>
 							</li>
 						</ul>
 					</div>
