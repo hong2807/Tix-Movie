@@ -16,11 +16,41 @@
                 color: $color-white-default;
             }
 
+            &-right {
+                display: flex;
+                align-items: center;
+
+                .search {
+                    position: relative;
+
+                    input {
+                        width: rem(240);
+                        height: 40px;
+                        border-radius: 6px;
+                        background-color: $color-grey-3;
+                        border: 1px solid transparent;
+                        padding-left: 10px;
+
+                        &:focus {
+                            outline: unset;
+                            border: 1px solid $color-yellow-default;
+                        }
+                    }
+    
+                    .icon {
+                        position: absolute;
+                        top: 0;
+                        right: 20px;
+                        height: 40px;
+                    }
+                }
+            }
+
             .add {
                 display: inline-block;
                 padding: rem(10) rem(15);
                 border-radius: 6px;
-                border: 1px solid #ffd80e;
+                border: 2px solid $color-green-1;
                 text-align: center;
             }
         }
@@ -28,8 +58,18 @@
         .moviemanagement__table {
             .table {
                 color: $color-white-default;
+
+                .table-img {
+                    width: rem(80);
+
+                    img {
+                        width: rem(60);
+                        height: rem(60);
+                    }
+                }
+                
                 th {
-                    font-size: 12px;
+                    font-size: rem(12);
                     border-top: unset;
                     border-bottom: unset;
                 }
@@ -40,12 +80,69 @@
 
                 tbody {
                     tr {
-                        background-color: rgba(210,201,255,0.04);
+                        background-color: $color-grey-3;
+                        border-bottom: 10px solid $color-background-default;
                     }
                 }
 
+                .group-icon {
+                    .icon-bg {
+                        display: inline-block;
+                        width: rem(30);
+                        height: 30px;
+                        text-align: center;
+                        line-height: rem(30);
+                        border-radius: 6px;
+                    }
 
+                    .icon-edit {
+                        background-color: $color-blue-1;
+                        color: $color-blue-0;
+                        margin-right: 10px;
+                    }
+                    .icon-delete {
+                        background-color: $color-red-3;
+                        color: $color-red-2;
+                    }
+                }
             } 
+        }
+
+        .usermanagement__pagination {
+            display: flex;
+            justify-content: space-between;
+            margin: rem(30) 0;
+
+            span {
+                background-color: $color-grey-3;
+                padding: 0 rem(15);
+                line-height: 40px;
+            }
+
+            .paginator {
+                display: flex; 
+                background-color: $color-grey-3;
+                align-items: center;
+
+                &__item {
+                    &:hover a {
+                        color: $color-yellow-default;
+                    }
+
+                    &.active a {
+                        border-radius: 6px;
+                        border: 1px solid $color-yellow-default;
+                    }
+
+                    a {
+                        display: inline-block;
+                        height: 40px;
+                        width: rem(40);  
+                        line-height: rem(39);
+                        text-align: center;
+                    }
+                }
+            }
         }
     }
 }

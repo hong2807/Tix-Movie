@@ -58,6 +58,7 @@
         .usermanagement__table {
             .table {
                 color: $color-white-default;
+                
                 th {
                     font-size: rem(12);
                     border-top: unset;
@@ -86,13 +87,13 @@
                     }
 
                     .icon-edit {
+                        background-color: $color-blue-1;
                         color: $color-blue-0;
                         margin-right: 10px;
-                        background-color: $color-grey-4;
                     }
                     .icon-delete {
+                        background-color: $color-red-3;
                         color: $color-red-2;
-                        background-color: $color-grey-4;
                     }
                 }
             } 

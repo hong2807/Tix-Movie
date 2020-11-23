@@ -6,7 +6,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 100;
     width: 100%;
 
     .header__content {
@@ -69,7 +69,6 @@
     }
 
     .header__right {
-    
 
         li {
           text-align: center;

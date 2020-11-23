@@ -13,7 +13,7 @@ export default function Booking() {
                                     Màn hình
                                 </div>
 
-                                <div className="booking-viewseat mt-5">
+                                <div className="booking-viewseat">
                                     <div className="row">
                                         <div className="col-1">
                                             <div className="booking-line">
@@ -259,7 +259,7 @@ export default function Booking() {
                                             </div>
                                         <div className="card cardBottom">
                                             <h1 className='header__logo'>
-                                            Tix <span>Movie</span>
+                                                Tix <span>Movie</span>
                                             </h1>
 
                                             <div className="d-flex justify-content-between list-ticket-price">
@@ -271,7 +271,6 @@ export default function Booking() {
                                                 <span>Tổng Tiền</span>
                                                 <h3>156,000 VNĐ</h3>
                                             </div>
-                                            <div className="barcode"></div>
                                         </div>
                                     </div>
                                 </div>

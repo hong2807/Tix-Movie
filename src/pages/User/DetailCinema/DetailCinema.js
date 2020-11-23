@@ -1,7 +1,7 @@
 import React from 'react'
 import './DetailCinema.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLandmark, faPlayCircle, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
+import { faLandmark, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function DetailCinema() {
@@ -15,33 +15,40 @@ export default function DetailCinema() {
                                 <img className="w-100" src="/images/bhd-star-bitexco-rap.jpg" alt="rap"></img>
                             </div>
                         </div>
+
                         <div className="col-9">
-                            <div className="detailCinema__infoCenter">
-                                <div>
-                                <h3 className="film-name">BHD Star Bitexco</h3>
-                                <p>
-                                L3-Bitexco Icon 68, 2 Hải Triều, Quận 1.
-                                </p>
+                            <div className="detailCinema__infoRight">
+                                <div className="detailCinema__address">
+                                    <h3 className="film-name">BHD Star Bitexco</h3>
+                                    <p>
+                                        L3-Bitexco Icon 68, 2 Hải Triều, Quận 1.
+                                    </p>
                                
-                                <div className="group-btn mt-3 mb-3">
-                                    <a href="./" className="btn">
-                                    <FontAwesomeIcon className="icon" icon={faTicketAlt} />
-                                    Mua vé
-                                    </a>
+                                    <div className="detailCinema__btn">
+                                        <a href="./" className="btn">
+                                        <FontAwesomeIcon className="icon" icon={faTicketAlt} />
+                                        Mua vé
+                                        </a>
+                                    </div>
                                 </div>
-
-                                </div>
-
-                                {/* <div class="ticket mr-3">BHD Quan 3</div>
-                                <div class="ticket">BHD Quan 7</div> */}
-                                <div className="mt-5 group-btn">
-                                <button className="btn mr-3 mb-3">
-                                    <FontAwesomeIcon className="icon" icon={faLandmark} />
-                                    BHD Star Vincom Thảo Điền
-                                </button>
-                                <button className="btn mr-3 mb-3">BHD Star Vincom 3/2</button>
-                                <button className="btn mr-3 mb-3">BHD Star Phạm Hùng</button>
-                                <button className="btn mr-3 mb-3">BHD Star Vincom Quang Trung</button>
+                               
+                                <div className="detailCinema__branch">
+                                    <button className="btn">
+                                        <FontAwesomeIcon className="icon" icon={faLandmark} />
+                                        BHD Star Vincom Thảo Điền
+                                    </button>
+                                    <button className="btn">
+                                        <FontAwesomeIcon className="icon" icon={faLandmark} />
+                                        BHD Star Vincom 3/2
+                                    </button>
+                                    <button className="btn">
+                                        <FontAwesomeIcon className="icon" icon={faLandmark} />
+                                        BHD Star Phạm Hùng
+                                    </button>
+                                    <button className="btn">
+                                        <FontAwesomeIcon className="icon" icon={faLandmark} />
+                                        BHD Star Vincom Quang Trung
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +57,7 @@ export default function DetailCinema() {
 
                 <div className="detailCinema__showtimes">
                     <div className="detailFilm__day">
-                        <h3 className='detailFilm__day__title'><span>02. </span>Chọn Ngày</h3>
+                        <h3 className='detailFilm__day__title'><span>01. </span>Chọn Ngày</h3>
                         <ul>
                             <li className="active">
                                 <p className="mb-0">
@@ -106,16 +113,29 @@ export default function DetailCinema() {
                     </div>
                     
                     <div className="detailFilm__time">
-                        <h3 className='detailFilm__day__title'><span>03. </span>Chọn Suất Chiếu</h3>
+                        <h3 className='detailFilm__day__title'><span>02. </span>Chọn Phim & Suất Chiếu</h3>
                         <div className="detailFilm__timeItem">
                             <div className="row">
                                 <div className="col-5">
                                     <div className="detailFilm__left">
                                         <div className="detailFilm__leftItem">
                                             <div className="inside">
-                                                <div className="inside-text">
-                                                    <h4 className="title">BHD Star Bitexco</h4>
-                                                    <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
+                                                <div className="row">
+                                                    <div className="col-2">
+                                                        <div className="inside-img">
+                                                            <img src="./images/tiec-trang-mau-small.png" alt=""></img>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-10">
+                                                        <div className="inside-text">
+                                                            <div className="film-type">
+                                                                <span className="film-version">2D DUB</span>
+                                                                <span className="film-rating">C18</span>
+                                                            </div>
+                                                            <p>Tiệc Trăng Máu - Blood Moon Party</p>
+                                                            <p>100 phút</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>                  
                                         </div>
@@ -155,9 +175,22 @@ export default function DetailCinema() {
                                     <div className="detailFilm__left">
                                         <div className="detailFilm__leftItem">
                                             <div className="inside">
-                                                <div className="inside-text">
-                                                    <h4 className="title">BHD Star Bitexco</h4>
-                                                    <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
+                                            <div className="row">
+                                                    <div className="col-2">
+                                                        <div className="inside-img">
+                                                            <img src="./images/tiec-trang-mau-small.png" alt=""></img>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-10">
+                                                        <div className="inside-text">
+                                                            <div className="film-type">
+                                                                <span className="film-version">2D DUB</span>
+                                                                <span className="film-rating">C18</span>
+                                                            </div>
+                                                            <p>Tiệc Trăng Máu - Blood Moon Party</p>
+                                                            <p>100 phút</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>                  
                                         </div>
@@ -197,9 +230,22 @@ export default function DetailCinema() {
                                     <div className="detailFilm__left">
                                         <div className="detailFilm__leftItem">
                                             <div className="inside">
-                                                <div className="inside-text">
-                                                    <h4 className="title">BHD Star Bitexco</h4>
-                                                    <p>Tang 3 &amp; 4, TTTM ICON 68, 2 Hai Trieu, Quan 1,TP.HCM</p>
+                                            <div className="row">
+                                                    <div className="col-2">
+                                                        <div className="inside-img">
+                                                            <img src="./images/tiec-trang-mau-small.png" alt=""></img>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-10">
+                                                        <div className="inside-text">
+                                                            <div className="film-type">
+                                                                <span className="film-version">2D DUB</span>
+                                                                <span className="film-rating">C18</span>
+                                                            </div>
+                                                            <p>Tiệc Trăng Máu - Blood Moon Party</p>
+                                                            <p>100 phút</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>                  
                                         </div>

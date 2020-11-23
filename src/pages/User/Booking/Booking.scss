@@ -16,8 +16,8 @@
             &::before {
                 content: "";
                 position: absolute;
-                width: 400px;
-                background-color: red;
+                width: rem(400);
+                background-color: $color-red-0;
                 height: 5px;
                 left: 50%;
                 bottom: -10px;
@@ -26,40 +26,42 @@
         }
 
         .booking-viewseat {
+          margin-top: rem(50);
+
             .booking-line {
                 ul {
-                    width: 35px;
+                    width: rem(35);
                     li {
                       text-align: center;
                       display: inline-block;
-                      width: 35px;
+                      width: rem(35);
                       height: 35px;
-                      line-height: 35px;
-                      border: 1px solid white;
-                      margin: 3px 0;
+                      line-height: rem(35);
+                      border: 1px solid $color-white-default;
+                      margin: rem(3) 0;
                     }
                 }
             }
     
             .booking-seats {
-                max-width: 640px;
+                max-width: rem(640);
                 margin: auto;
 
                 ul {
                     li {
                         text-align: center;
                         display: inline-block;
-                        width: 35px;
+                        width: rem(35);
                         height: 35px;
-                        line-height: 24px;
+                        line-height: rem(24);
                         background-size: cover;
-                        margin: 3px 1px;
-                        font-size: 12px;
+                        margin: rem(3) rem(1);
+                        font-size: rem(12);
                         transition: all 0.3s ease-in-out;
                         cursor: pointer;
 
                         &:hover {
-                          color: black !important;
+                          color: $color-black-0 !important;
                           background-image: url('/images/seat-yellow.png') !important;
                         }
 
@@ -83,26 +85,20 @@
     }
 
     .booking-right {
-      max-width: 300px;
+      max-width: rem(300);
       margin: auto;
   
       .cardWrap {
         width: 100%;
         margin: auto;
-        color: #fff;
+        color: $color-white-default;
         font-family: sans-serif;
         display: flex;
         flex-direction: column;
       }
   
       .card {
-        background: linear-gradient(
-          to right,
-          $ticket-bg 0%,
-          $ticket-bg 20%,
-          #ecedef 20%,
-          #ecedef 100%
-        );
+        background: linear-gradient(to right, $ticket-bg 0%, $ticket-bg 20%,$color-white-0 20%,$color-white-0 100%);
         position: relative;
         padding: rem(16);
         border-radius: 8px;
@@ -127,7 +123,6 @@
         min-height: 350px;
   
         .content {
-
           .clear {
             display: block;
             clear: both;
@@ -140,7 +135,7 @@
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
         border: none;
-        border-top: 2px dashed black;
+        border-top: 2px dashed $color-black-0;
         min-height: 120px;
   
         h1 {
@@ -149,14 +144,14 @@
           left: 7%;
           transform: rotate(270deg) translateX(-50%);
           transform-origin: 0 0;
-          font-size: 25px;
+          font-size: rem(25);
         }
 
         .list-ticket-price {
           width: 100%;
           flex-wrap: wrap;
           font-size: rem(14);
-          color: #525252;
+          color: $color-grey-7;
 
           .ticket-type {
             font-weight: bold;
@@ -174,7 +169,7 @@
           span {
             font-size: rem(14);
             font-weight: bold;
-            color: #525252;
+            color: $color-grey-7;
           }
 
           h3 {
@@ -210,23 +205,23 @@
         text-transform: uppercase;
         font-weight: normal;
         h2 {
-          font-size: 0.9em;
-          color: #525252;
+          font-size: rem(14);
+          color: $color-grey-7;
           margin: 0;
         }
         span {
-          font-size: 0.7em;
-          color: #a2aeae;
+          font-size: rem(11);
+          color: $color-grey-8;
         }
       }
   
       .name,
       .seat {
-        margin: 0.7em 0 0 0;
+        margin: rem(11) 0 0 0;
       }
   
       .time {
-        margin: 0.7em 0 0 1em;
+        margin: rem(11) 0 0 rem(16);
       }
   
       .seat,
@@ -240,12 +235,12 @@
   
         h3 {
           color: $ticket-bg;
-          font-size: 24px;
+          font-size: rem(24);
         }
         span {
           display: block;
-          color: #a2aeae;
-          font-size: 14px;
+          color: $color-grey-8;
+          font-size: rem(14);
         }
       }
     }

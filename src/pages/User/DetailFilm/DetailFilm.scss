@@ -184,7 +184,7 @@
                         li {
                             display: inline-block;
                             position: relative;
-                            z-index: 10;
+                            z-index: 1;
                             text-align: center;
                             cursor: pointer;
                             width: rem(70);
@@ -192,7 +192,7 @@
                             line-height: rem(35);
                             margin-right: rem(10);
                             margin-bottom: rem(10);
-                            transition: 0.2s;
+                            transition: 0.2s ease-in;
 
                             &::before {
                                 content: '';
@@ -216,6 +216,10 @@
                                 top: 0;
                                 left: 0;
                                 z-index: -1;
+                            }
+
+                            &:hover {
+                                transform: rotate(-5deg) scale(1.1);
                             }
 
                             a {

@@ -1,7 +1,7 @@
 import React from 'react'
 import './MovieManagement.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faPlusCircle, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faEdit, faPlus, faSearch, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function MovieManagement() {
     return (
@@ -10,45 +10,198 @@ export default function MovieManagement() {
              <div className="moviemanagement__content">
                     <div className="moviemanagement__title">
                         <h3 className="title mb-0">Phim</h3>
-                        <a href="add-item.html" class="add">
-                            Thêm phim
-                        </a>
+                        <div className="moviemanagement__title-right">
+                            <div className="mr-3 search">
+                                <input type="text" placeholder="Tìm phim.."/>
+                                <FontAwesomeIcon className="icon" icon={faSearch} />
+                            </div>
+
+                            <a className="add">
+                                <FontAwesomeIcon className="icon mr-2" icon={faPlus} />
+                                Thêm phim
+                            </a>
+                        </div>
                     </div>
                 
-               
                     <div className="moviemanagement__table mt-3">
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Mã phim</th>
                                     <th>Tên phim</th>
-                                    <th>Trailer</th>
-                                    <th>Hình ảnh</th>
-                                    <th>Mô tả</th>
-                                    <th>Mã nhóm</th>
                                     <th>Ngày khởi chiếu</th>
                                     <th>Đánh giá</th>
-                                    <th>Action</th>
+                                    <th>Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>01</td>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
                                     <td>Tiệc Trăng Máu</td>
-                                    <td>Trailer</td>
-                                    <td>Hình Ảnh</td>
-                                    <td>Trong buổi họp mặt của nhóm bạn thân, một thành viên bất ngờ đề xuất trò chơi chia sẻ điện thoại nhằm tăng tinh thần “đoàn kết”. Từ đó, những góc khuất của từng người dần hé lộ và khiến cho mối quan hệ vốn khắng khít của họ bắt đầu lay chuyển.</td>
-                                    <td>GP01</td>
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
-                                    <td>
-                                        <a>
-                                        <FontAwesomeIcon className="icon" icon={faPlusCircle} />
-                                        </a>
-                                        <a>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
                                         </a>
-                                        <a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <a className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </a>
+                                        <a className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
                                         </a>
                                     </td>
@@ -56,6 +209,27 @@ export default function MovieManagement() {
                             </tbody>
                         </table>
                     </div>
+
+                    <div className="usermanagement__pagination">
+						<span>10 from 3 702</span>
+
+						<ul className="paginator">
+							<li className="paginator__item paginator__item--prev">
+								<a href="#">
+                                    <FontAwesomeIcon className="icon" icon={faAngleLeft} />
+                                </a>
+							</li>
+							<li className="paginator__item active"><a href="#">1</a></li>
+							<li className="paginator__item"><a href="#">2</a></li>
+							<li className="paginator__item"><a href="#">3</a></li>
+							<li className="paginator__item"><a href="#">4</a></li>
+							<li className="paginator__item paginator__item--next">
+								<a href="#">
+                                    <FontAwesomeIcon className="icon" icon={faAngleRight} />
+                                </a>
+							</li>
+						</ul>
+					</div>
                 </div>
             </div>
         </div>
