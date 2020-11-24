@@ -2,13 +2,7 @@ import React from 'react'
 import './UserManagement.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faEdit, faPlus, faSearch, faTrashAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import {
-    Form,
-    Input,
-    Button,
-    Select,
-    Modal
-  } from 'antd';
+import { Form, Input, Button, Select, Modal } from 'antd';
 import { useState } from 'react';
 import Swal from "sweetalert2";  
 
@@ -17,8 +11,8 @@ export default function UserManagement() {
     // Form
     const [componentSize, setComponentSize] = useState('default');
     const onFormLayoutChange = ({ size }) => {
-    setComponentSize(size);
-  };
+        setComponentSize(size);
+    };
 
    //Modal add new
    const [visibleadd, setVisibleadd] = React.useState(false);
@@ -272,9 +266,9 @@ export default function UserManagement() {
 							<li className="paginator__item"><a href="./">3</a></li>
 							<li className="paginator__item"><a href="./">4</a></li>
 							<li className="paginator__item paginator__item--next">
-								<button>
+								<a href="./">
                                     <FontAwesomeIcon className="icon" icon={faAngleRight} />
-                                </button>
+                                </a>
 							</li>
 						</ul>
 					</div>

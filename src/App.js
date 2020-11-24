@@ -15,6 +15,7 @@ import DetailCinema from './pages/User/DetailCinema/DetailCinema';
 import Booking from './pages/User/Booking/Booking';
 import MovieManagement from './pages/Admin/MovieManagement/MovieManagement';
 import UserManagement from './pages/Admin/UserManagement/UserManagement';
+import DetailUser from './pages/User/DetailUser/DetailUser';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <UserTemplate exact path='/home' Component={Home}></UserTemplate>
           <UserTemplate exact path='/phim' Component={DetailFilm}></UserTemplate>
           <UserTemplate exact path='/rapphim' Component={DetailCinema}></UserTemplate>
+          <UserTemplate exact path='/nguoidung' Component={DetailUser}></UserTemplate>
           <UserTemplate exact path='/datve' Component={Booking}></UserTemplate>
 
 

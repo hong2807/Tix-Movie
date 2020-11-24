@@ -1,0 +1,99 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.detailuser-component {
+    background-image: url('/images/black-wall.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+    .ant-tabs {
+        background-color: $color-background-default;
+        padding: rem(20);
+    }
+
+    .ant-tabs-top > .ant-tabs-nav::before {
+        border-bottom: unset;
+    }
+
+    .addUserModal__title {
+        margin-bottom: rem(30);
+        background-color: $color-grey-3;
+        color: $color-white-default;
+        font-size: rem(16);
+    
+        .title {
+            color: $color-yellow-default;
+            padding: rem(20);
+        }
+    }
+    
+    .addUserModal__details {
+        .addUserModal__details-content {
+            padding: rem(30);
+            border-radius: 6px;
+            border: 1px solid $color-grey-2;
+        }
+    
+        .addUserModal__form {
+            margin-left: rem(-15);
+            margin-right: rem(-15);
+        
+            .ant-form-item-label > label {
+                color: $color-white-default;
+                font-size: rem(16);
+            }
+            
+            .ant-input {
+                color: $color-white-default;
+                background-color: $color-grey-3;
+                border: 1px solid transparent;
+                height: 46px;
+                border-radius: 6px;
+                padding: 0 rem(20);
+    
+                &:focus {
+                    box-shadow: unset;
+                    border: 1px solid $color-yellow-default;
+                }
+            }
+            
+            .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+                background-color: $color-grey-3;
+                border: 1px solid transparent;
+                height: 46px;
+                border-radius: 6px;
+                padding: 0 rem(20);
+                
+            }
+            
+            .ant-form-item {
+                display: inline-block;
+                width: 50%;
+                padding: 0 rem(15);
+            }
+        
+            .ant-form-item.form-btn {
+                width: 100%;
+            }
+    
+            .ant-select-arrow .anticon > svg {
+                color: $color-yellow-default;
+            }
+            
+            .ant-btn {
+                font-size: rem(16);
+                height: auto;
+                background-color: transparent;
+                color:  rgba(255,255,255,0.7);
+                border-radius: 6px;
+                border: 1px solid $color-yellow-default;
+                padding: rem(10) rem(20);
+            }
+            
+            input::placeholder {
+                color: $color-grey-6;
+                font-size: rem(16);
+            }
+        }
+    }
+}

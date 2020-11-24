@@ -52,6 +52,11 @@
                 border-radius: 6px;
                 border: 2px solid $color-green-1;
                 text-align: center;
+                background-color: transparent;
+
+                &:focus {
+                    outline: unset;
+                }
             }
         }
 
@@ -93,6 +98,11 @@
                         text-align: center;
                         line-height: rem(30);
                         border-radius: 6px;
+                        border: unset;
+
+                        &:focus {
+                            outline: unset;
+                        }
                     }
 
                     .icon-edit {

@@ -1,10 +1,13 @@
 import React from 'react'
 import './Header.scss'
 import { NavLink } from 'react-router-dom'
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Header() {
-    return (
+       return (
         <div className="header-component">
             <div className="container">
                 <div className="header__content">
@@ -47,18 +50,37 @@ export default function Header() {
                                 > <span>Tix</span>Movie
                         </NavLink>
                     </div>
-                    <ul className="header__right">
-                        <li className="signup">
-                            <NavLink className="nav-text" exact to="/dangky"> 
-                                ĐĂNG KÝ
-                            </NavLink>
-                        </li>
-                        <li className="signin"> 
-                            <NavLink className="nav-text" exact to="/dangnhap"> 
-                                ĐĂNG NHẬP
-                            </NavLink>
-                        </li>
-                    </ul>
+                    <div className="header__right">
+                        <div className="header__user d-none">
+                            Xin chào,
+                            <div className="header__avatar">
+                               <FontAwesomeIcon className="icon" icon={faUserCircle} />
+                            </div>
+                            <div className="header__text">
+                                <NavLink className="nav-text" exact to="/nguoidung"> 
+                                    honghuynh
+                                </NavLink>
+                            </div>
+                            <li className="signout"> 
+                                <NavLink className="nav-text" exact to="/dangnhap"> 
+                                    ĐĂNG XUẤT
+                                </NavLink>
+                            </li>
+                        </div>
+                        <ul className="header__sign">
+                            <li className="signup">
+                                <NavLink className="nav-text" exact to="/dangky"> 
+                                    ĐĂNG KÝ
+                                </NavLink>
+                            </li>
+                            <li className="signin"> 
+                                <NavLink className="nav-text" exact to="/dangnhap"> 
+                                    ĐĂNG NHẬP
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                 
                 </div>
             </div>
         </div>

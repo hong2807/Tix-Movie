@@ -45,46 +45,12 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
+                                        </button>
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="table-img">
-                                        <img src="/images/slider4.jpg" alt=""/>
-                                    </td>
-                                    <td>1344</td>
-                                    <td>Tiệc Trăng Máu</td>
-                                    <td>23.10.2020</td>
-                                    <td>7.8</td>
-                                    <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
-                                        <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
-                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="table-img">
-                                        <img src="/images/slider4.jpg" alt=""/>
-                                    </td>
-                                    <td>1344</td>
-                                    <td>Tiệc Trăng Máu</td>
-                                    <td>23.10.2020</td>
-                                    <td>7.8</td>
-                                    <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
-                                        <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
-                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -116,9 +82,9 @@ export default function MovieManagement() {
                                         <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
                                         </button>
-                                        <a className="icon-delete icon-bg">
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -130,12 +96,12 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
+                                        </button>
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -147,12 +113,12 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
+                                        </button>
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -164,12 +130,12 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
+                                        </button>
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -181,12 +147,12 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
+                                        </button>
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -198,12 +164,46 @@ export default function MovieManagement() {
                                     <td>23.10.2020</td>
                                     <td>7.8</td>
                                     <td className="group-icon">
-                                        <a className="icon-edit icon-bg">
+                                        <button className="icon-edit icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </a>
-                                        <a className="icon-delete icon-bg">
+                                        </button>
+                                        <button className="icon-delete icon-bg">
                                         <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <button className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </button>
+                                        <button className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="table-img">
+                                        <img src="/images/slider4.jpg" alt=""/>
+                                    </td>
+                                    <td>1344</td>
+                                    <td>Tiệc Trăng Máu</td>
+                                    <td>23.10.2020</td>
+                                    <td>7.8</td>
+                                    <td className="group-icon">
+                                        <button className="icon-edit icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faEdit} />
+                                        </button>
+                                        <button className="icon-delete icon-bg">
+                                        <FontAwesomeIcon className="icon" icon={faTrashAlt} />
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
