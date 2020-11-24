@@ -26,8 +26,8 @@ export default function DetailUser() {
                 {/* <div className="addUserModal__title">
                     <h4 className="title">Thêm Thành Viên</h4>
                 </div> */}
-                <div className="addUserModal__details">
-                    <div className="addUserModal__details-content">
+                <div className="detailuser__info">
+                    <div className="detailuser__info-content">
                         <Form
                             className="addUserModal__form"
                             labelCol={{ span: 24 }}
@@ -60,26 +60,43 @@ export default function DetailUser() {
                 </div>
                 </TabPane>
                 <TabPane tab="Lịch sử đặt vé" key="2">
-                    <div className="addUserModal__details">
-                        <div className="addUserModal__details-content">
-                           <div className="row">
-                               <div className="col-2">
-                                   <div>
-                                       <img style={{width: 100, height: 120}} src="/images/test.png" alt=""></img>
-                                   </div>
-                               </div>
-                               <div className="col-10">
-                                   <div>
-                                       <p>BHD Star BitexCo</p>
-                                       <p>L3-Bitexco Icon 68, 2 Hải Triều, Quận 1.</p>
-                                       <p>Ngày đặt: 11.10.2020 - Rạp 01 - Ghế A11,A12</p>
-                                   </div>
-                               </div>
-                           </div>
+                    <div className="detailuser__history">
+                        <div className="detailuser__history-content">
+                            <div className="detailuser__history-item mb-5">
+                                <div className="row">
+                                    <div className="col-2">
+                                        <div>
+                                            <img style={{width: 100, height: 120}} src="/images/test.png" alt=""></img>
+                                        </div>
+                                    </div>
+                                    <div className="col-10">
+                                    <div>
+                                        <p>BHD Star BitexCo</p>
+                                        <p>L3-Bitexco Icon 68, 2 Hải Triều, Quận 1.</p>
+                                        <p>Ngày đặt: 11.10.2020 - Rạp 01 - Ghế A11,A12</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div className="detailuser__history-item mb-5">
+                                <div className="row">
+                                    <div className="col-2">
+                                        <div>
+                                            <img style={{width: 100, height: 120}} src="/images/test2.png" alt=""></img>
+                                        </div>
+                                    </div>
+                                    <div className="col-10">
+                                    <div>
+                                        <p>BHD Star BitexCo</p>
+                                        <p>L3-Bitexco Icon 68, 2 Hải Triều, Quận 1.</p>
+                                        <p>Ngày đặt: 11.10.2020 - Rạp 01 - Ghế A11,A12</p>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </TabPane>
-               
             </Tabs>
             </div>
         </div>

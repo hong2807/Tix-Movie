@@ -7,12 +7,29 @@
     background-attachment: fixed;
 
     .ant-tabs {
-        background-color: $color-background-default;
+        background-color: rgba(0,0,0,0.6);
         padding: rem(20);
     }
 
     .ant-tabs-top > .ant-tabs-nav::before {
         border-bottom: unset;
+    }
+
+    .ant-tabs-tab-btn {
+        color: $color-white-default;
+        font-size: rem(20);
+    }
+
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        color: $color-yellow-default;
+    }
+
+    .ant-tabs-ink-bar {
+       background-color: $color-yellow-default;
+    }
+
+    .ant-tabs-tab-btn:focus {
+        color: $color-yellow-default;
     }
 
     .addUserModal__title {
@@ -27,8 +44,8 @@
         }
     }
     
-    .addUserModal__details {
-        .addUserModal__details-content {
+    .detailuser__info {
+        .detailuser__info-content {
             padding: rem(30);
             border-radius: 6px;
             border: 1px solid $color-grey-2;
@@ -45,7 +62,7 @@
             
             .ant-input {
                 color: $color-white-default;
-                background-color: $color-grey-3;
+                background-color: $color-background-default;
                 border: 1px solid transparent;
                 height: 46px;
                 border-radius: 6px;
@@ -95,5 +112,19 @@
                 font-size: rem(16);
             }
         }
+    }
+
+    .detailuser__history {
+        .detailuser__history-content {
+            padding: rem(30);
+            border-radius: 6px;
+            border: 1px solid $color-grey-2;
+            color: $color-white-default;
+
+            p {
+                color: $color-white-default;
+                font-size: rem(16);
+            }
+        } 
     }
 }
