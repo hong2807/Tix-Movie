@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Films.scss";
 import { Tabs } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 import ModalVideo from 'react-modal-video'
-
+import Axios from 'axios'
 
 export default function Films() {
   // Tab anzt
@@ -18,6 +18,30 @@ export default function Films() {
 
   // Popup video
   const [isOpen, setOpen] = useState(false)
+ 
+
+  useEffect(() => {
+    Axios({
+      url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
+      method: 'GET'
+    }).then( (response) => {
+      console.log('Kết quả: ', response.data);
+    }).catch( (error) => {
+      console.log('Lỗi: ', error.data);
+    })
+  }, []);
+
+
+  // const getFilmList = () => {
+  //   Axios({
+  //     url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
+  //     method: 'GET'
+  //   }).then( (response) => {
+  //     console.log('Kết quả: ', response.data);
+  //   }).catch( (error) => {
+  //     console.log('Lỗi: ', error.data);
+  //   })
+  // }
  
 
   return (
@@ -118,6 +142,8 @@ export default function Films() {
         <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
  
         {/* <button className="btn-primary" onClick={()=> setOpen(true)}>VIEW DEMO</button> */}
+      
+      
       </div>
     </div>
   );
