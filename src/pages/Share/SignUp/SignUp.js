@@ -13,7 +13,7 @@ export default function SignUp() {
             </div>
             <form>
                 <div className="row">
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                         <div className="form-left">
                             <h2>Thông tin đăng nhập</h2>
                             <div className="sign__group">
@@ -24,7 +24,7 @@ export default function SignUp() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                         <div className="form-right">
                         <h2>Thông tin cá nhân</h2>
                 <div className="sign__group">

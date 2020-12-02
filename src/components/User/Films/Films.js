@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 import ModalVideo from 'react-modal-video'
 import Axios from 'axios'
+import { getFilmList } from "../../../API/services/FilmsApi";
 
 export default function Films() {
   // Tab anzt
@@ -21,15 +22,19 @@ export default function Films() {
  
 
   useEffect(() => {
-    Axios({
-      url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
-      method: 'GET'
-    }).then( (response) => {
-      console.log('Kết quả: ', response.data);
-    }).catch( (error) => {
-      console.log('Lỗi: ', error.data);
-    })
+    getFilmList()
   }, []);
+
+  // useEffect(() => {
+  //   Axios({
+  //     url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
+  //     method: 'GET'
+  //   }).then( (response) => {
+  //     console.log('Kết quả: ', response.data);
+  //   }).catch( (error) => {
+  //     console.log('Lỗi: ', error.data);
+  //   })
+  // }, []);
 
 
   // const getFilmList = () => {

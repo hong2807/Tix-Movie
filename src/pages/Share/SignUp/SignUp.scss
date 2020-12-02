@@ -73,3 +73,18 @@
         }
     }
 }
+
+
+// Responsive
+@include responsive('large') {
+    
+}
+@include responsive('medium') {
+
+}
+@include responsive('small') {
+  html {
+      font-size: 14px;
+  }
+   
+}

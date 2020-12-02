@@ -2,3 +2,14 @@
     @return $size / $font-size-base-px + rem;
 }
 
+@mixin responsive ($screen) {
+    @if (map-has-key($map:$breakpoints , $key: $screen )) {
+        $value: map-get($map: $breakpoints, $key: $screen);
+        @media screen and (max-width:$value) {
+            @content;
+        }
+    }
+    @else {
+        @warn 'Screen không tồn tại';
+    }
+}

@@ -57,4 +57,21 @@ $font-size-base: 1rem;
 // $mg-5: 30px;
 
 
+//break points
+$breakpoints:(
+    'extra-large': 1200px,
+    'large' : 1024px,
+    'medium' : 768px,
+    'small' : 576px,
+)
 
+// Responsive
+// @include responsive('large') {
+    
+// }
+// @include responsive('medium') {
+
+// }
+// @include responsive('small') {
+    
+// }
