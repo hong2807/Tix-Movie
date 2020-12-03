@@ -3,9 +3,8 @@ import "./Films.scss";
 import { Tabs } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
-import ModalVideo from 'react-modal-video'
-import Axios from 'axios'
-import { getFilmList } from "../../../API/services/FilmsApi";
+import ModalVideo from "react-modal-video";
+import FilmApi from "../../../api/services/FilmApi";
 
 export default function Films() {
   // Tab anzt
@@ -18,40 +17,49 @@ export default function Films() {
   var Coverflow = require("react-coverflow");
 
   // Popup video
-  const [isOpen, setOpen] = useState(false)
- 
+  const [isOpen, setOpen] = useState(false);
+
+  const [listFilm, setListFilm] = useState([]);
 
   useEffect(() => {
-    getFilmList()
+    FilmApi.getFilmList()
+      .then((response) => {
+        console.log("response", response.data);
+        setListFilm(response.data)
+      })
+      .catch((error) => {
+        console.log("error", error.response.data);
+      });
   }, []);
 
-  // useEffect(() => {
-  //   Axios({
-  //     url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
-  //     method: 'GET'
-  //   }).then( (response) => {
-  //     console.log('Kết quả: ', response.data);
-  //   }).catch( (error) => {
-  //     console.log('Lỗi: ', error.data);
-  //   })
-  // }, []);
+  
+  console.log(listFilm)
 
+  const renderListFilmImg = () => {
+    return listFilm.map((value,index)=> {
+      return <img src={value.hinhAnh} key={index} style={{width: 220, height: 330}}/>;
+    })
+  }
 
-  // const getFilmList = () => {
-  //   Axios({
-  //     url: 'https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01',
-  //     method: 'GET'
-  //   }).then( (response) => {
-  //     console.log('Kết quả: ', response.data);
-  //   }).catch( (error) => {
-  //     console.log('Lỗi: ', error.data);
-  //   })
-  // }
- 
+  console.log(renderListFilmImg())
+//   useEffect(() => {
+//     const filmImg = [];
+//    
+//     const init = async () => {
+//           const response = await FilmApi.getFilmList();
+//           filmImg = response.data.map((value, index) => {
+//               return `<li class="mb-3"><img src="${value.hinhAnh}" style="width: 200px; height: 200px"/></li>`;
+//           });
+//           console.log(filmImg);
+//     }
+//         init();
+//         
+//       }, []);
 
   return (
     <div id="films-component" className="films-component component-padding">
       <div className="container">
+      
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
             <Coverflow
@@ -70,22 +78,21 @@ export default function Films() {
               >
                 <img src="/images/slider1.jpg" alt="" style={{ display: "block", width: "100%" }} />
               </div>
-              <div>
+              {renderListFilmImg()}
+              {/* <div>
                 <img src="/images/slider1.jpg" alt="" data-action="" />
               </div>
               <img src="/images/slider2.jpg" alt="" data-action="" />
-              <img src="/images/slider3.png" alt="" data-action="" />
-              <div>
+              <img src="/images/slider3.png" alt="" data-action="" /> */}
+              {/* <div>
                 <div className="film__item">
                   <img className="w-100" src="/images/slider4.jpg" alt="" data-action="" />
                   <div className="film-overlay"></div>
                   <div className="film-icon">
                     <div className="film-group">
-                    {/* <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} /> */}
                       <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faPlayCircle} />
                       <p className="text-center">Trailer</p>
                     </div>
-
                     <div className="film-group">
                     <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
                       <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faInfoCircle} />
@@ -108,23 +115,7 @@ export default function Films() {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                <img className="w-100" src="/images/slider5.jpg" alt="" data-action="" />
-                <h6 className="mb-0 text-center" style={{ color: "white" }}>
-                  SÀI GÒN TRONG MƯA
-                </h6>
-                <div>
-                  <p className="mb-0" style={{ color: "white" }}>
-                    Khởi chiếu: 13/11/2020
-                  </p>
-                  <p style={{ color: "white" }}>8.5</p>
-                </div>
-              </div>
-
-              <img src="/images/slider6.jpg" alt="" data-action="" />
-              <img src="/images/slider7.jpg" alt="" data-action="" />
-              <img src="/images/slider8.jpg" alt="" data-action="" />
+              </div> */}
             </Coverflow>
           </TabPane>
           <TabPane tab="PHIM SẮP CHIẾU" key="2">
@@ -144,11 +135,9 @@ export default function Films() {
           </TabPane>
         </Tabs>
 
-        <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
- 
+        <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
+        
         {/* <button className="btn-primary" onClick={()=> setOpen(true)}>VIEW DEMO</button> */}
-      
-      
       </div>
     </div>
   );
