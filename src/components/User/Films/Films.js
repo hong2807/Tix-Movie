@@ -3,7 +3,7 @@ import "./Films.scss";
 import { Tabs } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
-
+import ModalVideo from "react-modal-video";
 import FilmApi from "../../../api/services/FilmApi";
 import FilmItem from "../FilmItem/FilmItem";
 
@@ -17,10 +17,12 @@ export default function Films() {
   // Coverflow
   var Coverflow = require("react-coverflow");
 
-  var moment = require('moment')
-  var test = moment('2020-12-04T01:53:51+07:00').format('L');
-  console.log(test);
+  // Popup video
+  const [isOpen, setOpen] = useState(false);
+
   const [listFilm, setListFilm] = useState([]);
+
+  const [videoID, setVideoId] = useState();
 
   useEffect(() => {
     FilmApi.getFilmList()
@@ -33,19 +35,24 @@ export default function Films() {
       });
   }, []);
 
-  
-  console.log(listFilm)
 
   const renderListFilm = () => {
     return listFilm.map((value,index) => {
-      return <FilmItem key={index} filmInfo={value}/>
+      return <FilmItem key={index} filmInfo={value} modal={modal}/>
     })
+  }
+  
+  const modal = (videoId) => {
+    setOpen(true)
+    const regex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = videoId.match(regex);
+    setVideoId(((match&&match[7].length === 11)? match[7] : false))
+    console.log(videoId)
   }
 
   return (
     <div id="films-component" className="films-component component-padding">
       <div className="container">
-      
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
           {listFilm.length > 0 && <Coverflow
@@ -64,8 +71,9 @@ export default function Films() {
               >
                 <img src="/images/slider1.jpg" alt="" style={{ display: "block", width: "100%" }} />
               </div>
-            {renderListFilm()}
+              {renderListFilm()}
             </Coverflow>}
+            <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={videoID} onClose={() => setOpen(false)} />
           </TabPane>
           <TabPane tab="PHIM SẮP CHIẾU" key="2">
             <Coverflow width={960} height={480} displayQuantityOfSide={2} navigation={false} enableHeading={false} enableScroll={false}>
@@ -83,10 +91,7 @@ export default function Films() {
             </Coverflow>
           </TabPane>
         </Tabs>
-
-        {/* <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} /> */}
-        
-        {/* <button className="btn-primary" onClick={()=> setOpen(true)}>VIEW DEMO</button> */}
+       
       </div>
     </div>
   );
