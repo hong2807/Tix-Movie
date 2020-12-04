@@ -3,8 +3,9 @@ import "./Films.scss";
 import { Tabs } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
-import ModalVideo from "react-modal-video";
+
 import FilmApi from "../../../api/services/FilmApi";
+import FilmItem from "../FilmItem/FilmItem";
 
 export default function Films() {
   // Tab anzt
@@ -16,9 +17,9 @@ export default function Films() {
   // Coverflow
   var Coverflow = require("react-coverflow");
 
-  // Popup video
-  const [isOpen, setOpen] = useState(false);
-
+  var moment = require('moment')
+  var test = moment('2020-12-04T01:53:51+07:00').format('L');
+  console.log(test);
   const [listFilm, setListFilm] = useState([]);
 
   useEffect(() => {
@@ -35,55 +36,11 @@ export default function Films() {
   
   console.log(listFilm)
 
-  const renderListFilmImg = () => {
-    return listFilm.map((value,index)=> {
-      return <div className="film__wrapper" key={index}>
-      <div className="film__item">
-        <img className="w-100" src={value.hinhAnh} alt="" data-action="" style={{width: 220, height: 330}}/>
-        <div className="film-overlay"></div>
-        <div className="film-icon">
-          <div className="film-group">
-            <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faPlayCircle} />
-            <p className="text-center">Trailer</p>
-          </div>
-          <div className="film-group">
-            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
-            <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faInfoCircle} />
-            <p className="text-center">Detail</p>
-          </div>
-        </div>
-      </div>
-      <div className="film-text">
-        <h6 className="text-center film-name">{value.tenPhim}</h6>
-        <div className="sub-text">
-          <div className="film-calendar">
-            <FontAwesomeIcon className="icon" icon={faCalendarAlt} />
-            <p>Khởi chiếu: Date({value.ngayKhoiChieu})</p>
-          </div>
-          <div className="film-rating">
-            <FontAwesomeIcon className="icon" icon={faStar} />
-            <p>{value.danhGia}</p>
-          </div>
-        </div>
-      </div>
-    </div>           
+  const renderListFilm = () => {
+    return listFilm.map((value,index) => {
+      return <FilmItem key={index} filmInfo={value}/>
     })
   }
-
-  console.log(renderListFilmImg())
-//   useEffect(() => {
-//     const filmImg = [];
-//    
-//     const init = async () => {
-//           const response = await FilmApi.getFilmList();
-//           filmImg = response.data.map((value, index) => {
-//               return `<li class="mb-3"><img src="${value.hinhAnh}" style="width: 200px; height: 200px"/></li>`;
-//           });
-//           console.log(filmImg);
-//     }
-//         init();
-//         
-//       }, []);
 
   return (
     <div id="films-component" className="films-component component-padding">
@@ -91,7 +48,7 @@ export default function Films() {
       
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
-            {listFilm.length > 0 && <Coverflow
+          {listFilm.length > 0 && <Coverflow
               // width={960}
               height={"580"}
               displayQuantityOfSide={2}
@@ -107,42 +64,7 @@ export default function Films() {
               >
                 <img src="/images/slider1.jpg" alt="" style={{ display: "block", width: "100%" }} />
               </div>
-              {renderListFilmImg()}
-              {/* <div>
-                <img src="/images/slider1.jpg" alt="" data-action="" />
-              </div>
-              <img src="/images/slider2.jpg" alt="" data-action="" />
-              <img src="/images/slider3.png" alt="" data-action="" /> */}
-              {/* <div className="film__wrapper">
-                <div className="film__item">
-                  <img className="w-100" src="/images/slider4.jpg" alt="" data-action="" />
-                  <div className="film-overlay"></div>
-                  <div className="film-icon">
-                    <div className="film-group">
-                      <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faPlayCircle} />
-                      <p className="text-center">Trailer</p>
-                    </div>
-                    <div className="film-group">
-                      <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="L61p2uyiMSo" onClose={() => setOpen(false)} />
-                      <FontAwesomeIcon onClick={()=> setOpen(true)} className="icon" icon={faInfoCircle} />
-                      <p className="text-center">Detail</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="film-text">
-                  <h6 className="text-center film-name">SÀI GÒN TRONG MƯA</h6>
-                  <div className="sub-text">
-                    <div className="film-calendar">
-                      <FontAwesomeIcon className="icon" icon={faCalendarAlt} />
-                      <p>Khởi chiếu: 13/11/2020</p>
-                    </div>
-                    <div className="film-rating">
-                      <FontAwesomeIcon className="icon" icon={faStar} />
-                      <p>8.5</p>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+            {renderListFilm()}
             </Coverflow>}
           </TabPane>
           <TabPane tab="PHIM SẮP CHIẾU" key="2">

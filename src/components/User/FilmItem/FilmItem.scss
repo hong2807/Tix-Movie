@@ -1,0 +1,11 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.filmitem-component {
+    .modal-video {
+        width: rem(500);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2000;
+    }
+}
