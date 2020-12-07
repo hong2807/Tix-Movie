@@ -72,18 +72,12 @@
                 background-color: $color-background-default;
                 padding: rem(15);
                 margin-bottom: rem(25);
-                text-align: center;
+                border-radius: 15px;
+                cursor: pointer;
                 
                 .inside {
 
-                    img {
-                        width: rem(80);
-                        height: rem(80);
-                        border-radius: 50%;
-                    }
-
                     .inside-text {
-                        margin-top: rem(10);
 
                         .title {
                             color: $color-white-default;
@@ -98,18 +92,29 @@
                 }
 
                 .detail {
-                    font-size: rem(14);
+                    font-size: rem(13);
                     font-weight: bold;
-                    text-align: center;
-                    padding: rem(5) 0;
-                    border: 1px solid $color-green-0;
-                    border-radius: 5px;
+                    text-align: right;
                     cursor: pointer;
-                    transition: all 0.2s;
+
+                    .more-detail {
+                        margin-left: 5px;
+                    }
+
+                    svg {
+                        width: rem(5);
+                    }
 
                     &:hover {
-                        background-color: $color-green-0;
-                        color: $color-black-0;
+                        a {
+                            color: $color-green-0;
+                        }
+
+                        svg {
+                            path {
+                                color: $color-green-0;
+                            }
+                        }
                     }
                 }
             }

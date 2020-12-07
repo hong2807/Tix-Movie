@@ -12,7 +12,7 @@ export default function FilmItem(props) {
         <div className="filmitem-component">
               <div className="film__wrapper">
                 <div className="film__item">
-                  <img style={{width: 220, height: 330}} src={props.filmInfo.hinhAnh} alt="" data-action="" />
+                  <img className="w-100" src={props.filmInfo.hinhAnh} alt="" data-action="" />
                   <div className="film-overlay"></div>
                   <div className="film-icon">
                     <div className="film-group">

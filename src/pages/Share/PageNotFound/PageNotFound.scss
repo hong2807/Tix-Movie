@@ -1,0 +1,35 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+.page404-component {
+    background-image: url('/images/signin-bg.jpg');
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .page404__content  {
+        padding: rem(50);
+        background-color: $color-background-default;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+
+        .page404__title {
+            color: $color-yellow-default;
+            font-size: rem(120);
+            margin-bottom: 0;
+        }
+
+        .page404__btn {
+            color: $color-white-default;
+            border: 1px solid $color-yellow-default;
+            text-align: center;
+            padding: rem(10) rem(40);
+            margin-top: rem(20);
+        }
+    }
+}
