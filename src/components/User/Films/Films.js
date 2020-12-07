@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Films.scss";
 import { Tabs } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 import ModalVideo from "react-modal-video";
 import FilmApi from "../../../api/services/FilmApi";
 import FilmItem from "../FilmItem/FilmItem";

@@ -98,11 +98,11 @@ export default function Header() {
                 <span></span>
                 <span></span>
             <ul id="menu">
-              <li><a href="#">Lịch Chiếu</a></li>
-              <li><a href="#">Cụm Rạp</a></li>
-              <li><a href="#">Ứng Dụng</a></li>
-              <li><a href="#">Đăng nhập</a></li>
-              <li><a href="#">Đăng ký</a></li>
+              <li><a href="./">Lịch Chiếu</a></li>
+              <li><a href="./">Cụm Rạp</a></li>
+              <li><a href="./">Ứng Dụng</a></li>
+              <li><a href="./">Đăng nhập</a></li>
+              <li><a href="./">Đăng ký</a></li>
             </ul>
            </div>
           </nav>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './FilmItem.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";

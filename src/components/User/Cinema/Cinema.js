@@ -8,6 +8,7 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 export default function Cinema() {
     // Moment
     var moment = require('moment')
+
     const [cinemaList, setCinemaList] = useState([]);
 
     const [cinemaDetailList, setCinemaDetailList] = useState([]);
@@ -19,7 +20,7 @@ export default function Cinema() {
     useEffect(() => {
         CinemaApi.getCinemaList()
             .then((response) => {
-                console.log("response", response.data);
+                console.log("cinemaList", response.data);
                 setCinemaList(response.data)
             })
             .catch((error) => {
@@ -37,7 +38,7 @@ export default function Cinema() {
             .catch((error) => {
                 console.log("error", error.response.data);
         });
-    },[])
+    }, [])
 
     const renderCinemaList = () => {
         return cinemaList.map((item,index) => {
@@ -130,7 +131,6 @@ export default function Cinema() {
                             {renderCinemaList()}
                         </ul>
                     </div>
-
                     <div className="cinema__detail scrollbarCinema styleScrollBar ">
                         <div className="cinema__detailContent "> 
                             <div className="row">
