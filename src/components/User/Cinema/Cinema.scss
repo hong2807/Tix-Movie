@@ -74,6 +74,10 @@
                 margin-bottom: rem(25);
                 border-radius: 15px;
                 cursor: pointer;
+
+                &.active {
+                    border: 2px solid $color-green-0;
+                }
                 
                 .inside {
 
