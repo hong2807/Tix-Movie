@@ -166,12 +166,26 @@
 
             .detailFilm__left {
                 .detailFilm__leftItem {
+                    width: 80%;
+                    background-color: $color-background-default;
+                    padding: rem(15);
+                    margin-bottom: rem(25);
+                    border-radius: 15px;
+                    cursor: pointer;
+
+                    &.active {
+                        border: 2px solid $color-green-0;
+                    }
                 
                     .inside {
                         .title {
                             color: $color-white-default;
-                            margin-bottom: 0;
                             font-size: rem(16);
+                        }
+
+                        p {
+                            color: $color-grey-1;
+                            font-size: rem(12);
                         }
                     }
                 }

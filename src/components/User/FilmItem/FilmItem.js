@@ -2,12 +2,10 @@ import React from 'react'
 import './FilmItem.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
+import utils from '../../../helper/utils';
 
 export default function FilmItem(props) {
-  // Moment
-  var moment = require('moment')
 
- 
     return (
         <div className="filmitem-component">
               <div className="film__wrapper">
@@ -32,7 +30,7 @@ export default function FilmItem(props) {
                   <div className="sub-text">
                     <div className="film-calendar">
                         <FontAwesomeIcon className="icon" icon={faCalendarAlt} />
-                        <p>Khởi chiếu: {moment(props.filmInfo.ngayKhoiChieu).format('L')}</p>
+                        <p>Khởi chiếu: {utils.handleDate(props.filmInfo.ngayKhoiChieu)}</p>
                     </div>
                     <div className="film-rating">
                       <FontAwesomeIcon className="icon" icon={faStar} />

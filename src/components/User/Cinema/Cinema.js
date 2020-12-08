@@ -3,12 +3,10 @@ import CinemaApi from '../../../api/services/CinemaApi'
 import './Cinema.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import utils from '../../../helper/utils';
 
 
 export default function Cinema() {
-    // Moment
-    var moment = require('moment')
-
     const [cinemaList, setCinemaList] = useState([]);
 
     const [cinemaDetailList, setCinemaDetailList] = useState([]);
@@ -90,9 +88,8 @@ export default function Cinema() {
     }
 
     const renderTicket = (timeList) => {
-        // console.log('timeList',timeList);
         return timeList.map((item,index) => {
-            return <li key={index}><a href="./">{moment(item.ngayChieuGioChieu).format('kk:ss')}</a></li>
+            return <li key={index}><a href="./">{utils.handleTime(item.ngayChieuGioChieu)}</a></li>
         })
     }
 
