@@ -23,8 +23,8 @@ function App() {
       <Preloader/>
         <Switch>
           <UserTemplate exact path='/home' Component={Home}></UserTemplate>
-          <UserTemplate exact path='/phim' Component={DetailFilm}></UserTemplate>
-          <UserTemplate exact path='/rapphim' Component={DetailCinema}></UserTemplate>
+          <UserTemplate exact path='/phim/:maphim' Component={DetailFilm}></UserTemplate>
+          <UserTemplate exact path='/rapphim/:marapphim/:chitietrapphim' Component={DetailCinema}></UserTemplate>
           <UserTemplate exact path='/nguoidung' Component={DetailUser}></UserTemplate>
           <UserTemplate exact path='/datve' Component={Booking}></UserTemplate>
 

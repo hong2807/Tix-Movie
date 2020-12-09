@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlayCircle, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 import FilmApi from '../../../api/services/FilmApi';
 import utils from '../../../helper/utils';
+import ModalVideo from "react-modal-video";
+import { Link } from "react-scroll";
 
-export default function DetailFilm() {
+export default function DetailFilm(props) {
     const [filmDetail,setFilmDetail] = useState([]);
 
     const [cinemaList,setCinemaList] = useState([]);
@@ -14,8 +16,12 @@ export default function DetailFilm() {
 
     const [cinemaDetailList,setCinemaDetailList] = useState([]);
 
+    // Popup video
+    const [isOpen, setOpen] = useState(false);
+
     useEffect( () => {
-        FilmApi.getFilmDetail()
+        const maPhim = props.match.params.maphim
+        FilmApi.getFilmDetail(maPhim)
         .then(response => {
             console.log('filmdetail',response.data);
             setFilmDetail(response.data);
@@ -23,13 +29,13 @@ export default function DetailFilm() {
             setCinemaDetailList(response.data.heThongRapChieu[0].cumRapChieu);
         })
         .catch(error => {
-            console.log('filmdetail',error.data);
+            console.log('error',error.response.data);
         })
-    })
+    },[])
 
     const renderCinemaList = () => {
         return cinemaList.map((item,index) => {
-            return  <li key={index} className={activeCinema === index ? 'active text-capitalize' : 'text-capitalize'} onClick={ () => {setActiveCinema(index)}}>
+            return  <li key={index} className={activeCinema === index ? 'active text-capitalize' : 'text-capitalize'} onClick={ () => {setActiveCinema(index); setCinemaDetailList(cinemaList[index].cumRapChieu)}}>
                 <img src={item.logo} alt={item.logo}/>
                 <br></br>
                 {item.tenHeThongRap}
@@ -45,7 +51,7 @@ export default function DetailFilm() {
 
     const renderCinemaDetailList = () => {
         return cinemaDetailList.map((item,index) => {
-            return  <div className="detailFilm__timeItem">
+            return  <div className="detailFilm__timeItem" key={index}>
             <div className="row">
                 <div className="col-5">
                     <div className="detailFilm__left">
@@ -103,14 +109,23 @@ export default function DetailFilm() {
                                     </li>
                                 </ul>
                                 <div className="group-btn mt-3">
-                                    <a href="./" className="btn mr-3">
-                                    <FontAwesomeIcon className="icon" icon={faPlayCircle} />
-                                    Trailer
-                                </a>
-                                    <a href="./" className="btn">
-                                    <FontAwesomeIcon className="icon" icon={faTicketAlt} />
-                                    Mua vé
-                                </a>
+                                <ModalVideo channel='youtube' autoplay isOpen={isOpen}  videoId={filmDetail.trailer && utils.getVideoIdFromYoutubeLink(filmDetail.trailer)} onClose={() => setOpen(false)} />
+                                    <button className="btn btn-trailer btn-film mr-3" onClick={()=> setOpen(true)}>
+                                        
+                                        <FontAwesomeIcon className="icon" icon={faPlayCircle}/>
+                                        Trailer
+                                    </button>
+                                    <Link
+                                        className="btn btn-film"
+                                        to="detailFilm__showtimes"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-80}
+                                        duration={500}
+                                    >
+                                        <FontAwesomeIcon className="icon" icon={faTicketAlt} />
+                                        Mua vé
+                                    </Link>
                                 </div>
                             </div>
                         </div>

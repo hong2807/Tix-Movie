@@ -3,6 +3,7 @@ import './FilmItem.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt, faInfoCircle, faPlayCircle, faStar } from "@fortawesome/free-solid-svg-icons";
 import utils from '../../../helper/utils';
+import { Link } from "react-router-dom";
 
 export default function FilmItem(props) {
 
@@ -19,10 +20,10 @@ export default function FilmItem(props) {
                       }} className="icon" icon={faPlayCircle} />
                       <p className="text-center">Trailer</p>
                     </div>
-                    <div className="film-group">
+                    <Link to={`/phim/${props.filmInfo.maPhim}`}className="film-group">
                       <FontAwesomeIcon  className="icon" icon={faInfoCircle} />
                       <p className="text-center">Detail</p>
-                    </div>
+                    </Link>
                   </div>
                 </div>
                 <div className="film-text">

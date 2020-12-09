@@ -4,6 +4,7 @@ import { Tabs } from "antd";
 import ModalVideo from "react-modal-video";
 import FilmApi from "../../../api/services/FilmApi";
 import FilmItem from "../FilmItem/FilmItem";
+import utils from "../../../helper/utils";
 
 export default function Films() {
   // Tab anzt
@@ -40,12 +41,9 @@ export default function Films() {
     })
   }
   
-  const modal = (videoId) => {
-    setOpen(true)
-    const regex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    var match = videoId.match(regex);
-    setVideoId(((match&&match[7].length === 11)? match[7] : false))
-    console.log(videoId)
+  const modal = (videoLink) => {
+    setOpen(true);
+    setVideoId(utils.getVideoIdFromYoutubeLink(videoLink));
   }
 
   return (

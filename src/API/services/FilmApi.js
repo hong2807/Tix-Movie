@@ -4,9 +4,9 @@ const FilmApi = {
   getFilmList: () =>
     callApi
       .get("QuanLyPhim/LayDanhSachPhim?maNhom=GP01"),
-  getFilmDetail: () =>
+  getFilmDetail: (Id) =>
       callApi
-        .get("QuanLyRap/LayThongTinLichChieuPhim?MaPhim=1314"),
+        .get(`QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${Id}`),
 
 };
 export default FilmApi;

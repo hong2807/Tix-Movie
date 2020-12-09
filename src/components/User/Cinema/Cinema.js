@@ -4,7 +4,7 @@ import './Cinema.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import utils from '../../../helper/utils';
-
+import { Link } from "react-router-dom";
 
 export default function Cinema() {
     const [cinemaList, setCinemaList] = useState([]);
@@ -67,7 +67,7 @@ export default function Cinema() {
     const renderCinemaDetailList = () => {
         console.log(cinemaDetailList)
         return cinemaDetailList.map((item,index) => {
-            return <div className={activeCinema === index ? 'active cinema__addressItem' : 'cinema__addressItem'} key={index} onClick={ () => {
+            return <Link to={`/rapphim/${selectedActive}/${item.maCumRap}`} className={activeCinema === index ? 'active cinema__addressItem' : 'cinema__addressItem'} key={index} onClick={ () => {
                 setShowtimeDetailList(item.danhSachPhim);
                 setActiveCinema(index)
                 }
@@ -83,7 +83,7 @@ export default function Cinema() {
                 <FontAwesomeIcon icon={faChevronRight} />
                 <a href="./" className="more-detail">Xem chi tiết</a>
             </div>                   
-        </div>
+        </Link>
         })
     }
 
