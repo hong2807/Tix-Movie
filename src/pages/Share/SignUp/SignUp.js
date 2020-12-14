@@ -3,8 +3,10 @@ import './SignUp.scss'
 import { NavLink } from 'react-router-dom'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Swal from "sweetalert2"; 
+import UserApi from '../../../api/services/UserApi';
 
-export default function SignUp() {
+export default function SignUp(props) {
     const SignupSchema = Yup.object().shape({
         taiKhoan: Yup.string().required('Đây là trường bắt buộc'),
         matKhau: Yup.string().required('Đây là trường bắt buộc'),
@@ -20,12 +22,52 @@ export default function SignUp() {
             hoTen: '',
             email: '',
             soDt: '',
+            maLoaiNguoiDung: 'KhachHang',
+            maNhom: 'GP01'
         },
         validationSchema: SignupSchema,
-        onSubmit: values => {
-            console.log(values)
+        onSubmit: (values, {resetForm}) => {
+            console.log(values);
+            UserApi.createUser(values).then(response => {
+                Swal.fire({
+                    title: 'Bạn đã tạo tài khoản thành công',
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Đến trang đăng nhập',
+                    cancelButtonText: 'Ở lại'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                        return props.history.replace('./dangnhap')
+                    } else {
+                        resetForm({values: ''});
+                    }
+                })
+            }).catch(error => {
+                Swal.fire({
+                    title: 'Tạo tài khoản không thành công',
+                    icon: 'error',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Thử lại',
+                  })
+            })
         },
     });
+
+   
+
+    // Modal confirm
+    const HandleClick = () => {   
+        Swal.fire({
+            title: 'Tạo tài khoản không thành công',
+            icon: 'error',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Thử lại',
+          })
+    }
     
     return (
         <div className="signup-component">
@@ -35,6 +77,7 @@ export default function SignUp() {
                     <span>Tix</span>Movie
                 </NavLink>
             </div>
+            <button className='btn btn-success' onClick={HandleClick}>Click me</button>
             <form onSubmit={formik.handleSubmit}>
                 <div className="row">
                     <div className="col-12 col-md-6">
