@@ -1,8 +1,32 @@
 import React from 'react'
 import './SignUp.scss'
 import { NavLink } from 'react-router-dom'
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export default function SignUp() {
+    const SignupSchema = Yup.object().shape({
+        taiKhoan: Yup.string().required('Đây là trường bắt buộc'),
+        matKhau: Yup.string().required('Đây là trường bắt buộc'),
+        hoTen: Yup.string().required('Đây là trường bắt buộc'),
+        email: Yup.string().required('Đây là trường bắt buộc').email('Email không hợp lệ'),
+        soDt: Yup.string().required('Đây là trường bắt buộc').matches(/^[0-9]+$/, 'Số điện thoại không hợp lệ')
+    });
+
+    const formik = useFormik({
+        initialValues: {
+            taiKhoan: '',
+            matKhau: '',
+            hoTen: '',
+            email: '',
+            soDt: '',
+        },
+        validationSchema: SignupSchema,
+        onSubmit: values => {
+            console.log(values)
+        },
+    });
+    
     return (
         <div className="signup-component">
             <div className="sign__content">
@@ -11,31 +35,65 @@ export default function SignUp() {
                     <span>Tix</span>Movie
                 </NavLink>
             </div>
-            <form>
+            <form onSubmit={formik.handleSubmit}>
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <div className="form-left">
                             <h2>Thông tin đăng nhập</h2>
                             <div className="sign__group">
-                                <input type="text" className="form-control"  placeholder="Tên tài khoản" />
+                                <input type="text" name="taiKhoan" 
+                                className="form-control"  
+                                placeholder="Tên tài khoản"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.taiKhoan}/>
+                                 {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger">{formik.errors.taiKhoan}</small>}
                             </div>
                             <div className="sign__group">
-                                <input type="password" className="form-control" placeholder="Mật khẩu" />
+                                <input type="password" 
+                                name="matKhau" 
+                                className="form-control" 
+                                placeholder="Mật khẩu" 
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.matKhau}/>
+                                 {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
                             </div>
                         </div>
                     </div>
                     <div className="col-12 col-md-6">
                         <div className="form-right">
-                        <h2>Thông tin cá nhân</h2>
-                <div className="sign__group">
-                    <input type="text" className="form-control"  placeholder="Họ Tên" />
-                </div>
-                <div className="sign__group">
-                    <input type="email" className="form-control" placeholder="Email" />
-                </div>
-                <div className="sign__group">
-                    <input type="text" className="form-control" placeholder="Số điện thoại" />
-                </div>
+                            <h2>Thông tin cá nhân</h2>
+                            <div className="sign__group">
+                                <input type="text" 
+                                name="hoTen" 
+                                className="form-control"  
+                                placeholder="Họ Tên" 
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.hoTen}/>
+                                 {formik.errors.hoTen && formik.touched.hoTen && <small className="text-danger">{formik.errors.hoTen}</small>}
+                            </div>
+                            <div className="sign__group">
+                                <input type="email" 
+                                name="email" 
+                                className="form-control" 
+                                placeholder="Email" 
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.email}/>
+                                {formik.errors.email && formik.touched.email && <small className="text-danger">{formik.errors.email}</small>}
+                            </div>
+                            <div className="sign__group">
+                                <input type="text" 
+                                name="soDt" 
+                                className="form-control" 
+                                placeholder="Số điện thoại" 
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.soDt}/>
+                                 {formik.errors.soDt && formik.touched.soDt && <small className="text-danger">{formik.errors.soDt}</small>}
+                            </div>
                         </div>
                     </div>
                 </div>

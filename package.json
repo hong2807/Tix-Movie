@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.7.0",
     "axios": "^0.20.0",
+    "formik": "^2.2.6",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -31,7 +32,8 @@
     "styled-components": "^5.2.0",
     "sweetalert2": "^10.10.1",
     "sweetalert2-react-content": "^3.2.1",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.8.10",
+    "yup": "^0.32.8"
   },
   "scripts": {
     "start": "react-scripts start",
