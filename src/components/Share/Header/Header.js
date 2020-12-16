@@ -5,7 +5,14 @@ import { Link } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
-export default function Header() {
+export default function Header(props) {
+  const clearLocalstorage = () => {
+    console.log('clearLocalstorage');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('maLoaiNguoiDung');
+    localStorage.removeItem('token');
+    props.history.replace('/dangnhap');
+  }
 
   return (
     <div className="header-component">
@@ -51,28 +58,27 @@ export default function Header() {
           </ul>
           <div className="header__logo animate__swing">
             <NavLink exact to="/home">
-              {" "}
+              
               <span>Tix</span>Movie
             </NavLink>
           </div>
           <div className="header__right">
-            <div className="header__user d-none">
+            {localStorage.getItem('token') ? <div className="header__user">
               Xin chào,
               <div className="header__avatar">
                 <FontAwesomeIcon className="icon" icon={faUserCircle} />
               </div>
               <div className="header__text">
                 <NavLink className="nav-text" exact to="/nguoidung">
-                  honghuynh
+                  {localStorage.getItem('userName')}
                 </NavLink>
               </div>
-              <li className="signout">
-                <NavLink className="nav-text" exact to="/dangnhap">
+              <li className="signout" onClick={clearLocalstorage}>
+                <p className="nav-text">
                   ĐĂNG XUẤT
-                </NavLink>
+                </p>
               </li>
-            </div>
-            <ul className="header__sign">
+            </div> :  <ul className="header__sign">
               <li className="signup">
                 <NavLink className="nav-text" exact to="/dangky">
                   ĐĂNG KÝ
@@ -83,7 +89,10 @@ export default function Header() {
                   ĐĂNG NHẬP
                 </NavLink>
               </li>
-            </ul>
+            </ul>}
+            
+
+           
           </div>
         </div>
 

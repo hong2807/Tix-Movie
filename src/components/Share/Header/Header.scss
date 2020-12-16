@@ -22,8 +22,6 @@
     }
 
     .header__left {
- 
-
       .nav-item {
         padding: 0 rem(20);
         transition: all 0.2s ease-in;
@@ -86,7 +84,7 @@
             
           }
 
-          &:hover a {
+          &:hover .nav-text {
             color: $color-black-0;
             font-weight: bold;
           }
@@ -97,7 +95,7 @@
             height: 100%;
             line-height: 38px;
             color: $color-grey-default;
-           
+            cursor: pointer;
           }
         }
         

@@ -12,7 +12,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 export const UserTemplate = ({ Component, ...restProps }) => {
     return <Route {...restProps} render={(propsRoute) => {
         return <Fragment>
-            <Header></Header>
+            <Header {...propsRoute}></Header>
             <div style={{paddingTop: 80}}>
                 <Component {...propsRoute} />
             </div>

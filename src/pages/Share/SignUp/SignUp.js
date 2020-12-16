@@ -39,7 +39,7 @@ export default function SignUp(props) {
                     cancelButtonText: 'Ở lại'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                        return props.history.replace('./dangnhap')
+                        return props.history.replace('/dangnhap')
                     } else {
                         resetForm({values: ''});
                     }
@@ -51,7 +51,7 @@ export default function SignUp(props) {
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Thử lại',
-                  })
+                })
             })
         },
     });
@@ -84,13 +84,14 @@ export default function SignUp(props) {
                         <div className="form-left">
                             <h2>Thông tin đăng nhập</h2>
                             <div className="sign__group">
-                                <input type="text" name="taiKhoan" 
+                                <input type="text" 
+                                name="taiKhoan" 
                                 className="form-control"  
                                 placeholder="Tên tài khoản"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.taiKhoan}/>
-                                 {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger">{formik.errors.taiKhoan}</small>}
+                                {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger">{formik.errors.taiKhoan}</small>}
                             </div>
                             <div className="sign__group">
                                 <input type="password" 
@@ -100,7 +101,7 @@ export default function SignUp(props) {
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.matKhau}/>
-                                 {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
+                                {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
                             </div>
                         </div>
                     </div>

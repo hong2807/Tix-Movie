@@ -4,6 +4,10 @@ const UserApi = {
   createUser: (data) =>
     callApi
       .post("QuanLyNguoiDung/DangKy", data),
+
+  signIn: (data) =>
+      callApi
+        .post("QuanLyNguoiDung/DangNhap", data),
       
 };
 export default UserApi;
