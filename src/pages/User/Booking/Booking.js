@@ -7,6 +7,12 @@ export default function Booking() {
 
     const[filmInfo,setFilmInfo] = useState({});
 
+    const[chairSelected,setChairSelected] = useState([]);
+
+    // const[ticketPrice,setTicketPrice] = useState(0);
+
+    // const[countTicket,setCountTicket] = useState(0);
+
     useEffect( () => {
         BookingApi.getChairList()
         .then ( response => {
@@ -21,16 +27,36 @@ export default function Booking() {
 
     const renderChairList =  () => {
         return chairList.map((item,index) => {
-            return <li onClick={ () => getIdGhe(item.tenGhe)} className={item.loaiGhe === 'Thuong' ? 'normal' : 'vip'} key={index}>{item.tenGhe}</li>
+            return <li onClick={ () => getChairInfo(item)} className={item.daDat ? 'selected' : item.loaiGhe === 'Thuong' ? 'normal' : 'vip'} key={index}>{item.tenGhe}</li>
         })
     }
 
+    const getChairInfo = (item) => {
+        // chairSelected.push(IdGhe);
+        // let chairListSelected = [...chairSelected];
+        // setChairSelected(chairListSelected);
+       
+        // setTicketPrice(ticketPrice + giaVe);
 
+        // setCountTicket(countTicket + 1);
 
-    const getIdGhe = (IdGhe) => {
-        console.log(IdGhe);
-        return  IdGhe
+        chairSelected.push(item);
+        let chairListSelected = [...chairSelected];
+        setChairSelected(chairListSelected);
     }
+
+    const normalListSelected = chairSelected.filter((item) => {
+        return item.loaiGhe === "Thuong"
+    })
+    
+    const vipListSelected = chairSelected.filter((item) => {
+        return item.loaiGhe === "Vip"
+    })
+
+    
+    console.log('chairSelected',chairSelected);
+    console.log('normalListSelected',normalListSelected);
+    console.log('vipListSelected',vipListSelected);
 
     return (
         <div className="booking-component component-padding">
@@ -293,15 +319,40 @@ export default function Booking() {
                                                 Tix <span>Movie</span>
                                             </h1>
 
-                                            <div className="d-flex justify-content-between list-ticket-price">
-                                                <div className='ticket-type'>Vé Thường:</div><div className='ticket-price'>2 x 75,000</div>
+                                            {normalListSelected.length > 0 &&  <div className="d-flex justify-content-between list-ticket-price">
+                                                <div className='ticket-type'>Vé Thường:</div><div className='ticket-price'>{normalListSelected.length} x {normalListSelected[0].giaVe}</div>
+                                            </div>}
+
+                                            {vipListSelected.length > 0 && <div className="d-flex justify-content-between list-ticket-price">
+                                                <div className='ticket-type'>Vé Vip:</div><div className='ticket-price'>{vipListSelected.length} x {vipListSelected[0].giaVe}</div>
+                                            </div>}
+
+                                            
+                                          
                                                 {/* <div className='list-seat-detail'>(B1, B2)</div> */}
-                                                <div className='list-seat-detail'></div>
+                                            <div className="d-flex justify-content-between list-ticket-price">
+                                                <div className='ticket-type'>Ghế:</div>
+                                                {chairSelected.length > 0 && <div className='ticket-price'>
+                                                   ( {chairSelected.map((item) => {
+                                                        return item.tenGhe
+                                                    }).toString()} ) 
+                                                </div>}
+                                                
                                             </div>
+                                            {/* <div className='list-seat-detail text-right'>
+                                                <div className='ticket-type'>Ghế:</div>
+                                             
+                                            </div>
+                                             */}
 
                                             <div className='price-total'>
                                                 <span>Tổng Tiền</span>
-                                                <h3>156,000 VNĐ</h3>
+                                                {chairSelected.length > 0 && <h3>  
+                                                    {chairSelected.reduce((total,item) => {
+                                                            return total + item.giaVe
+                                                        },0)}
+                                                    </h3>
+                                                }
                                             </div>
                                         </div>
                                     </div>

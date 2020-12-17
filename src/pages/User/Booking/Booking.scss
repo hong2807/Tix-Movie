@@ -157,10 +157,15 @@
             font-weight: bold;
           }
 
-          .list-seat-detail {
-            width: 100%;
-            text-align: right;
-          }
+          // .list-seat-detail {
+          //   width: 100%;
+          //   text-align: right;
+          // }
+        }
+
+        .list-seat-detail {
+          font-size: rem(14);
+          color: $color-grey-7;
         }
 
         .price-total {
