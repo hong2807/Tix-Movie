@@ -26,7 +26,7 @@ export default function DetailCinema(props) {
             })
 
             const listBranch = response.data[0].lstCumRap.filter((item) => {
-                return item.maCumRap != maChiTietRap
+                return item.maCumRap !== maChiTietRap
             })
 
             setCinemaDetail(cinemaFilter[0]);

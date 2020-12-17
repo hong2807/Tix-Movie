@@ -1,7 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import BookingApi from '../../../api/services/BookingApi';
 import './Booking.scss'
 
 export default function Booking() {
+    const[chairList,setChairList] = useState([]);
+
+    const[filmInfo,setFilmInfo] = useState({});
+
+    useEffect( () => {
+        BookingApi.getChairList()
+        .then ( response => {
+            console.log('chairList',response.data);
+            setChairList(response.data.danhSachGhe);
+            setFilmInfo(response.data.thongTinPhim);
+        })
+        .catch (error => {
+            console.log('chairList',error.response.data)
+        })
+    },[])
+
+    const renderChairList =  () => {
+        return chairList.map((item,index) => {
+            return <li onClick={ () => getIdGhe(item.tenGhe)} className={item.loaiGhe === 'Thuong' ? 'normal' : 'vip'} key={index}>{item.tenGhe}</li>
+        })
+    }
+
+
+
+    const getIdGhe = (IdGhe) => {
+        console.log(IdGhe);
+        return  IdGhe
+    }
+
     return (
         <div className="booking-component component-padding">
             <div className="container">
@@ -35,7 +65,8 @@ export default function Booking() {
                                         <div className="col-10">
                                             <div className="booking-seats">
                                                 <ul>
-                                                    <li className='normal'>1</li>
+                                                    {renderChairList()}
+                                                    {/* <li className='normal'>1</li>
                                                     <li className='normal'>2</li>
                                                     <li className='normal'>3</li>
                                                     <li className='normal'>4</li>
@@ -194,7 +225,7 @@ export default function Booking() {
                                                     <li className='normal'>157</li>
                                                     <li className='normal'>158</li>
                                                     <li className='normal'>159</li>
-                                                    <li className='normal'>160</li>
+                                                    <li className='normal'>160</li> */}
                                                 </ul>
                                             </div>
                                         </div>
@@ -228,24 +259,24 @@ export default function Booking() {
                                             <div className='content'>
                                                 <div className="title">
                                                 <span>Phim</span>
-                                                <h2>Tiệc Trăng Máu</h2>
+                                                <h2>{filmInfo.tenPhim}</h2>
                                                 </div>
                                                 <div className="name">
                                                 <span>Rạp</span>
-                                                <h2>BHD Star - Bitexco </h2>
+                                                <h2>{filmInfo.tenCumRap}</h2>
                                                 </div>
                                                 <div className="seat">
                                                 <span>Ngày</span>
-                                                <h2>11/11/2020</h2>
+                                                <h2>{filmInfo.ngayChieu}</h2>
                                                 </div>
                                                 <div className="time">
                                                 <span>Giờ</span>
-                                                <h2>12:00</h2>
+                                                <h2>{filmInfo.gioChieu}</h2>
                                                 </div>
                                                 <div className="clear"></div>
                                                 <div className="name">
                                                     <span>Rạp</span>
-                                                    <h2>7</h2>
+                                                    <h2>{filmInfo.tenRap}</h2>
                                                 </div>
                                                 <div className="name">
                                                     <span>Email</span>
@@ -264,7 +295,8 @@ export default function Booking() {
 
                                             <div className="d-flex justify-content-between list-ticket-price">
                                                 <div className='ticket-type'>Vé Thường:</div><div className='ticket-price'>2 x 75,000</div>
-                                                <div className='list-seat-detail'>(B1, B2)</div>
+                                                {/* <div className='list-seat-detail'>(B1, B2)</div> */}
+                                                <div className='list-seat-detail'></div>
                                             </div>
 
                                             <div className='price-total'>
