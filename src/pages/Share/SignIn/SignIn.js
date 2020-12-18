@@ -25,6 +25,8 @@ export default function SignIn(props) {
           localStorage.setItem('userName', response.data.taiKhoan);
           localStorage.setItem('token', response.data.accessToken);
           localStorage.setItem('maLoaiNguoiDung', response.data.maLoaiNguoiDung);
+          localStorage.setItem('email', response.data.email);
+          localStorage.setItem('soDt', response.data.soDt);
           props.history.replace('/home')
         }).catch(error => {
           console.log('error',error.response.data);

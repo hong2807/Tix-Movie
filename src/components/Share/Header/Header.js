@@ -11,6 +11,8 @@ export default function Header(props) {
     localStorage.removeItem('userName');
     localStorage.removeItem('maLoaiNguoiDung');
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    localStorage.removeItem('soDt');
     props.history.replace('/dangnhap');
   }
 

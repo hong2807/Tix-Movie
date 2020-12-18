@@ -26,7 +26,7 @@ function App() {
           <UserTemplate exact path='/phim/:maphim' Component={DetailFilm}></UserTemplate>
           <UserTemplate exact path='/rapphim/:marapphim/:chitietrapphim' Component={DetailCinema}></UserTemplate>
           <UserTemplate exact path='/nguoidung' Component={DetailUser}></UserTemplate>
-          <UserTemplate exact path='/datve' Component={Booking}></UserTemplate>
+          <UserTemplate exact path='/datve/:maLichChieu' Component={Booking}></UserTemplate>
 
 
           <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>

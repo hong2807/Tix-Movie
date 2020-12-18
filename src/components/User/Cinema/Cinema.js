@@ -65,7 +65,6 @@ export default function Cinema() {
     }
 
     const renderCinemaDetailList = () => {
-        console.log(cinemaDetailList)
         return cinemaDetailList.map((item,index) => {
             return <Link to={`/rapphim/${selectedActive}/${item.maCumRap}`} className={activeCinema === index ? 'active cinema__addressItem' : 'cinema__addressItem'} key={index} onClick={ () => {
                 setShowtimeDetailList(item.danhSachPhim);
@@ -89,7 +88,7 @@ export default function Cinema() {
 
     const renderTicket = (timeList) => {
         return timeList.map((item,index) => {
-            return <li key={index}><a href="./">{utils.handleTime(item.ngayChieuGioChieu)}</a></li>
+            return <li key={index}><Link to={`/datve/${item.maLichChieu}`}>{utils.handleTime(item.ngayChieuGioChieu)}</Link></li>
         })
     }
 

@@ -60,6 +60,11 @@
                         transition: all 0.3s ease-in-out;
                         cursor: pointer;
 
+                        &.active {
+                          color: $color-black-0 !important;
+                          background-image: url('/images/seat-yellow.png') !important;
+                        }
+
                         &:hover {
                           color: $color-black-0 !important;
                           background-image: url('/images/seat-yellow.png') !important;
