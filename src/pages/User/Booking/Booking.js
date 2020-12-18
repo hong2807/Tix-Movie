@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import BookingApi from '../../../api/services/BookingApi';
 import './Booking.scss'
+import { Redirect } from 'react-router-dom'
 
 export default function Booking(props) {
+    
     const[chairList,setChairList] = useState([]);
 
     const[filmInfo,setFilmInfo] = useState({});
 
     const[chairSelected,setChairSelected] = useState([]);
-
-    const[chairActive,setChairActive] = useState(false);
-
 
     useEffect( () => {
         BookingApi.getChairList(props.match.params.maLichChieu)
@@ -26,22 +25,24 @@ export default function Booking(props) {
 
     const renderChairList =  () => {
         return chairList.map((item,index) => {
-            return <li onClick={ () => getChairInfo(item)} className={ item.daDat ? 'selected' : item.loaiGhe === 'Thuong' ? 'normal' : 'vip'} key={index}>{item.tenGhe}</li>
+            const isActive = chairSelected.filter((value) => {
+                return value.maGhe === item.maGhe 
+            }).length > 0 
+           
+            return <li onClick={ () => getChairInfo(item)} className={[item.daDat ? 'selected' : item.loaiGhe === 'Thuong' ? 'normal' : 'vip', isActive ? "active" : ""].join(' ')} key={index}>{item.tenGhe}</li>
         })
     }
 
     const getChairInfo = (item) => {
         if (chairSelected.indexOf(item) === -1) {
-            console.log('a')
-            setChairActive(true);
-            console.log(chairActive);
             chairSelected.push(item);
+        }else {
+            const index = chairSelected.findIndex((value)=> {
+                return value = item
+            })
+            chairSelected.splice(index,1);
         }
-        else {
-            console.log('b')
-        }
-    
-       
+
         let chairListSelected = [...chairSelected];
         setChairSelected(chairListSelected);
     }
@@ -56,9 +57,7 @@ export default function Booking(props) {
 
     
     console.log('chairSelected',chairSelected);
-    console.log('normalListSelected',normalListSelected);
-    console.log('vipListSelected',vipListSelected);
-
+    if (localStorage.getItem('token')) {
     return (
         <div className="booking-component component-padding">
             <div className="container">
@@ -151,7 +150,7 @@ export default function Booking(props) {
                                                 </div>
                                                 <div className="name">
                                                     <span>Số ĐT</span>
-                                                    <h2>0123456789</h2>
+                                                    <h2>{localStorage.getItem('soDT')}</h2>
                                                 </div>
                                             </div>
                                             </div>
@@ -204,5 +203,9 @@ export default function Booking(props) {
                 </div>
             </div>
         </div>
+    )                                        
+    }
+    return (
+        <Redirect to='/dangnhap' />
     )
 }

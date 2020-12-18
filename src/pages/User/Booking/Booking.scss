@@ -224,6 +224,13 @@
           color: $color-grey-8;
         }
       }
+
+      .title {
+        h2 {
+          font-size: rem(20);
+          font-weight: bold;
+        }
+      }
   
       .name,
       .seat {

@@ -59,14 +59,14 @@ export default function Films() {
               enableHeading={false}
               enableScroll={false}
             >
-              <div
+              {/* <div
                 // onClick={() => fn()}
                 // onKeyDown={() => fn()}
                 role="menuitem"
                 tabIndex="0"
               >
                 <img src="/images/slider1.jpg" alt="" style={{ display: "block", width: "100%" }} />
-              </div>
+              </div> */}
               {renderListFilm()}
             </Coverflow>}
             <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={videoID} onClose={() => setOpen(false)} />
