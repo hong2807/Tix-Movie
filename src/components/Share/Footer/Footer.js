@@ -31,13 +31,13 @@ export default function Footer() {
                                 <div className="footer__tixFollowus">
                                     <h5>Kết nối với chúng tôi</h5>
                                     <ul>
-                                        <li><a href="./"><img src="./images/facebook.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/zalo-logo.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/android.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/apple.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/facebook.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/zalo-logo.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/android.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/apple.png" alt=""></img></a></li>
                                     </ul>
                                     <div className="footer__permission">
-                                        <img src="./images/daThongBao.png" alt=''></img>
+                                        <img src="/images/daThongBao.png" alt=''></img>
                                     </div>
                                 </div>
                             </div>
@@ -45,14 +45,14 @@ export default function Footer() {
                                 <div className="footer__tixPay">
                                     <h5>Thanh toán</h5>
                                     <ul>
-                                        <li><a href="./"><img src="./images/zalopay_icon.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/payoo.jpg" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/VCB.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/AGRIBANK.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/VIETTINBANK.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/IVB.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/123go.png" alt=""></img></a></li>
-                                        <li><a href="./"><img src="./images/laban.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/zalopay_icon.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/payoo.jpg" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/VCB.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/AGRIBANK.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/VIETTINBANK.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/IVB.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/123go.png" alt=""></img></a></li>
+                                        <li><a href="./"><img src="/images/laban.png" alt=""></img></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@ export default function Footer() {
                         <div className="row">
                             <div className="col-2">
                                 <div className="footer__addressLogo">
-                                    <img src="./images/zion-logo.jpg" alt=''></img>
+                                    <img src="/images/zion-logo.jpg" alt=''></img>
                                 </div>
                             </div>
                             <div className="col-10">

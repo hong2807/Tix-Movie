@@ -8,7 +8,7 @@
     background-color: $color-black-0;
 
 
-    .booking-left {
+    .booking__left {
         .booking-screen {
             position: relative;
             text-align: center;
@@ -89,7 +89,7 @@
         }
     }
 
-    .booking-right {
+    .booking__right {
       max-width: rem(300);
       margin: auto;
   
@@ -260,5 +260,20 @@
           font-size: rem(14);
         }
       }
+
+      .btn-booking {
+        background: #AB927A;
+        color: $color-white-default;
+        font-weight: bold;
+        font-size: rem(18);
+        display: block;
+        width: 100%;
+        margin-top: rem(15);
+        
+      } 
+    }
+
+    .booking__confirm.booking__right {
+      max-width: 700px;
     }
 }
