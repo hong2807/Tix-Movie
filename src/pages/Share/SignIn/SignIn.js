@@ -26,6 +26,7 @@ export default function SignIn(props) {
           localStorage.setItem('token', response.data.accessToken);
           localStorage.setItem('maLoaiNguoiDung', response.data.maLoaiNguoiDung);
           localStorage.setItem('email', response.data.email);
+          localStorage.setItem('hoTen', response.data.hoTen);
           localStorage.setItem('soDT', response.data.soDT);
           props.history.goBack();
         }).catch(error => {
@@ -36,7 +37,7 @@ export default function SignIn(props) {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Thử lại',
-        })
+          })
         })
     },
   });

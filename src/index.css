@@ -22,3 +22,12 @@
   .site-layout .site-layout-background {
     background: #fff;
   }
+
+  .ant-modal.modal-ticket-confirm {
+    width: 700px !important;
+  }
+  
+  .ant-modal.ant-modal-content {
+    background-color: unset;
+    padding: unset;
+  }

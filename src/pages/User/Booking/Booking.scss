@@ -275,5 +275,46 @@
 
     .booking__confirm.booking__right {
       max-width: 700px;
+
+      .card {
+        background: linear-gradient(to right, $ticket-bg 0%, $ticket-bg 10%,$color-white-0 10%,$color-white-0 100%);
+        padding-left: 15%;
+      }
+
+      .cardTop {
+        min-height: auto;
+      }
+
+      .cardTop h1 {
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        transform: rotate(270deg) translateX(-50%);
+        transform-origin: 0 0;
+        font-size: 1.5625rem;
     }
+
+      .cardBottom h1 {
+        left: 3%;
+      }
+
+      .price-total {
+        border-top: 2px dashed $color-black-0;
+        margin-top: rem(20);
+        padding-top: rem(10);
+
+      }
+    }
+
+    
+    
+}
+
+.ant-modal.modal-ticket-confirm {
+  width: 700px !important;
+
+  .ant-modal-body{
+    background-color: unset;
+    padding: unset;
+  }
 }
