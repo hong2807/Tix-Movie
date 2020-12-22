@@ -8,6 +8,10 @@ const UserApi = {
   signIn: (data) =>
       callApi
         .post("QuanLyNguoiDung/DangNhap", data),
+
+  userInfo: (data) =>
+      callApi
+        .post("QuanLyNguoiDung/ThongTinTaiKhoan", data),
       
 };
 export default UserApi;
