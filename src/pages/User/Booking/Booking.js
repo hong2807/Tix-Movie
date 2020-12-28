@@ -352,7 +352,7 @@ export default function Booking(props) {
                                 </div> 
                             </div>
                         </Modal>
-                        <button className="btn btn-success" onClick={showTicket}>Click me</button>
+                        
                     </div>
                 </div>
             </div>

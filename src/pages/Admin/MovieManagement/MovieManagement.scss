@@ -156,3 +156,125 @@
         }
     }
 }
+
+
+.editMovieModal__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(20);
+    margin-bottom: rem(30);
+    background-color: $color-grey-3;
+    color: $color-white-default;
+    font-size: rem(16);
+
+    .editMovieModal__user {
+        display: flex;
+        align-items: center;
+
+        .editMovieModal__avatar {
+            width: rem(40);
+            height: rem(40);
+            margin-right: rem(12);
+
+            .icon {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .editMovieModal__action {
+        .btn-delete {
+            background-color: $color-red-2;
+        }
+    }
+}
+
+.editMovieModal__details {
+
+    border-radius: 6px;
+    border: 1px solid $color-grey-2;
+    .form-img {
+        width: 100%;
+        height: 400px;
+        line-height: 400px;
+        background-color: rgba(210,201,255,0.04);
+        margin-bottom: 20px;
+        border-radius: 6px;
+        text-align: center;
+    }
+    .editMovieModal__details-left {
+        padding: rem(30) rem(0) rem(30) rem(30);
+    }
+
+    .editMovieModal__details-right {
+        padding: rem(30) rem(30) rem(30) rem(0);
+    }
+
+    .title {
+        color: $color-yellow-default;
+        margin-bottom: rem(25);
+    }
+
+    .editMovieModal__form {
+        margin-left: rem(-15);
+        margin-right: rem(-15);
+    
+        .ant-form-item-label > label {
+            color: $color-white-default;
+            font-size: rem(16);
+        }
+        
+        .ant-input {
+            color: $color-white-default;
+            background-color: $color-grey-3;
+            border: 1px solid transparent;
+            height: 46px;
+            border-radius: 6px;
+            padding: 0 rem(20);
+
+            &:focus {
+                box-shadow: unset;
+                border: 1px solid $color-yellow-default;
+            }
+        }
+        
+        .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+            background-color: $color-grey-3;
+            border: 1px solid transparent;
+            height: 46px;
+            border-radius: 6px;
+            padding: 0 rem(20);
+            
+        }
+        
+        .ant-form-item {
+            display: inline-block;
+            width: 100%;
+            padding: 0 rem(15);
+        }
+    
+        .ant-form-item.form-btn {
+            width: 100%;
+        }
+
+        .ant-select-arrow .anticon > svg {
+            color: $color-yellow-default;
+        }
+        
+        .ant-btn {
+            font-size: rem(16);
+            height: auto;
+            background-color: transparent;
+            color:  rgba(255,255,255,0.7);
+            border-radius: 6px;
+            border: 1px solid $color-yellow-default;
+            padding: rem(10) rem(20);
+        }
+        
+        input::placeholder {
+            color: $color-grey-6;
+            font-size: rem(16);
+        }
+    }
+}

@@ -93,3 +93,19 @@
         }
     }
 }
+
+
+@include responsive('large') {
+    
+}
+
+@include responsive('medium') {
+
+}
+
+@include responsive('small') {
+    .footer-component .footer__address {
+        text-align: center;
+    }
+   
+}

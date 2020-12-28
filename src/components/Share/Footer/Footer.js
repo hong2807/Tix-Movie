@@ -63,12 +63,12 @@ export default function Footer() {
                 <div className="footer__address">
                     <div className="footer__addressContent">
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-12 col-md-2">
                                 <div className="footer__addressLogo">
                                     <img src="/images/zion-logo.jpg" alt=''></img>
                                 </div>
                             </div>
-                            <div className="col-10">
+                            <div className="col-12 col-md-10">
                                 <div className="footer__addressText">
                                 <h5>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</h5>
                                 <p>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam..</p>

@@ -28,6 +28,7 @@ export default function SignIn(props) {
           localStorage.setItem('email', response.data.email);
           localStorage.setItem('hoTen', response.data.hoTen);
           localStorage.setItem('soDT', response.data.soDT);
+          console.log("props.history",props.history.length);
           props.history.goBack();
         }).catch(error => {
           console.log('error',error.response.data);
@@ -50,7 +51,7 @@ export default function SignIn(props) {
                 <div className="logo text-center">
                     <NavLink 
                             exact 
-                            to="/home"
+                            to="/"
                             > <span>Tix</span>Movie
                     </NavLink>
                 </div>
@@ -81,7 +82,7 @@ export default function SignIn(props) {
                 <p className="text-center sign__text">Bạn chưa là thành viên? 
                   <span> 
                         <NavLink exact to="/dangky"> 
-                             Đăng ký!
+                        &nbsp;Đăng ký!
                         </NavLink>
                   </span>
                 </p>

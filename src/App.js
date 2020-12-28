@@ -24,7 +24,7 @@ function App() {
       <Preloader/>
         <ScrollToTop/>
           <Switch>
-            <UserTemplate exact path='/home' Component={Home}></UserTemplate>
+            <UserTemplate exact path='/' Component={Home}></UserTemplate>
             <UserTemplate exact path='/phim/:maphim' Component={DetailFilm}></UserTemplate>
             <UserTemplate exact path='/rapphim/:marapphim/:chitietrapphim' Component={DetailCinema}></UserTemplate>
             <UserTemplate exact path='/nguoidung' Component={DetailUser}></UserTemplate>

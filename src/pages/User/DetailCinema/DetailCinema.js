@@ -6,6 +6,7 @@ import CinemaApi from '../../../api/services/CinemaApi';
 import utils from '../../../helper/utils';
 // import { Link } from "react-scroll";
 import { Link } from "react-router-dom";
+import { Link  as Linkreact } from "react-router-dom";
 
 export default function DetailCinema(props) {
     const [cinemaDetail,setCinemaDetail] = useState({});
@@ -51,7 +52,7 @@ export default function DetailCinema(props) {
 
     const renderTicket = (timeList) => {
         return timeList.map((item,index) => {
-            return <li key={index}><a href="./">{utils.handleTime(item.ngayChieuGioChieu)}</a></li>
+            return <li key={index}><Linkreact to={`/datve/${item.maLichChieu}`}>{utils.handleTime(item.ngayChieuGioChieu)}</Linkreact></li>
         })
     }
 

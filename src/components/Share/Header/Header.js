@@ -4,6 +4,11 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import UserApi from "../../../api/services/UserApi";
+import { useState } from "react";
+import { getInfoUserAction } from "../../../redux/actions/UserManagementAction";
 
 export default function Header(props) {
   const clearLocalstorage = () => {
@@ -13,8 +18,30 @@ export default function Header(props) {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('soDt');
-    props.history.replace('/dangnhap');
+    props.history.push('/dangnhap');
   }
+
+ 
+
+  const dispatch = useDispatch();
+
+  useEffect( () => {
+    const data = {  
+        "taiKhoan": localStorage.getItem('userName')
+    }
+  
+    UserApi.userInfo(data)
+      .then(response => {
+          console.log(response.data);
+          dispatch(getInfoUserAction(response.data));
+      })
+      .catch(error => {
+          console.log("error");
+      })
+  },[])
+
+  const hoTen = useSelector(state => state.UserManagementReducer.thongTinUser.hoTen);
+  console.log('hoTen', hoTen)
 
   return (
     <div className="header-component">
@@ -59,7 +86,7 @@ export default function Header(props) {
             </li>
           </ul>
           <div className="header__logo animate__swing">
-            <NavLink exact to="/home">
+            <NavLink exact to="/">
               
               <span>Tix</span>Movie
             </NavLink>
@@ -71,8 +98,8 @@ export default function Header(props) {
                 <FontAwesomeIcon className="icon" icon={faUserCircle} />
               </div>
               <div className="header__text">
-                <NavLink className="nav-text" exact to="/nguoidung">
-                  {localStorage.getItem('userName')}
+                <NavLink className="nav-text text-capitalize" exact to="/nguoidung">
+                  {hoTen}
                 </NavLink>
               </div>
               <li className="signout" onClick={clearLocalstorage}>

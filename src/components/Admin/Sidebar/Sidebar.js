@@ -11,7 +11,7 @@ export default function Sidebar() {
                 <div className="sidebar__logo">
                     <NavLink
                             exact 
-                            to="/home"
+                            to="/"
                             > <span>Tix</span>Movie
                     </NavLink>
                 </div>

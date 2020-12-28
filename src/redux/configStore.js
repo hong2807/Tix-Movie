@@ -1,4 +1,5 @@
 import {combineReducers, createStore} from 'redux';
+import UserManagementReducer from './reducers/UserManagementReducer';
 
 
 
@@ -6,6 +7,7 @@ import {combineReducers, createStore} from 'redux';
 
 const rootReducer = combineReducers({
     //reducer khai báo tại đây
+    UserManagementReducer: UserManagementReducer,
 })
 
 

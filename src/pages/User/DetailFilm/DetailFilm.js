@@ -6,6 +6,7 @@ import FilmApi from '../../../api/services/FilmApi';
 import utils from '../../../helper/utils';
 import ModalVideo from "react-modal-video";
 import { Link } from "react-scroll";
+import { Link  as Linkreact } from "react-router-dom";
 
 export default function DetailFilm(props) {
     const [filmDetail,setFilmDetail] = useState([]);
@@ -45,7 +46,8 @@ export default function DetailFilm(props) {
 
     const renderTicket = (timeList) => {
         return timeList.map((item,index) => {
-            return <li key={index}><a href="./">{utils.handleTime(item.ngayChieuGioChieu)}</a></li>
+            console.log("detailfilm",item)
+            return <li key={index}><Linkreact to={`/datve/${item.maLichChieu}`}>{utils.handleTime(item.ngayChieuGioChieu)}</Linkreact></li>
         })
     }
 

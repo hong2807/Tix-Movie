@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './UserManagement.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight, faEdit, faPlus, faSearch, faTrashAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Form, Input, Button, Select, Modal } from 'antd';
 import { useState } from 'react';
 import Swal from "sweetalert2";  
+import UserApi from '../../../api/services/UserApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { getListUserAdmin } from '../../../redux/actions/UserManagementAction';
 
 
 export default function UserManagement() {
@@ -40,10 +43,8 @@ export default function UserManagement() {
 
     const handleCancel = () => {
         setVisible(false);
-      };
+    };
    
-
-
 
     // Modal delete
     const HandleClick = () => {   
@@ -66,6 +67,68 @@ export default function UserManagement() {
             }
           })
     }
+
+    const[numberPagination, setNumberPagination] = useState();
+
+    const dispatch = useDispatch();
+
+    const listUser = useSelector(state => state.UserManagementReducer.listUser);
+
+    console.log("listUser",listUser)
+
+    // const[listUser,SetListUser] = useState([]);
+
+    const[detailUser,SetDetailUser] = useState({});
+
+    useEffect(() => {
+        UserApi.listUser(1,10)
+        .then(response => {
+            console.log('response',response.data.totalPages)
+            setNumberPagination(response.data.totalPages);
+            dispatch(getListUserAdmin(response.data.items));
+            // SetListUser(response.data.items)
+        })
+        .catch(error => {console.log(error)})
+    },[])
+
+    const renderNumberPagination= () => {
+        console.log(numberPagination)
+        let rows = [];
+        let count = 0;
+        for(let i = 1; i <= numberPagination; i++) {
+            if(count < 5) {
+                count++;
+                rows.push(<li className="paginator__item" key={i}><a href="./">{i}</a></li>);
+            } 
+        }
+        return rows;
+    }
+
+    const renderListUser = () => {
+        return listUser.map((item,index) => {
+            return <tr key={index} onClick={() => loadInfoUser(item)}>
+            <td>{item.taiKhoan}</td>
+            <td>{item.hoTen}</td>
+            <td>{item.email}</td>
+            <td>{item.soDt}</td>
+            <td>{item.maLoaiNguoiDung === "KhachHang" ? "Khách hàng" : "Quản trị" }</td>
+            <td className="group-icon">
+                <button className="icon-edit icon-bg" onClick={showModal}>
+                    <FontAwesomeIcon className="icon" icon={faEdit} />
+                </button>
+                <button className="icon-delete icon-bg" onClick={HandleClick}>
+                    <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
+                </button>
+            </td>
+        </tr>
+        })
+    }
+
+    const loadInfoUser = (item) => {
+        SetDetailUser(item);
+    }
+
+
     return (
         <div className="usermanagement-component">
             <div className="container-fluid">
@@ -98,7 +161,8 @@ export default function UserManagement() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                {renderListUser()}
+                                {/* <tr>
                                     <td>honghuynh</td>
                                     <td>Huỳnh Thị Tuyết Hồng</td>
                                     <td>honghuynh2807@gmial.com</td>
@@ -127,127 +191,7 @@ export default function UserManagement() {
                                             <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
                                         </button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit}/>
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit}/>
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt}/>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>honghuynh</td>
-                                    <td>Huỳnh Thị Tuyết Hồng</td>
-                                    <td>honghuynh2807@gmial.com</td>
-                                    <td>0796280793</td>
-                                    <td>Khách hàng</td>
-                                    <td className="group-icon">
-                                        <button className="icon-edit icon-bg" onClick={showModal}>
-                                            <FontAwesomeIcon className="icon" icon={faEdit} />
-                                        </button>
-                                        <button className="icon-delete icon-bg" onClick={HandleClick}>
-                                            <FontAwesomeIcon className="icon" icon={faTrashAlt} />
-                                        </button>
-                                    </td>
-                                </tr>
+                                </tr> */}
                             </tbody>
                         </table>
                     </div>
@@ -261,10 +205,11 @@ export default function UserManagement() {
                                     <FontAwesomeIcon className="icon" icon={faAngleLeft} />
                                 </a>
 							</li>
-							<li className="paginator__item active"><a href="./">1</a></li>
+							{/* <li className="paginator__item active"><a href="./">1</a></li>
 							<li className="paginator__item"><a href="./">2</a></li>
 							<li className="paginator__item"><a href="./">3</a></li>
-							<li className="paginator__item"><a href="./">4</a></li>
+							<li className="paginator__item"><a href="./">4</a></li> */}
+                            {renderNumberPagination()}
 							<li className="paginator__item paginator__item--next">
 								<a href="./">
                                     <FontAwesomeIcon className="icon" icon={faAngleRight} />
@@ -313,19 +258,19 @@ export default function UserManagement() {
                                 >
                                     
                                     <Form.Item label="Tài khoản" >
-                                        <Input type="text" placeholder="User 123" />
+                                        <Input type="text" value={detailUser.taiKhoan}/>
                                     </Form.Item>
                                     <Form.Item label="Mật khẩu" >
-                                        <Input type="text" placeholder="User 123" />
+                                        <Input type="text" value={detailUser.matKhau}/>
                                     </Form.Item>
                                     <Form.Item label="Họ tên" >
-                                        <Input type="text" placeholder="User 123" />
+                                        <Input type="text" value={detailUser.hoTen}/>
                                     </Form.Item>
                                     <Form.Item label="Số điện thoại" >
-                                        <Input type="text" placeholder="User 123" />
+                                        <Input type="text" value={detailUser.soDt}/>
                                     </Form.Item>
                                     <Form.Item label="Email" >
-                                        <Input type="text" placeholder="User 123" />
+                                        <Input type="text" value={detailUser.email}/>
                                     </Form.Item>
                                     <Form.Item label="Mã loại người dùng">
                                         <Select defaultValue="Quản trị">
@@ -334,7 +279,7 @@ export default function UserManagement() {
                                         </Select>
                                     </Form.Item>
                                     <Form.Item label="Mã nhóm" >
-                                        <Input type="text" placeholder="User 123" />
+                                        <Input type="text" value="GP01" />
                                     </Form.Item>
                                     <Form.Item className="form-btn">
                                         <Button className="btn-update">Cập nhật</Button>

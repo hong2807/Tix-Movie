@@ -39,7 +39,7 @@ export default function SignUp(props) {
                     cancelButtonText: 'Ở lại'
                   }).then((result) => {
                     if (result.isConfirmed) {
-                        return props.history.replace('/dangnhap')
+                        return props.history.push('/dangnhap')
                     } else {
                         resetForm({values: ''});
                     }
@@ -73,11 +73,11 @@ export default function SignUp(props) {
         <div className="signup-component">
             <div className="sign__content">
             <div className="logo text-center">
-                <NavLink exact to="/home"> 
+                <NavLink exact to="/"> 
                     <span>Tix</span>Movie
                 </NavLink>
             </div>
-            <button className='btn btn-success' onClick={HandleClick}>Click me</button>
+           
             <form onSubmit={formik.handleSubmit}>
                 <div className="row">
                     <div className="col-12 col-md-6">
@@ -149,7 +149,7 @@ export default function SignUp(props) {
                 <p className="text-center sign__text">Bạn đã có tài khoản chưa? 
                     <span> 
                         <NavLink exact to="/dangnhap"> 
-                             Đăng nhập!
+                        &nbsp;Đăng nhập!
                         </NavLink>
                     </span>
                 </p>
