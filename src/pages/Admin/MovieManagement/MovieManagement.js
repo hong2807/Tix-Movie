@@ -20,6 +20,22 @@ export default function MovieManagement() {
     const handleCancel = () => {
         setVisible(false);
     };
+
+    const [floatLabelActive, setfloatLabelActive] = useState(false);
+
+    const [value, setValue] = useState('');
+
+    const handleTextChange = (text) => {
+        setValue(text);
+      
+        if (text !== '') {
+          setfloatLabelActive(true);
+        } else {
+          setfloatLabelActive(false);
+        }
+      }
+
+
     return (
         <div className="moviemanagement-component">
             <div className="container-fluid">
@@ -173,11 +189,18 @@ export default function MovieManagement() {
                                     onValuesChange={onFormLayoutChange}
                                     size={componentSize}
                                 >
-                                    <Form.Item>
-                                        <Input type="text" placeholder="Mã Phim" disabled/>
+                                    <Form.Item >
+                                        <div className="float-label">
+                                        <Input type="text" disabled/>
+                                        <label>Mã Phim</label>
+                                        </div>
+                                        
                                     </Form.Item>
                                     <Form.Item>
-                                        <Input type="text" placeholder="Tên phim" />
+                                        <div className="float-label">
+                                            <Input type="text" onChange={(e) => handleTextChange(e.target.value)}/>
+                                            <label className={ floatLabelActive ? "Active" : ""}>Tên Phim</label>
+                                        </div>
                                     </Form.Item>
                                   
 

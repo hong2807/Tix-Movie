@@ -234,7 +234,7 @@
         .ant-form-item {
             display: inline-block;
             width: 50%;
-            padding: 0 rem(15);
+            padding: 0 rem(10);
         }
     
         .ant-form-item.form-btn {
@@ -258,6 +258,12 @@
         input::placeholder {
             color: $color-grey-6;
             font-size: rem(16);
+        }
+    }
+
+    .editUserModal__details-right {
+        .ant-form-item {
+            width: 100%;
         }
     }
 }

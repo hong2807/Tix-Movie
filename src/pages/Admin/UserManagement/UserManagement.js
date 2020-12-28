@@ -7,7 +7,7 @@ import { useState } from 'react';
 import Swal from "sweetalert2";  
 import UserApi from '../../../api/services/UserApi';
 import { useDispatch, useSelector } from 'react-redux';
-import { getListUserAdmin } from '../../../redux/actions/UserManagementAction';
+import { getDetailUserAdmin, getListUserAdmin } from '../../../redux/actions/UserManagementAction';
 
 
 export default function UserManagement() {
@@ -72,18 +72,21 @@ export default function UserManagement() {
 
     const dispatch = useDispatch();
 
-    const listUser = useSelector(state => state.UserManagementReducer.listUser);
+    const listUser = useSelector(state => state.UserManagementReducer.danhSachUserAdmin);
+    const detailUser = useSelector(state => state.UserManagementReducer.chiTietUserAdmin);
+    console.log('detailUser',detailUser)
 
-    console.log("listUser",listUser)
+    // console.log("listUser",listUser)
 
     // const[listUser,SetListUser] = useState([]);
 
-    const[detailUser,SetDetailUser] = useState({});
+    // const[detailUser,SetDetailUser] = useState({});
 
     useEffect(() => {
         UserApi.listUser(1,10)
         .then(response => {
-            console.log('response',response.data.totalPages)
+            console.log('response',response.data.totalPages);
+            console.log('response',response.data.items);
             setNumberPagination(response.data.totalPages);
             dispatch(getListUserAdmin(response.data.items));
             // SetListUser(response.data.items)
@@ -106,7 +109,8 @@ export default function UserManagement() {
 
     const renderListUser = () => {
         return listUser.map((item,index) => {
-            return <tr key={index} onClick={() => loadInfoUser(item)}>
+            console.log("item",item)
+            return <tr key={index} onClick={() => dispatch(getDetailUserAdmin(item))}>
             <td>{item.taiKhoan}</td>
             <td>{item.hoTen}</td>
             <td>{item.email}</td>
@@ -124,9 +128,9 @@ export default function UserManagement() {
         })
     }
 
-    const loadInfoUser = (item) => {
-        SetDetailUser(item);
-    }
+    // const loadInfoUser = (item) => {
+    //     SetDetailUser(item);
+    // }
 
 
     return (
@@ -244,7 +248,7 @@ export default function UserManagement() {
 
                 <div className="editUserModal__details">
                     <div className="row">
-                        <div className="col-6">
+                        <div className="col-8">
                             <div className="editUserModal__details-left">
                                 <h5 className="title">Chi tiết thành viên</h5>
                                 <Form
@@ -287,7 +291,7 @@ export default function UserManagement() {
                                 </Form>
                             </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-4">
                             <div className="editUserModal__details-right">
                                 <h5 className="title">Thay đổi mật khẩu</h5>
                                 <Form

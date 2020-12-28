@@ -1,8 +1,9 @@
-import { EDIT_INFO_USER, GET_INFO_USER, GET_LIST_USER_ADMIN } from "../constants/UserManagementConstant";
+import { EDIT_INFO_USER, GET_DETAIL_USER_ADMIN, GET_INFO_USER, GET_LIST_USER_ADMIN } from "../constants/UserManagementConstant";
 
 const stateDefault = {
     thongTinUser: {},
     danhSachUserAdmin: [],
+    chiTietUserAdmin: {},
 }
 
 
@@ -24,7 +25,13 @@ const UserManagementReducer = (state = stateDefault, action) => {
 
         case GET_LIST_USER_ADMIN: {
             console.log(state, action);
-            state.danhSachUserAdmin = action.listUser;
+            state.danhSachUserAdmin = action.listUserAdmin;
+            return {...state}
+        }
+
+        case GET_DETAIL_USER_ADMIN: {
+            console.log(state, action);
+            state.chiTietUserAdmin = action.detailUserAdmin;
             return {...state}
         }
 
