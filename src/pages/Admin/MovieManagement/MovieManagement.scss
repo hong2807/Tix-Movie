@@ -277,31 +277,32 @@
             font-size: rem(16);
         }
     }
-}
 
-.float-label {
-    position: relative;
-}
-
-.ant-form label {
-    font-size: rem(16);
-}
-
-.float-label label {
-    color: $color-white-default;
+    .float-label {
+        position: relative;
+    }
     
-    display: block;
-    position: absolute;
-    transform: translate(20px,-35px);
-
-    // transform-origin: top left;
-    transition: all 0.2s ease-out;
+    .ant-form label {
+        font-size: rem(16);
+    }
+    
+    .float-label label {
+        color: $color-white-default;
+        
+        display: block;
+        position: absolute;
+        transform: translate(20px,-35px);
+    
+        // transform-origin: top left;
+        transition: all 0.2s ease-out;
+    }
+    
+    .float-label:focus-within label {
+        transform: translate(0px, -70px);
+    }
+    
+    .float-label .Active {
+        transform: translate(0px, -70px);
+    }
 }
 
-.float-label:focus-within label {
-    transform: translate(0px, -70px);
-}
-
-.float-label .Active {
-    transform: translate(0px, -70px);
-}

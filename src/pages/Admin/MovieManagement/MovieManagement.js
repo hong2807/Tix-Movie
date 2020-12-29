@@ -21,19 +21,17 @@ export default function MovieManagement() {
         setVisible(false);
     };
 
+    // Float label
     const [floatLabelActive, setfloatLabelActive] = useState(false);
-
     const [value, setValue] = useState('');
-
     const handleTextChange = (text) => {
         setValue(text);
-      
         if (text !== '') {
           setfloatLabelActive(true);
         } else {
           setfloatLabelActive(false);
         }
-      }
+    }
 
 
     return (
@@ -191,10 +189,9 @@ export default function MovieManagement() {
                                 >
                                     <Form.Item >
                                         <div className="float-label">
-                                        <Input type="text" disabled/>
-                                        <label>Mã Phim</label>
+                                            <Input type="text" disabled/>
+                                            <label>Mã Phim</label>
                                         </div>
-                                        
                                     </Form.Item>
                                     <Form.Item>
                                         <div className="float-label">

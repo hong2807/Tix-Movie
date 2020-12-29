@@ -1,0 +1,163 @@
+.ant-select {
+  color: #ffffff !important;
+}
+
+.ant-select-dropdown {
+  padding: 0 !important;
+  background-color: #1a191f !important;
+}
+
+.ant-select-item {
+  background-color: #1a191f !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  padding: 0.625rem 1.25rem !important;
+}
+
+.ant-select-item:hover, .ant-select-item:focus {
+  color: #ffd80e !important;
+  background-color: transparent !important;
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-item {
+  line-height: 44px !important;
+}
+
+.ant-select-focused .ant-select-selector,
+.ant-select-selector:focus,
+.ant-select-selector:active,
+.ant-select-open .ant-select-selector {
+  border-color: #ffd80e !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.icon-to-top {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #1a191f;
+  border-radius: 6px;
+  border: 1px solid #ffd80e;
+}
+
+.ant-modal {
+  width: 62.5rem !important;
+  top: 1.25rem !important;
+}
+
+.ant-modal-body {
+  background-color: #1a191f;
+}
+
+.ant-modal-close {
+  top: -1.1875rem !important;
+  right: -0.9375rem !important;
+  color: #ffffff !important;
+}
+
+.ant-modal-close:hover {
+  color: unset;
+}
+
+.ant-modal-close:focus {
+  outline: none;
+}
+
+.swal2-popup {
+  background-color: #1a191f !important;
+}
+
+.swal2-title {
+  color: #ffffff !important;
+}
+
+.swal2-content {
+  color: #ffffff !important;
+}
+
+.swal2-styled:focus {
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+}
+
+.swal2-styled.swal2-confirm, .swal2-styled.swal2-cancel {
+  background-color: unset !important;
+  border: 1px solid #ffd80e !important;
+}
+
+@font-face {
+  font-family: 'SourceSansPro Regular';
+  src: url("/fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'SourceSansPro Bold';
+  src: url("/fonts/SourceSansPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'SourceSansPro SemiBold';
+  src: url("/fonts/SourceSansPro-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Ranchers Regular';
+  src: url("/fonts/Ranchers-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family: 'SourceSansPro Regular';
+  color: #ffffff;
+  font-size: 1rem;
+  background-color: #000000;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: unset;
+}
+
+a:hover {
+  color: unset;
+}
+
+.component-padding {
+  padding: 3.125rem 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  padding: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 0 3px;
+  width: 6px;
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
+}
+/*# sourceMappingURL=main.css.map */

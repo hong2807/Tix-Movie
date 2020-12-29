@@ -4,7 +4,7 @@ import { Tabs } from 'antd';
 import { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import UserApi from '../../../api/services/UserApi';
-import { editInfoUserAction, getInfoUserAction } from '../../../redux/actions/UserManagementAction';
+import { editInfoUserAction } from '../../../redux/actions/UserManagementAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -92,6 +92,7 @@ export default function DetailUser() {
     //     })
     // },[])
 
+    // Set initial value of form
     const valueform = useSelector(state => state.UserManagementReducer.thongTinUser);
     console.log('valueform',valueform)
     useEffect( () => {

@@ -5,60 +5,7 @@
     min-height: 100vh;
 
     .usermanagement__content {
-        .usermanagement__title {
-            height: 80px;
-            border-bottom: 1px solid $color-grey-2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .title {
-                color: $color-white-default;
-            }
-
-            &-right {
-                display: flex;
-                align-items: center;
-
-                .search {
-                    position: relative;
-
-                    input {
-                        width: rem(240);
-                        height: 40px;
-                        border-radius: 6px;
-                        background-color: $color-grey-3;
-                        border: 1px solid transparent;
-                        padding-left: 10px;
-
-                        &:focus {
-                            outline: unset;
-                            border: 1px solid $color-yellow-default;
-                        }
-                    }
-    
-                    .icon {
-                        position: absolute;
-                        top: 0;
-                        right: 20px;
-                        height: 40px;
-                    }
-                }
-            }
-
-            .add {
-                display: inline-block;
-                padding: rem(10) rem(15);
-                border-radius: 6px;
-                border: 2px solid $color-green-1;
-                text-align: center;
-                background-color: transparent;
-
-                &:focus {
-                    outline: unset;
-                }
-            }
-        }
+        
 
         .usermanagement__table {
             .table {
@@ -269,87 +216,7 @@
 }
 
 
-.addUserModal__title {
-    margin-bottom: rem(30);
-    background-color: $color-grey-3;
-    color: $color-white-default;
-    font-size: rem(16);
 
-    .title {
-        color: $color-yellow-default;
-        padding: rem(20);
-    }
-}
-
-.addUserModal__details {
-    .addUserModal__details-content {
-        padding: rem(30);
-        border-radius: 6px;
-        border: 1px solid $color-grey-2;
-    }
-
-    .addUserModal__form {
-        margin-left: rem(-15);
-        margin-right: rem(-15);
-    
-        .ant-form-item-label > label {
-            color: $color-white-default;
-            font-size: rem(16);
-        }
-        
-        .ant-input {
-            color: $color-white-default;
-            background-color: $color-grey-3;
-            border: 1px solid transparent;
-            height: 46px;
-            border-radius: 6px;
-            padding: 0 rem(20);
-
-            &:focus {
-                box-shadow: unset;
-                border: 1px solid $color-yellow-default;
-            }
-        }
-        
-        .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-            background-color: $color-grey-3;
-            border: 1px solid transparent;
-            height: 46px;
-            border-radius: 6px;
-            padding: 0 rem(20);
-            
-        }
-        
-        .ant-form-item {
-            display: inline-block;
-            width: 50%;
-            padding: 0 rem(15);
-        }
-    
-        .ant-form-item.form-btn {
-            width: 100%;
-        }
-
-        .ant-select-arrow .anticon > svg {
-            color: $color-yellow-default;
-        }
-        
-        .ant-btn {
-            font-size: rem(16);
-            height: auto;
-            background-color: transparent;
-            color:  rgba(255,255,255,0.7);
-            border-radius: 6px;
-            border: 1px solid $color-yellow-default;
-            padding: rem(10) rem(20);
-        }
-        
-        input::placeholder {
-            color: $color-grey-6;
-            font-size: rem(16);
-        }
-    }
-}
 
 
 
