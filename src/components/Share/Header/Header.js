@@ -46,7 +46,7 @@ export default function Header(props) {
   return (
     <div className="header-component">
       <div className="container">
-        <div className="header__content ">
+        <div className="header__content d-none d-md-flex ">
           <ul className="header__left">
             <li className="nav-item">
               <Link
@@ -125,7 +125,7 @@ export default function Header(props) {
           </div>
         </div>
 
-        <div className="header__mobile d-none">
+        <div className="header__mobile d-block d-md-none">
         <div className="phone">
         <div className="content">
           

@@ -87,73 +87,80 @@
             
             ul {
                 display: flex;
-                margin-left: -30px;
-            }
-           
-            img {
-                width: 50px;
-                height: 50px;
-                margin-bottom: rem(10);
+                // margin-left: -30px;
             }
     
             li {
-                padding: rem(15) rem(30);
+                // padding: rem(15) rem(30);
                 text-align: center;
                 cursor: pointer;
                 filter: grayscale(1);
                 transition: 0.2s; 
+                margin-right: rem(15);
 
                 &.active {
                     filter: grayscale(0);
+                    color: $color-yellow-default;
+                    font-weight: bold;
+                    font-size: rem(16);
                 }
 
                 &:hover {
                     filter: grayscale(0);
                     transform: scale(1.2);
                 }
+
+                img {
+                    width: rem(100);
+                    height: rem(50);
+                    margin-bottom: rem(10);
+                    background-color: $color-white-default;
+                    padding: rem(5);
+                    object-fit: contain;
+                }
             }
         }
 
         .detailFilm__day {
-            margin-bottom: rem(30);
-
-            p {
-                width: rem(70);
-                height: rem(70);
-                text-align: center;
-                font-size: rem(18);
-                
-
-                span {
-                    display: inline-block;
-                    width: 100%;
-                    line-height: rem(30);
-                    height: rem(26);
-                    margin-bottom: rem(8);
-                }
-            }
-            
             ul {
                 display: flex;
             }
 
-            li {
+            .day-item {
                 cursor: pointer;
                 margin-right: rem(15);
-            }
+                width: rem(65);
+                height: rem(65);
+                text-align: center;
+                font-size: rem(18);
+                display: flex;
+                flex-direction: column;
+                margin-bottom: rem(15);
 
-            li.active {
-                p {
-                    background: $color-white-default;
-                    border-radius: 5px;
-                    color: $color-black-0;
-                    font-weight: bold;
-
-                    span {
+                &.active {
+                    .day-top {
                         background: $color-red-1;
-                        border-top-left-radius: 5px;
-                        border-top-right-radius: 5px;
                     }
+                }
+
+                .day-top {
+                    margin-bottom: 0;
+                    background: $color-grey-6;
+                    color: $color-white-default;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+
+                .day-bottom {
+                    background: $color-white-default; 
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    margin-bottom: 0;
+                    flex-grow: 1;
+                    color: $color-black-0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
         }
@@ -246,4 +253,116 @@
             }
         }
     }
+}
+
+
+@include responsive('large') {
+    
+}
+
+@include responsive('medium') {
+
+}
+
+@include responsive('small') {
+    .detailFilm-component { 
+        .detailFilm__info {
+            position: relative;
+        }
+        
+        .detailFilm__infoLeft {
+            max-width: 80%;
+            margin: auto;
+            margin-bottom: 30px;
+        }
+
+        .detailFilm__infoRight-wrapper {
+            position: absolute;
+            top: 0;
+            right: 10px;
+
+            .detailFilm__infoRight {
+                .borderRating {
+                    span {
+                        width: 40px;
+                        height: 40px;
+                        line-height: 35px;
+                        font-size: 18px;
+                        background-color: rgba(26,25,31,0.7);
+                    }
+                }
+            }
+        }
+
+        .detailFilm__showtimes {
+            .detailFilm__time {
+                .detailFilm__left {
+                    .detailFilm__leftItem {
+                        width: 100%;
+
+                        .inside-text {
+                            .title {
+                                font-size: rem(20);
+                            }
+
+                            p {
+                                font-size: rem(15);
+                            }
+                        }
+                    }
+                }
+
+                .detailFilm__right {
+                    .detailFilm__rightItem {
+                        .cinema__timedetail {
+                            ul {
+                                display: flex;
+                                flex-wrap: wrap;
+                                // justify-content: space-between;
+
+                                li {
+                                    width: 22%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .detailFilm__brand {
+                margin-bottom: 0;
+
+                ul {
+                    flex-wrap: wrap;
+                    margin-left: unset;
+                    
+                }
+
+                li {
+                    margin-bottom: rem(15);
+
+                    img {
+                        margin-bottom: 0;
+                    }
+
+                    &:hover {
+                        transform: none;
+                    }
+                }
+            }
+
+            .detailFilm__day {
+                ul {
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+
+                    .day-item {
+                        width: 12%;
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+   
 }

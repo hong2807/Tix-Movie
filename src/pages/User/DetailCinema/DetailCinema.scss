@@ -67,7 +67,7 @@
     }
 
     .detailCinema__showtimes {
-        .detailFilm__day__title {
+        .detailCinema__day__title {
             position: relative;
             background: $color-yellow-default;
             display: inline-block;
@@ -93,72 +93,60 @@
             }
         }
 
-        .detailFilm__day {
+        .detailCinema__day {
             margin-bottom: rem(30);
 
-            p {
-                width: rem(70);
-                height: rem(70);
-                text-align: center;
-                font-size: rem(18);
-                
-
-                span {
-                    display: inline-block;
-                    width: 100%;
-                    line-height: rem(30);
-                    height: rem(26);
-                    margin-bottom: rem(8);
-                }
-            }
-            
             ul {
                 display: flex;
             }
 
-            li {
+            .day-item {
                 cursor: pointer;
                 margin-right: rem(15);
-                transition: 0.2s ease-in;
+                width: rem(65);
+                height: rem(65);
+                text-align: center;
+                font-size: rem(18);
+                display: flex;
+                flex-direction: column;
+                margin-bottom: rem(15);
 
-                &:hover p {
-                    background: $color-white-default;
-                    border-radius: 5px;
-                    color: $color-black-0;
-                    font-weight: bold;
-
-                    span {
+                &.active {
+                    .day-top {
                         background: $color-red-1;
-                        border-top-left-radius: 5px;
-                        border-top-right-radius: 5px;
                     }
                 }
-            }
 
-            li.active {
-                p {
-                    background: $color-white-default;
-                    border-radius: 5px;
+                .day-top {
+                    margin-bottom: 0;
+                    background: $color-grey-6;
+                    color: $color-white-default;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+
+                .day-bottom {
+                    background: $color-white-default; 
+                    border-bottom-left-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                    margin-bottom: 0;
+                    flex-grow: 1;
                     color: $color-black-0;
-                    font-weight: bold;
-
-                    span {
-                        background: $color-red-1;
-                        border-top-left-radius: 5px;
-                        border-top-right-radius: 5px;
-                    }
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
             }
         }
     
 
-        .detailFilm__time {
-            .detailFilm__timeItem {
+        .detailCinema__time {
+            .detailCinema__timeItem {
                 padding-bottom: rem(30);
             }
 
-            .detailFilm__left {
-                .detailFilm__leftItem {
+            .detailCinema__left {
+                .detailCinema__leftItem {
                     .inside-img {
                         img {
                             width: 100%;
@@ -193,8 +181,8 @@
                 }
             }
 
-            .detailFilm__right {
-                .detailFilm__rightItem {
+            .detailCinema__right {
+                .detailCinema__rightItem {
                     .cinema__timedetail {
                         li {
                             display: inline-block;
@@ -248,5 +236,79 @@
     }
 }
 
+.branch__list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.brach__item {
+    width: 30%; 
+   text-align: center;
+
+   margin-right: 15px;
+   margin-bottom: 15px;
+
+    img {
+        width: 6.25rem;
+    height: 3.125rem;
+    margin-bottom: 0.625rem;
+    background-color: #ffffff;
+    padding: 0.3125rem;
+    object-fit: contain;
+    }
+}
 
 
+@include responsive('large') {
+    
+}
+
+@include responsive('medium') {
+
+}
+
+@include responsive('small') {
+    .detailCinema-component {
+        .detailCinema__infoLeft {
+            width: 80%;
+            margin: auto;
+            margin-bottom: rem(30);
+        }
+
+        .detailCinema__infoRight {
+            .detailCinema__address {
+                text-align: center;
+            }
+        }
+
+        .detailCinema__showtimes {
+            .detailCinema__day {
+                ul {
+                    justify-content: space-between;
+                }
+
+                .day-item {
+                    width: 12%;
+                    margin-right: 0;
+                }
+            }
+
+            .detailCinema__time {
+                .detailCinema__right {
+                    .detailCinema__rightItem {
+                        .cinema__timedetail {
+                            ul {
+                                flex-wrap: wrap;
+                            }
+
+                            li {
+                                width: 22%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+   
+}

@@ -9,7 +9,7 @@ export default function Footer() {
                 <div className="footer__policy">
                     <div className="footer__policyContent">
                         <div className="row">
-                            <div className="col-3">
+                            <div className="col-6 col-md-3">
                                 <div className="footer__tix">
                                     <h5>TIX</h5>
                                     <ul>
@@ -18,7 +18,7 @@ export default function Footer() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-3">
+                            <div className="col-6 col-md-3">
                                 <div className="footer__tixPolicy">
                                     <h5>Điều khoản sử dụng</h5>
                                     <ul>
@@ -27,7 +27,7 @@ export default function Footer() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-3">
+                            <div className="col-12 col-md-3">
                                 <div className="footer__tixFollowus">
                                     <h5>Kết nối với chúng tôi</h5>
                                     <ul>
@@ -41,7 +41,7 @@ export default function Footer() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-3">
+                            <div className="col-12 col-md-3">
                                 <div className="footer__tixPay">
                                     <h5>Thanh toán</h5>
                                     <ul>

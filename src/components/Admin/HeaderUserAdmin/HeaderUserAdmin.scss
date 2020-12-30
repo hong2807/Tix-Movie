@@ -80,50 +80,17 @@
     .addUserModal__form {
         margin-left: rem(-15);
         margin-right: rem(-15);
-    
-        .ant-form-item-label > label {
-            color: $color-white-default;
+
+        label {
+            color: $color-white-0;
             font-size: rem(16);
         }
-        
-        .ant-input {
-            color: $color-white-default;
-            background-color: $color-grey-3;
-            border: 1px solid transparent;
-            height: 46px;
-            border-radius: 6px;
-            padding: 0 rem(20);
 
-            &:focus {
-                box-shadow: unset;
-                border: 1px solid $color-yellow-default;
-            }
-        }
-        
-        .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-            background-color: $color-grey-3;
-            border: 1px solid transparent;
-            height: 46px;
-            border-radius: 6px;
-            padding: 0 rem(20);
-            
-        }
-        
-        .ant-form-item {
-            display: inline-block;
-            width: 50%;
-            padding: 0 rem(15);
-        }
-    
-        .ant-form-item.form-btn {
-            width: 100%;
+        .form__item {
+            margin-bottom: rem(20);
         }
 
-        .ant-select-arrow .anticon > svg {
-            color: $color-yellow-default;
-        }
-        
-        .ant-btn {
+        .btn-update {
             font-size: rem(16);
             height: auto;
             background-color: transparent;
@@ -133,36 +100,20 @@
             padding: rem(10) rem(20);
         }
         
-        input::placeholder {
-            color: $color-grey-6;
-            font-size: rem(16);
-        }
-    }
+        input,
+        select {
+            color: $color-white-default;
+            background-color: $color-grey-3;
+            border: 1px solid transparent;
+            height: 46px;
+            border-radius: 6px;
+            padding: 0 rem(20);
 
-    .float-label {
-        position: relative;
-    }
-    
-    .ant-form label {
-        font-size: rem(16);
-    }
-    
-    .float-label label {
-        color: $color-white-default;
-        
-        display: block;
-        position: absolute;
-        transform: translate(20px,-35px);
-    
-        // transform-origin: top left;
-        transition: all 0.2s ease-out;
-    }
-    
-    .float-label:focus-within label {
-        transform: translate(0px, -70px);
-    }
-    
-    .float-label .Active {
-        transform: translate(0px, -70px);
+            &:focus {
+                box-shadow: unset;
+                background-color: $color-grey-3;
+                border: 1px solid $color-yellow-default;
+            }
+        }
     }
 }

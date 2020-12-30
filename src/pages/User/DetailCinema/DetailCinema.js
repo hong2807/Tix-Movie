@@ -5,7 +5,7 @@ import { faLandmark, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 import CinemaApi from '../../../api/services/CinemaApi';
 import utils from '../../../helper/utils';
 // import { Link } from "react-scroll";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import { Link  as Linkreact } from "react-router-dom";
 
 export default function DetailCinema(props) {
@@ -14,6 +14,8 @@ export default function DetailCinema(props) {
     const [cinemaBranch,setCinemaBranch] = useState({});
 
     const [filmList,setFilmList] = useState();
+
+    
 
     const maRap = props.match.params.marapphim;
     const maChiTietRap = props.match.params.chitietrapphim;
@@ -58,19 +60,19 @@ export default function DetailCinema(props) {
 
     const renderFilmList = () => {
         return Array.isArray(filmList) && filmList.map((item,index) => {
-            return  <div className="detailFilm__timeItem" key={index}>
+            return  <div className="detailCinema__timeItem" key={index}>
                         <div className="row">
-                            <div className="col-5">
-                                <div className="detailFilm__left">
-                                    <div className="detailFilm__leftItem">
+                            <div className="col-12 col-md-5">
+                                <div className="detailCinema__left">
+                                    <div className="detailCinema__leftItem">
                                         <div className="inside">
                                             <div className="row">
-                                                <div className="col-2">
+                                                <div className="col-3 col-md-2">
                                                     <div className="inside-img">
                                                         <img src={item.hinhAnh} alt=""></img>
                                                     </div>
                                                 </div>
-                                                <div className="col-10">
+                                                <div className="col-9 col-md-10">
                                                     <div className="inside-text">
                                                         <div className="film-type">
                                                             <span className="film-version">2D DUB</span>
@@ -85,9 +87,9 @@ export default function DetailCinema(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-7">
-                                <div className="detailFilm__right">
-                                    <div className="detailFilm__rightItem">
+                            <div className="col-12 col-md-7">
+                                <div className="detailCinema__right">
+                                    <div className="detailCinema__rightItem">
                                         <div className="cinema__timedetail">
                                                 <ul>
                                                     {renderTicket(item.lstLichChieuTheoPhim)}
@@ -106,13 +108,13 @@ export default function DetailCinema(props) {
             <div className="container">
                 <div className="detailCinema__info">
                     <div className="row">
-                        <div className="col-3">
+                        <div className="col-12 col-md-3">
                             <div className="detailCinema__infoLeft">
                                 <img className="w-100" src="/images/bhd-star-bitexco-rap.jpg" alt="rap"></img>
                             </div>
                         </div>
 
-                        <div className="col-9">
+                        <div className="col-12 col-md-9">
                             <div className="detailCinema__infoRight">
                                 <div className="detailCinema__address">
                                     <h3 className="film-name">{cinemaDetail.tenCumRap}</h3>
@@ -137,6 +139,33 @@ export default function DetailCinema(props) {
                                
                                 <div className="detailCinema__branch">
                                     {renderCinemaBranch()}
+                                    {/* <ul className="branch__list">
+                                    <li className="brach__item">
+                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
+                                        <br></br>
+                                        BHD Star - Vincom Lê Văn Việt
+                                    </li>
+                                    <li className="brach__item">
+                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
+                                        <br></br>
+                                        BHD Star - Vincom Quang Trung
+                                    </li>
+                                    <li className="brach__item">
+                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
+                                        <br></br>
+                                        BHD Star - 3/2
+                                    </li>
+                                    <li className="brach__item">
+                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
+                                        <br></br>
+                                        BHD Star - Phạm Hùng
+                                    </li>
+                                    <li className="brach__item">
+                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
+                                        <br></br>
+                                        BHD Star - Vincom Thảo Điền
+                                    </li>
+                                    </ul> */}
                                 </div>
                             </div>
                         </div>
@@ -144,64 +173,77 @@ export default function DetailCinema(props) {
                 </div>
 
                 <div className="detailCinema__showtimes">
-                    <div className="detailFilm__day">
-                        <h3 className='detailFilm__day__title'><span>01. </span>Chọn Ngày</h3>
+                    <div className="detailCinema__day">
+                        <h3 className='detailCinema__day__title'><span>01. </span>Chọn Ngày</h3>
                         <ul>
-                            <li className="active">
-                                <p className="mb-0">
-                                    <span>Thứ 2</span>
-                                    <br></br>
+                            <li className="day-item active">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 2</span>
+                                    <span className='d-block d-md-none'>T2</span>
+                                </p>
+                                <p className="day-bottom">
                                     10
                                 </p>
-
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 3</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 3</span>
+                                    <span className='d-block d-md-none'>T3</span>
+                                </p>
+                                <p className="day-bottom">
                                     11
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 4</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 4</span>
+                                    <span className='d-block d-md-none'>T4</span>
+                                </p>
+                                <p className="day-bottom">
                                     12
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 5</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 5</span>
+                                    <span className='d-block d-md-none'>T5</span>
+                                </p>
+                                <p className="day-bottom">
                                     13
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 6</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 6</span>
+                                    <span className='d-block d-md-none'>T6</span>
+                                </p>
+                                <p className="day-bottom">
                                     14
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 7</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 7</span>
+                                    <span className='d-block d-md-none'>T7</span>
+                                </p>
+                                <p className="day-bottom">
                                     15
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Chủ nhật</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>C.Nhật</span>
+                                    <span className='d-block d-md-none'>CN</span>
+                                </p>
+                                <p className="day-bottom">
                                     16
                                 </p>
-                            </li>
+                            </li> 
                         </ul>
                     </div>
                     
-                    <div className="detailFilm__time">
-                        <h3 className='detailFilm__day__title'><span>02. </span>Chọn Phim & Suất Chiếu</h3>
+                    <div className="detailCinema__time">
+                        <h3 className='detailCinema__day__title'><span>02. </span>Chọn Phim & Suất Chiếu</h3>
                         {renderFilmList()}
                     </div>
                 </div>

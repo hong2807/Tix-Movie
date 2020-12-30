@@ -39,7 +39,7 @@ export default function DetailFilm(props) {
             return  <li key={index} className={activeCinema === index ? 'active text-capitalize' : 'text-capitalize'} onClick={ () => {setActiveCinema(index); setCinemaDetailList(cinemaList[index].cumRapChieu)}}>
                 <img src={item.logo} alt={item.logo}/>
                 <br></br>
-                {item.tenHeThongRap}
+                {item.tenHeThongRap.replace('Cinema', '').replace('Star Cineplex', '')}
             </li>
         })
     }
@@ -55,7 +55,7 @@ export default function DetailFilm(props) {
         return cinemaDetailList.map((item,index) => {
             return  <div className="detailFilm__timeItem" key={index}>
             <div className="row">
-                <div className="col-5">
+                <div className="col-12 col-md-5">
                     <div className="detailFilm__left">
                         <div className="detailFilm__leftItem">
                             <div className="inside">
@@ -67,7 +67,7 @@ export default function DetailFilm(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-7">
+                <div className="col-12 col-md-7">
                     <div className="detailFilm__right">
                         <div className="detailFilm__rightItem">
                             <div className="cinema__timedetail">
@@ -89,12 +89,12 @@ export default function DetailFilm(props) {
             <div className="container">
                 <div className="detailFilm__info">
                     <div className="row">
-                        <div className="col-3">
+                        <div className="col-12 col-md-3">
                             <div className="detailFilm__infoLeft">
                                 <img className="w-100" src={filmDetail.hinhAnh} alt={filmDetail.tenPhim}></img>
                             </div>
                         </div>
-                        <div className="col-7">
+                        <div className="col-12 col-md-7">
                             <div className="detailFilm__infoCenter">
                                 <h3 className="film-name">{filmDetail.tenPhim}</h3>
                                 <p>
@@ -131,7 +131,7 @@ export default function DetailFilm(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-2">
+                        <div className="col-3 col-md-2 detailFilm__infoRight-wrapper">
                             <div className="detailFilm__infoRight">
                                 <div className="borderRating">
                                     <span>{filmDetail.danhGia}</span>
@@ -152,56 +152,69 @@ export default function DetailFilm(props) {
                     <div className="detailFilm__day">
                         <h3 className='detailFilm__day__title'><span>02. </span>Chọn Ngày</h3>
                         <ul>
-                            <li className="active">
-                                <p className="mb-0">
-                                    <span>Thứ 2</span>
-                                    <br></br>
+                            <li className="day-item active">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 2</span>
+                                    <span className='d-block d-md-none'>T2</span>
+                                </p>
+                                <p className="day-bottom">
                                     10
                                 </p>
-
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 3</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 3</span>
+                                    <span className='d-block d-md-none'>T3</span>
+                                </p>
+                                <p className="day-bottom">
                                     11
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 4</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 4</span>
+                                    <span className='d-block d-md-none'>T4</span>
+                                </p>
+                                <p className="day-bottom">
                                     12
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 5</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 5</span>
+                                    <span className='d-block d-md-none'>T5</span>
+                                </p>
+                                <p className="day-bottom">
                                     13
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 6</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 6</span>
+                                    <span className='d-block d-md-none'>T6</span>
+                                </p>
+                                <p className="day-bottom">
                                     14
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Thứ 7</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>Thứ 7</span>
+                                    <span className='d-block d-md-none'>T7</span>
+                                </p>
+                                <p className="day-bottom">
                                     15
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    <span>Chủ nhật</span>
-                                    <br></br>
+                            <li className="day-item">
+                                <p className="day-top">
+                                    <span className='d-none d-md-block'>C.Nhật</span>
+                                    <span className='d-block d-md-none'>CN</span>
+                                </p>
+                                <p className="day-bottom">
                                     16
                                 </p>
-                            </li>
+                            </li> 
                         </ul>
                     </div>
                     

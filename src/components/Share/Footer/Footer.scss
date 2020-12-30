@@ -104,8 +104,44 @@
 }
 
 @include responsive('small') {
-    .footer-component .footer__address {
-        text-align: center;
+    .footer-component  {
+        .footer__address {
+            text-align: center;
+
+            .footer__addressLogo {
+                margin-bottom: rem(15);
+            }
+        }
+
+        .footer__policy {
+            .footer__policyContent {
+                .footer__tixFollowus {
+                    margin: rem(25) 0;
+    
+                    ul,
+                    .footer__permission {
+                        text-align: center;
+                    }
+    
+                    li {
+                        padding: rem(5) rem(10);
+                    }
+                }
+    
+                .footer__tixPay {
+                    ul {
+                        text-align: center;
+                    }
+    
+                    li {
+                        padding: rem(5) rem(10);
+                    }
+                }
+    
+            }
+        }
     }
+
+    
    
 }

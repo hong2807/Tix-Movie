@@ -5,6 +5,10 @@ const AdminApi = {
         callApi
         .get(`QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=GP12&soTrang=${soTrang}&soPhanTuTrenTrang=${soLuongMotTrang}`),
 
+    listKindOfUser: (taikhoan) =>
+        callApi
+        .get("QuanLyNguoiDung/LayDanhSachLoaiNguoiDung"),
+
     deleteUser: (taikhoan) =>
         callApi
         .delete(`QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taikhoan}`),
