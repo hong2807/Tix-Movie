@@ -318,3 +318,53 @@
     padding: unset;
   }
 }
+
+
+@include responsive('large') {
+    
+}
+
+@include responsive('medium') {
+
+}
+
+@include responsive('small') {
+  .booking-component {
+    .booking__left {
+      .booking-line-wrapper {
+        max-width: 10%;
+      }
+
+      .booking-seats-wrapper {
+        max-width: 80%;
+      }
+
+      .booking-viewseat {
+        .booking-line {
+              ul {
+                width: unset;
+
+                li {
+                  width: 16px;
+                  height: 19px;
+                  line-height: 21px;
+                  margin-right: 3px;
+                  font-size: 12px;
+                }
+              }
+        }
+        .booking-seats {
+          ul {
+            li {
+              width: 14px;
+              height: 16px;
+              line-height: 15px;
+              font-size: rem(8);
+            }
+          }
+        }
+        }
+    }
+  }
+}
+   

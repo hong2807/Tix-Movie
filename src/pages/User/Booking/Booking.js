@@ -139,7 +139,7 @@ export default function Booking(props) {
                                     </div>
                                     <div className="booking-viewseat">
                                         <div className="row">
-                                            <div className="col-1">
+                                            <div className="col-md-1 booking-line-wrapper">
                                                 <div className="booking-line">
                                                     <ul>
                                                         <li>A</li>
@@ -156,7 +156,7 @@ export default function Booking(props) {
                                                 </div>
                                             </div>
 
-                                            <div className="col-10">
+                                            <div className="col-md-10 booking-seats-wrapper">
                                                 <div className="booking-seats">
                                                     <ul>
                                                         {renderChairList()}
@@ -164,7 +164,7 @@ export default function Booking(props) {
                                                 </div>
                                             </div>
 
-                                            <div className="col-1">
+                                            <div className="col-md-1 booking-line-wrapper">
                                                 <div className="booking-line">
                                                     <ul>
                                                         <li>A</li>
