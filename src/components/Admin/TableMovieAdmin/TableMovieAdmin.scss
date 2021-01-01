@@ -1,0 +1,117 @@
+@import "src/scss/Helper/variables.scss";
+@import "src/scss/Helper/mixin.scss";
+
+
+.moviemanagement__table {
+    .pagination {
+        background-color: $color-grey-3;
+        color: $color-white-default;
+    }
+
+    .page-link {
+        height: 40px;
+        width: rem(40);  
+        line-height: rem(39);
+        text-align: center;
+        padding: 0;
+        background-color: $color-grey-3;
+        color: $color-white-default;
+        border: unset;
+
+        &:focus {
+            box-shadow: unset;
+        }
+    }
+
+    .page-item.active .page-link {
+        background-color: unset;
+        border-color: unset;
+        border-radius: 6px;
+        border: 1px solid $color-yellow-default;
+        box-shadow: unset;
+    }
+
+    .page-item.disabled .page-link {
+        background-color: $color-grey-3;
+        color: $color-white-default;
+        border-color: unset;
+    }
+
+    nav {
+        margin: 0;
+        justify-content: flex-end !important;
+    }
+}
+
+.editMovieModal__details {
+    border-radius: 6px;
+    border: 1px solid $color-grey-2;
+    padding: rem(20);
+
+    .form-img {
+        width: 100%;
+        height: 400px;
+        line-height: 400px;
+        background-color: rgba(210,201,255,0.04);
+        margin-bottom: 20px;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    .editMovieModal__details-right {
+        padding: rem(0) rem(20);
+    }
+
+    .title {
+        color: $color-yellow-default;
+        margin-bottom: rem(25);
+    }
+
+    .editMovieModal__form {
+        margin-left: rem(-15);
+        margin-right: rem(-15);
+    
+        label {
+            color: $color-white-0;
+            font-size: rem(16);
+        }
+
+        .form__item {
+            margin-bottom: rem(20);
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            color: $color-white-default;
+            background-color: $color-grey-3;
+            border: 1px solid transparent;
+            height: 46px;
+            border-radius: 6px;
+            padding: 0 rem(20);
+
+            &:focus {
+                box-shadow: unset;
+                outline: unset;
+                border: 1px solid $color-yellow-default;
+            }
+          
+        }
+        
+        textarea {
+            display: block;
+            width: 100%;
+            background-color: $color-grey-3;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            resize: none;
+
+            &:focus {
+                box-shadow: unset;
+                outline: unset;
+                border: 1px solid $color-yellow-default;
+            }
+        }
+    }
+
+}

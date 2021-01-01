@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../TableFilmAdmin/TableFilmAdmin.scss"
+    ],
+    "names": [],
+    "file": "TableFilmAdmin.css"
+}

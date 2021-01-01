@@ -1,4 +1,5 @@
 import {combineReducers, createStore} from 'redux';
+import AdminFilmManagementReducer from './reducers/AdminFilmManagementReducer';
 import AdminUserManagementReducer from './reducers/AdminUserManagementReducer';
 import UserManagementReducer from './reducers/UserManagementReducer';
 
@@ -6,7 +7,8 @@ import UserManagementReducer from './reducers/UserManagementReducer';
 const rootReducer = combineReducers({
     //reducer khai báo tại đây
     UserManagementReducer: UserManagementReducer,
-    AdminUserManagementReducer: AdminUserManagementReducer
+    AdminUserManagementReducer: AdminUserManagementReducer,
+    AdminFilmManagementReducer: AdminFilmManagementReducer,
 })
 
 

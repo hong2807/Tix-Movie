@@ -155,9 +155,16 @@ a:hover {
   width: 6px;
 }
 
+.page-content {
+  padding-top: 80px;
+}
+
 @media screen and (max-width: 576px) {
   html {
     font-size: 14px;
+  }
+  .page-content {
+    padding-top: 65px;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -3,7 +3,7 @@ import callApi from "../ApiConfig";
 const AdminApi = {
     listUser: (soTrang,soLuongMotTrang) =>
         callApi
-        .get(`QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=GP12&soTrang=${soTrang}&soPhanTuTrenTrang=${soLuongMotTrang}`),
+        .get(`QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=GP01&soTrang=${soTrang}&soPhanTuTrenTrang=${soLuongMotTrang}`),
 
     listKindOfUser: (taikhoan) =>
         callApi
@@ -16,6 +16,10 @@ const AdminApi = {
     createUser: (data) =>
         callApi
             .post("QuanLyNguoiDung/ThemNguoiDung", data),
-    
+
+    searchUser: (tuKhoa,soTrang,soLuongMotTrang) =>
+        callApi
+            .get(`QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?MaNhom=GP01&tuKhoa=${tuKhoa}&soTrang=${soTrang}&soPhanTuTrenTrang=${soLuongMotTrang}`),
+
 };
 export default AdminApi;

@@ -132,3 +132,47 @@
     }
 
 }
+
+
+@include responsive('large') {
+}
+
+@include responsive('medium') {
+}
+
+@include responsive('small') {
+    .films-component {
+        .ant-tabs-tab {
+            margin-left: rem(15);
+            margin-right: rem(15);
+
+            &-btn {
+                font-size: rem(22);
+            }
+        }
+        
+        .film-text {
+            font-size: rem(16);
+
+            .film-name {
+                font-size: rem(20);
+            }
+        }
+
+        .slick-prev:before, .slick-next:before {
+            color: $color-orange-0;
+            font-size: rem(35);
+        }
+
+        .film-slider-mobile {
+            .film__wrapper {
+                .film__item {
+                    img {
+                        height: rem(420);
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}

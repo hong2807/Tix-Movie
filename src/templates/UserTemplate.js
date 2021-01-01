@@ -13,7 +13,7 @@ export const UserTemplate = ({ Component, ...restProps }) => {
     return <Route {...restProps} render={(propsRoute) => {
         return <Fragment>
             <Header {...propsRoute}></Header>
-            <div style={{paddingTop: 80}}>
+            <div className="page-content">
                 <Component {...propsRoute} />
             </div>
             <BackTop>

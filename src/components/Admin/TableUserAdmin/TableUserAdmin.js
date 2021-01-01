@@ -5,12 +5,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import AdminApi from "../../../api/services/AdminApi";
-import { getDetailUserAdmin, getListUserAdmin } from "../../../redux/actions/AdminUserManagementAction";
+import { getDetailUserAdmin, getListUserAdmin, getToTalListUserAdmin } from "../../../redux/actions/AdminUserManagementAction";
 import "./TableUserAdmin.scss";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import UserApi from "../../../api/services/UserApi";
 import { editInfoUserAction } from "../../../redux/actions/UserManagementAction";
+import Pagination from "react-bootstrap-4-pagination";
 
 export default function TableUserAdmin() {
   const dispatch = useDispatch();
@@ -57,7 +58,7 @@ export default function TableUserAdmin() {
             title: "Bạn đã cập nhật thành công",
             icon: "success",
             confirmButtonColor: "#3085d6",
-          })
+          });
         })
         .catch((error) => {
           Swal.fire({
@@ -72,13 +73,21 @@ export default function TableUserAdmin() {
 
   const listUser = useSelector((state) => state.AdminUserManagementReducer.danhSachUserAdmin);
 
-  const dsMaLoaiNguoiDung = useSelector(state =>  state.AdminUserManagementReducer.maLoaiNguoiDung)
+  const totalListUser = useSelector((state) => state.AdminUserManagementReducer.sumDanhSachUserAdmin);
 
-  const loadListKindOfUser = () => { 
-    return dsMaLoaiNguoiDung.map((item,index) => {
-        return <option selected={item.maLoaiNguoiDung === formik.values.maLoaiNguoiDung} value={item.maLoaiNguoiDung} key={index}>{item.tenLoai}</option>
-    })
-}
+  console.log("totalListUser", totalListUser);
+
+  const dsMaLoaiNguoiDung = useSelector((state) => state.AdminUserManagementReducer.maLoaiNguoiDung);
+
+  const loadListKindOfUser = () => {
+    return dsMaLoaiNguoiDung.map((item, index) => {
+      return (
+        <option selected={item.maLoaiNguoiDung === formik.values.maLoaiNguoiDung} value={item.maLoaiNguoiDung} key={index}>
+          {item.tenLoai}
+        </option>
+      );
+    });
+  };
 
   //Modal edit
   const [visible, setVisible] = React.useState(false);
@@ -101,15 +110,52 @@ export default function TableUserAdmin() {
   console.log("ERROR", formik.errors);
 
   const loadList = () => {
-    AdminApi.listUser(1, 10)
+    AdminApi.listUser(1, 20)
       .then((response) => {
         console.log("response", response.data.items);
         console.log("response", response.data.items);
         dispatch(getListUserAdmin(response.data.items));
+        dispatch(getToTalListUserAdmin(response.data));
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const tukhoa = useSelector((state) => state.AdminUserManagementReducer.tuKhoa);
+  let paginationConfig = {
+    totalPages: totalListUser.totalPages,
+    currentPage: totalListUser.currentPage,
+    showMax: 5,
+    size: "md",
+    threeDots: false,
+    prevNext: true,
+    onClick: function (page) {
+      console.log("tukhoa", tukhoa);
+      console.log(page);
+
+      if (tukhoa !== "") {
+        AdminApi.searchUser(tukhoa, page, 10)
+          .then((response) => {
+            console.log(response.data);
+            dispatch(getListUserAdmin(response.data.items));
+            dispatch(getToTalListUserAdmin(response.data));
+          })
+          .catch((error) => {
+            console.log(error.response.data);
+          });
+      } else {
+        AdminApi.listUser(page, 20)
+          .then((response) => {
+            console.log("list user pagination", response.data);
+            dispatch(getListUserAdmin(response.data.items));
+            dispatch(getToTalListUserAdmin(response.data));
+          })
+          .catch((errorr) => {
+            console.log("errorr list user pagination", errorr.response.data);
+          });
+      }
+    },
   };
   // console.log("listUser",listUser)
 
@@ -123,7 +169,6 @@ export default function TableUserAdmin() {
 
   const renderListUser = () => {
     return listUser.map((item, index) => {
-      console.log("item", item);
       return (
         <tr
           key={index}
@@ -189,7 +234,6 @@ export default function TableUserAdmin() {
   //     SetDetailUser(item);
   // }
 
-
   return (
     <div className="usermanagement__table mt-3">
       <table className="table">
@@ -205,7 +249,9 @@ export default function TableUserAdmin() {
         </thead>
         <tbody>{renderListUser()}</tbody>
       </table>
-
+      <div className="usermanagement__pagination">
+        <Pagination {...paginationConfig} className="test" />
+      </div>
       <Modal
         title=""
         visible={visible}
@@ -230,233 +276,104 @@ export default function TableUserAdmin() {
 
         <div className="editUserModal__details">
           <div className="row">
-            <div className="col-8">
+            <div className="col-12 col-md-8">
               <div className="editUserModal__details-left">
                 <h5 className="title">Chi tiết thành viên</h5>
-                <Form
-                  className="editUserModal__form"
-                  labelCol={{ span: 24 }}
-                  wrapperCol={{ span: 24 }}
-                  layout="vertical"
-                  initialValues={{ size: componentSize }}
-                  onValuesChange={onFormLayoutChange}
-                  size={componentSize}
-                  onFinish={formik.handleSubmit}
-                >
-                  <Form.Item label="Tài khoản">
-                    <Input type="text" name="taiKhoan" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.taiKhoan} />
-                    {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger disabled">{formik.errors.taiKhoan}</small>}
-                  </Form.Item>
-                  <Form.Item label="Mật khẩu">
-                    <Input type="text" name="matKhau" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
-                    {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
-                  </Form.Item>
-                  <Form.Item label="Họ tên">
-                    <Input type="text" name="hoTen" placeholder="Họ Tên" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.hoTen} />
-                    {formik.errors.hoTen && formik.touched.hoTen && <small className="text-danger">{formik.errors.hoTen}</small>}
-                  </Form.Item>
-                  <Form.Item label="Số điện thoại">
-                    <Input type="text" name="soDt" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.soDt} />
-                    {formik.errors.soDt && formik.touched.soDt && <small className="text-danger">{formik.errors.soDt}</small>}
-                  </Form.Item>
-                  <Form.Item label="Email">
-                    <Input type="text" name="email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
-                    {formik.errors.email && formik.touched.email && <small className="text-danger">{formik.errors.email}</small>}
-                  </Form.Item>
-                  <Form.Item label="Mã loại người dùng">
-                    <Select value={formik.values.maLoaiNguoiDung} name="maLoaiNguoiDung" onChange={formik.handleChange} onBlur={formik.handleBlur}>
-                      <Select.Option className="option" value="QuanTri">
-                        Quản trị
-                      </Select.Option>
-                      <Select.Option className="option" value="KhachHang">
-                        Khách hàng
-                      </Select.Option>
-                    </Select>
-                  </Form.Item>
-                  <Form.Item label="Mã nhóm">
-                    <Input type="text" value="GP01" />
-                  </Form.Item>
-                  <Form.Item className="form-btn">
-                    <Button htmlType="submit" className="btn-update">
-                      Cập nhật
-                    </Button>
-                  </Form.Item>
-                </Form>
+                
+                <form className="editUserModal__form" onSubmit={formik.handleSubmit}>
+                  <div className="row">
+                    <div className="col-6">
+                      <div className="form__item">
+                        <label>Họ tên</label>
+                        <input type="text" name="hoTen" className="form-control" placeholder="Họ Tên" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.hoTen} />
+                        {formik.errors.hoTen && formik.touched.hoTen && <small className="text-danger">{formik.errors.hoTen}</small>}
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="form__item">
+                        <label>Tài khoản</label>
+                        <input
+                          type="text"
+                          name="taiKhoan"
+                          className="form-control"
+                          placeholder="Tên tài khoản"
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          value={formik.values.taiKhoan}
+                        />
+                        {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger">{formik.errors.taiKhoan}</small>}
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="form__item">
+                        <label>Email</label>
+                        <input type="email" name="email" className="form-control" placeholder="Email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
+                        {formik.errors.email && formik.touched.email && <small className="text-danger">{formik.errors.email}</small>}
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="form__item">
+                        <label>Mã nhóm</label>
+                        <input type="text" name="maNhom" className="form-control" placeholder="Mã nhóm" onChange={formik.handleChange} onBlur={formik.handleBlur} value="GP12" />
+                        {formik.errors.maNhom && formik.touched.maNhom && <small className="text-danger">{formik.errors.maNhom}</small>}
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="form__item">
+                        <label>Số điện thoại</label>
+                        <input type="text" name="soDt" className="form-control" placeholder="Số điện thoại" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.soDt} />
+                        {formik.errors.soDt && formik.touched.soDt && <small className="text-danger">{formik.errors.soDt}</small>}
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="form__item">
+                        <label>Mã loại người dùng</label>
+                        <select class="form-control" name="maLoaiNguoiDung" value={formik.values.maLoaiNguoiDung} onChange={formik.handleChange} onBlur={formik.handleBlur}>
+                          {loadListKindOfUser()}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" className="btn-update">
+                    Cập nhật
+                  </button>
+                </form>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-12 col-md-4">
               <div className="editUserModal__details-right">
                 <h5 className="title">Thay đổi mật khẩu</h5>
-                <Form
-                  className="editUserModal__form"
-                  labelCol={{ span: 24 }}
-                  wrapperCol={{ span: 24 }}
-                  layout="vertical"
-                  initialValues={{ size: componentSize }}
-                  onValuesChange={onFormLayoutChange}
-                  size={componentSize}
-                >
-                  <Form.Item label="Mật khẩu cũ">
-                    <Input type="text" name="matKhau" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
-                    {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
-                  </Form.Item>
-                  <Form.Item label="Mật khẩu mới">
-                    <Input type="text" name="matKhau" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
-                    {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
-                  </Form.Item>
-                  <Form.Item label="Nhập lại mật khẩu">
-                    <Input type="text" placeholder="User 123" />
-                  </Form.Item>
-
-                  <Form.Item className="form-btn">
-                    <Button htmlType="submit" className="btn-update">
-                      Thay đổi
-                    </Button>
-                  </Form.Item>
-                </Form>
+                <form className="editUserModal__form" onSubmit={formik.handleSubmit}>
+                  <div className="row">
+                    <div className="col-12">
+                      <div className="form__item">
+                        <label>Mật khẩu cũ</label>
+                        <input type="password" name="matKhau" className="form-control" placeholder="Mật khẩu" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
+                        {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form__item">
+                        <label>Mật khẩu mới</label>
+                        <input type="password" name="matKhau" className="form-control" placeholder="Mật khẩu" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
+                        {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
+                      </div>
+                    </div>
+                    <div className="col-12">
+                      <div className="form__item">
+                        <label>Nhập lại mật khẩu</label>
+                        <input type="password" name="matKhau" className="form-control" placeholder="Mật khẩu" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
+                        {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" className="btn-update">
+                    Thay đổi
+                  </button>
+                </form>
               </div>
             </div>
           </div>
-
-
-            <div className="row">
-                <div className="col-12 col-md-8">
-                    <div className="editUserModal__details-left">
-                        <h5 className="title">Chi tiết thành viên</h5>
-                        <form className="editUserModal__form" onSubmit={formik.handleSubmit}>  
-                            <div className="row">
-                                <div className="col-6">
-                                    <div className="form__item">
-                                    <label>Họ tên</label>
-                                    <input type="text" 
-                                    name="hoTen" 
-                                    className="form-control"  
-                                    placeholder="Họ Tên" 
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.hoTen}/>
-                                    {formik.errors.hoTen && formik.touched.hoTen && <small className="text-danger">{formik.errors.hoTen}</small>}
-                                    </div>
-                                </div>
-                                <div className="col-6">
-                                    <div className="form__item">
-                                    <label>Tài khoản</label>
-                                    <input type="text" 
-                                    name="taiKhoan" 
-                                    className="form-control"  
-                                    placeholder="Tên tài khoản"
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.taiKhoan}/>
-                                    {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger">{formik.errors.taiKhoan}</small>}
-                                    </div>
-                                </div>
-                                <div className="col-6">
-                                    <div className="form__item">
-                                    <label>Email</label>
-                                    <input type="email" 
-                                    name="email" 
-                                    className="form-control" 
-                                    placeholder="Email" 
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.email}/>
-                                    {formik.errors.email && formik.touched.email && <small className="text-danger">{formik.errors.email}</small>}
-                                    </div>
-                                </div>
-                                <div className="col-6">
-                                    <div className="form__item">
-                                    <label>Mã nhóm</label>
-                                    <input type="text" 
-                                    name="maNhom" 
-                                    className="form-control" 
-                                    placeholder="Mã nhóm" 
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value='GP12'/>
-                                    {formik.errors.maNhom && formik.touched.maNhom && <small className="text-danger">{formik.errors.maNhom}</small>}
-                                    </div>
-                                </div>
-                                <div className="col-6">
-                                    <div className="form__item">
-                                    <label>Số điện thoại</label>
-                                    <input type="text" 
-                                    name="soDt" 
-                                    className="form-control" 
-                                    placeholder="Số điện thoại" 
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.soDt}/>
-                                    {formik.errors.soDt && formik.touched.soDt && <small className="text-danger">{formik.errors.soDt}</small>}
-                                    </div>
-                                </div>
-                                <div className="col-6">
-                                    <div className="form__item">
-                                        <label>Mã loại người dùng</label>
-                                        <select class="form-control" 
-                                                name="maLoaiNguoiDung" 
-                                                value={formik.values.maLoaiNguoiDung} 
-                                                onChange={formik.handleChange} 
-                                                onBlur={formik.handleBlur}>
-                                                {loadListKindOfUser()}
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>         
-                            <button type="submit" className="btn-update">Cập nhật</button>
-                        </form>                
-                    </div>     
-                </div>
-                <div className="col-12 col-md-4">
-                    <div className="editUserModal__details-right">
-                        <h5 className="title">Thay đổi mật khẩu</h5>
-                        <form className="editUserModal__form" onSubmit={formik.handleSubmit}>  
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="form__item">
-                                    <label>Mật khẩu cũ</label>
-                                    <input type="password" 
-                                    name="matKhau" 
-                                    className="form-control" 
-                                    placeholder="Mật khẩu" 
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.matKhau}/>
-                                    {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
-                                    </div>
-                                </div>
-                                <div className="col-12">
-                                    <div className="form__item">
-                                    <label>Mật khẩu mới</label>
-                                    <input type="password" 
-                                    name="matKhau" 
-                                    className="form-control" 
-                                    placeholder="Mật khẩu" 
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.matKhau}/>
-                                    {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
-                                    </div>
-                                </div>
-                                <div className="col-12">
-                                    <div className="form__item">
-                                    <label>Nhập lại mật khẩu</label>
-                                    <input type="password" 
-                                    name="matKhau" 
-                                    className="form-control" 
-                                    placeholder="Mật khẩu" 
-                                    onChange={formik.handleChange}
-                                    onBlur={formik.handleBlur}
-                                    value={formik.values.matKhau}/>
-                                    {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
-                                    </div>
-                                </div>
-                            </div>         
-                            <button type="submit" className="btn-update">Thay đổi</button>
-                        </form>                
-                    </div>     
-                </div>
-            </div>
         </div>
       </Modal>
     </div>

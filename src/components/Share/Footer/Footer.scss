@@ -110,6 +110,10 @@
 
             .footer__addressLogo {
                 margin-bottom: rem(15);
+
+                img {
+                    width: 120px;
+                }
             }
         }
 
@@ -117,10 +121,22 @@
             .footer__policyContent {
                 .footer__tixFollowus {
                     margin: rem(25) 0;
+
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
     
-                    ul,
+                    ul {
+                        text-align: center;
+                    }
+
                     .footer__permission {
                         text-align: center;
+
+                        img {
+                            width: 120px;
+                        }
                     }
     
                     li {
@@ -135,6 +151,11 @@
     
                     li {
                         padding: rem(5) rem(10);
+                    }
+
+                    img {
+                        width: 35px;
+                        height: 35px;
                     }
                 }
     

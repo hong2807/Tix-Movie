@@ -55,43 +55,6 @@
                 }
             } 
         }
-
-        .usermanagement__pagination {
-            display: flex;
-            justify-content: space-between;
-            margin: rem(30) 0;
-
-            span {
-                background-color: $color-grey-3;
-                padding: 0 rem(15);
-                line-height: 40px;
-            }
-
-            .paginator {
-                display: flex; 
-                background-color: $color-grey-3;
-                align-items: center;
-
-                &__item {
-                    &:hover a {
-                        color: $color-yellow-default;
-                    }
-
-                    &.active a {
-                        border-radius: 6px;
-                        border: 1px solid $color-yellow-default;
-                    }
-
-                    a {
-                        display: inline-block;
-                        height: 40px;
-                        width: rem(40);  
-                        line-height: rem(39);
-                        text-align: center;
-                    }
-                }
-            }
-        }
     }
 }
 

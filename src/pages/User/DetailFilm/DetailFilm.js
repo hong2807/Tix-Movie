@@ -7,8 +7,10 @@ import utils from '../../../helper/utils';
 import ModalVideo from "react-modal-video";
 import { Link } from "react-scroll";
 import { Link  as Linkreact } from "react-router-dom";
-
-export default function DetailFilm(props) {
+ // Moment
+ 
+ export default function DetailFilm(props) {
+    let moment = require('moment')
     const [filmDetail,setFilmDetail] = useState([]);
 
     const [cinemaList,setCinemaList] = useState([]);
@@ -81,6 +83,26 @@ export default function DetailFilm(props) {
         </div>
         })
     }
+
+    const showDay = () => {
+        const dayHTML = [];
+        for(let i = 0; i < 7; i++) {
+            let today = moment();
+            let tomorrow  = moment(today).add(i,'days');
+            let day = tomorrow.get('days');
+            let thu = tomorrow.get('date');
+            dayHTML.push(<li className={i === 0 ? 'active day-item' : 'day-item'}>
+                <p className="day-top">
+                    <span className="d-none d-sm-block"> {day === 6 ?  utils.converday(day) : `Thứ ${utils.converday(day)}` }</span>
+                    <span className='d-block d-sm-none'>{day === 6 ?  'CN' : `T ${utils.converday(day)}` }</span>
+                </p>
+                <p className="day-bottom">
+                    {thu}
+                </p>
+            </li>);
+        }
+        return dayHTML;
+    }
         
         
     
@@ -152,69 +174,7 @@ export default function DetailFilm(props) {
                     <div className="detailFilm__day">
                         <h3 className='detailFilm__day__title'><span>02. </span>Chọn Ngày</h3>
                         <ul>
-                            <li className="day-item active">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 2</span>
-                                    <span className='d-block d-md-none'>T2</span>
-                                </p>
-                                <p className="day-bottom">
-                                    10
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 3</span>
-                                    <span className='d-block d-md-none'>T3</span>
-                                </p>
-                                <p className="day-bottom">
-                                    11
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 4</span>
-                                    <span className='d-block d-md-none'>T4</span>
-                                </p>
-                                <p className="day-bottom">
-                                    12
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 5</span>
-                                    <span className='d-block d-md-none'>T5</span>
-                                </p>
-                                <p className="day-bottom">
-                                    13
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 6</span>
-                                    <span className='d-block d-md-none'>T6</span>
-                                </p>
-                                <p className="day-bottom">
-                                    14
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 7</span>
-                                    <span className='d-block d-md-none'>T7</span>
-                                </p>
-                                <p className="day-bottom">
-                                    15
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>C.Nhật</span>
-                                    <span className='d-block d-md-none'>CN</span>
-                                </p>
-                                <p className="day-bottom">
-                                    16
-                                </p>
-                            </li> 
+                            {showDay()}
                         </ul>
                     </div>
                     

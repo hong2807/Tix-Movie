@@ -1,12 +1,14 @@
-import { CREATE_USER_ADMIN, EDIT_INFO_USER_ADMIN, GET_DETAIL_USER_ADMIN, GET_KIND_OF_USER, GET_LIST_USER_ADMIN } from "../constants/AdminUserManagementConstant";
+import { CREATE_USER_ADMIN, EDIT_INFO_USER_ADMIN, GET_DETAIL_USER_ADMIN, GET_KIND_OF_USER, GET_LIST_USER_ADMIN, GET_TOTAL_LIST_USER_ADMIN, SET_TU_KHOA } from "../constants/AdminUserManagementConstant";
 
 
 const stateDefault = {
     danhSachUserAdmin: [],
+    sumDanhSachUserAdmin: {},
     chiTietUserAdmin: {},
     newUser: {},
     thongTinUserAdmin: {},
-    maLoaiNguoiDung: []
+    maLoaiNguoiDung: [],
+    tuKhoa: "",
 }
 
 
@@ -17,6 +19,12 @@ const AdminUserManagementReducer = (state = stateDefault, action) => {
         case GET_LIST_USER_ADMIN: {
             console.log(state, action);
             state.danhSachUserAdmin = action.listUserAdmin;
+            return {...state}
+        }
+
+        case GET_TOTAL_LIST_USER_ADMIN: {
+            console.log(state, action);
+            state.sumDanhSachUserAdmin = action.totalListUserAdmin;
             return {...state}
         }
 
@@ -41,6 +49,12 @@ const AdminUserManagementReducer = (state = stateDefault, action) => {
         case EDIT_INFO_USER_ADMIN: {
             console.log(state, action);
             state.thongTinUserAdmin = action.listEditInfo;
+            return {...state}
+        }
+
+        case SET_TU_KHOA: {
+            console.log(state, action);
+            state.tuKhoa = action.thongTinTuKhoa;
             return {...state}
         }
 

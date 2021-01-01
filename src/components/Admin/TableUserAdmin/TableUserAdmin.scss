@@ -1,7 +1,46 @@
 @import "src/scss/Helper/variables.scss";
 @import "src/scss/Helper/mixin.scss";
 
+.usermanagement__table {
+    .pagination {
+        background-color: $color-grey-3;
+        color: $color-white-default;
+    }
 
+    .page-link {
+        height: 40px;
+        width: rem(40);  
+        line-height: rem(39);
+        text-align: center;
+        padding: 0;
+        background-color: $color-grey-3;
+        color: $color-white-default;
+        border: unset;
+
+        &:focus {
+            box-shadow: unset;
+        }
+    }
+
+    .page-item.active .page-link {
+        background-color: unset;
+        border-color: unset;
+        border-radius: 6px;
+        border: 1px solid $color-yellow-default;
+        box-shadow: unset;
+    }
+
+    .page-item.disabled .page-link {
+        background-color: $color-grey-3;
+        color: $color-white-default;
+        border-color: unset;
+    }
+
+    nav {
+        margin: 0;
+        justify-content: flex-end !important;
+    }
+}
 
 .editUserModal__title {
     display: flex;
@@ -77,7 +116,6 @@
 
             &:focus {
                 box-shadow: unset;
-                background-color: $color-grey-3;
                 border: 1px solid $color-yellow-default;
             }
         }

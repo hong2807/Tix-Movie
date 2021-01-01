@@ -19,7 +19,7 @@
 
         button {
             background-color: #fb4226;
-            padding: 10px 20px;
+            padding: rem(10) rem(20);
             font-size: rem(16);
             font-weight: 700;
             border: none;
@@ -30,7 +30,7 @@
             margin-top: rem(20);
 
             .version {
-                margin-right: 10px;
+                margin-right: rem(10);
 
                 img {
                     width: rem(140);
@@ -66,4 +66,24 @@
             }    
         }
     }
+}
+
+@include responsive('large') {
+    
+}
+
+@include responsive('medium') {
+
+}
+
+@include responsive('small') {
+    .mobileapp-component {
+        .mobileapp__right {
+            margin-top: rem(30);
+
+            .mobileapp__slider {
+                padding: 2% 21% 0 21%;
+            }
+        }
+    } 
 }

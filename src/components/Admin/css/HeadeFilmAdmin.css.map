@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../HeaderFilmAdmin/HeadeFilmAdmin.scss"
+    ],
+    "names": [],
+    "file": "HeadeFilmAdmin.css"
+}

@@ -41,7 +41,18 @@ export default function Header(props) {
   },[])
 
   const hoTen = useSelector(state => state.UserManagementReducer.thongTinUser.hoTen);
-  console.log('hoTen', hoTen)
+ 
+
+
+  const handleOnClick = () => {
+    document.getElementsByClassName('menuBtn')[0].classList.toggle('act');
+      if( document.getElementsByClassName('menuBtn')[0].classList.contains('act')) {
+        document.getElementsByClassName('mainMenu')[0].classList.add('act');
+      }
+      else {
+        document.getElementsByClassName('mainMenu')[0].classList.remove('act');
+      }
+  }
 
   return (
     <div className="header-component">
@@ -125,7 +136,7 @@ export default function Header(props) {
           </div>
         </div>
 
-        <div className="header__mobile d-block d-md-none">
+        <div className="header__mobile d-none d-md-none">
         <div className="phone">
         <div className="content">
           
@@ -142,11 +153,45 @@ export default function Header(props) {
               <li><a href="./">Đăng nhập</a></li>
               <li><a href="./">Đăng ký</a></li>
             </ul>
+          <p>Tix Movie</p>
            </div>
           </nav>
         </div>
        </div>
         </div>
+
+
+        {/* <div className="header__test">
+          <div class="mobile">
+	          <div class="mainContainer">
+		          <header>
+                <a href="#" class="logo">logo</a>
+                <a href="#" class="menuBtn" onClick={handleOnClick}>
+                  <span class="lines"></span>
+                </a>
+                <nav class="mainMenu">
+                  <ul>
+                    <li>
+                      <a href="#">Intro</a>
+                    </li>
+                    <li>
+                      <a href="#">Services</a>
+                    </li>
+                    <li>
+                      <a href="#">Team</a>
+                    </li>
+                    <li>
+                      <a href="#">Pricing</a>
+                    </li>
+                    <li>
+                      <a href="#" class="suBtn">Sing Up</a>
+                    </li>
+                  </ul>
+			          </nav>
+		          </header>
+	          </div>
+          </div>
+        </div> */}
       </div>
     </div>
   );

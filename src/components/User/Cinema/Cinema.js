@@ -124,7 +124,7 @@ export default function Cinema() {
     }
 
     return (
-        <div id="cinema-component" className="cinema-component">
+        <div id="cinema-component" className="cinema-component d-none d-md-block">
             <div className="container">
                 <div className="cinema-content">
                     <div className="cinema__brand">

@@ -103,6 +103,29 @@ export default function DetailCinema(props) {
         })
     }
 
+    // Moment
+    let moment = require('moment')
+
+    const showDay = () => {
+        const dayHTML = [];
+        for(let i = 0; i < 7; i++) {
+            let today = moment();
+            let tomorrow  = moment(today).add(i,'days');
+            let day = tomorrow.get('days');
+            let thu = tomorrow.get('date');
+            dayHTML.push(<li className={i === 0 ? 'active day-item' : 'day-item'}>
+                <p className="day-top">
+                    <span className="d-none d-sm-block"> {day === 6 ?  utils.converday(day) : `Thứ ${utils.converday(day)}` }</span>
+                    <span className='d-block d-sm-none'>{day === 6 ?  'CN' : `T ${utils.converday(day)}` }</span>
+                </p>
+                <p className="day-bottom">
+                    {thu}
+                </p>
+            </li>);
+        }
+        return dayHTML;
+    }
+
     return (
         <div className="detailCinema-component component-padding">
             <div className="container">
@@ -139,33 +162,6 @@ export default function DetailCinema(props) {
                                
                                 <div className="detailCinema__branch">
                                     {renderCinemaBranch()}
-                                    {/* <ul className="branch__list">
-                                    <li className="brach__item">
-                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
-                                        <br></br>
-                                        BHD Star - Vincom Lê Văn Việt
-                                    </li>
-                                    <li className="brach__item">
-                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
-                                        <br></br>
-                                        BHD Star - Vincom Quang Trung
-                                    </li>
-                                    <li className="brach__item">
-                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
-                                        <br></br>
-                                        BHD Star - 3/2
-                                    </li>
-                                    <li className="brach__item">
-                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
-                                        <br></br>
-                                        BHD Star - Phạm Hùng
-                                    </li>
-                                    <li className="brach__item">
-                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png"/>
-                                        <br></br>
-                                        BHD Star - Vincom Thảo Điền
-                                    </li>
-                                    </ul> */}
                                 </div>
                             </div>
                         </div>
@@ -176,69 +172,7 @@ export default function DetailCinema(props) {
                     <div className="detailCinema__day">
                         <h3 className='detailCinema__day__title'><span>01. </span>Chọn Ngày</h3>
                         <ul>
-                            <li className="day-item active">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 2</span>
-                                    <span className='d-block d-md-none'>T2</span>
-                                </p>
-                                <p className="day-bottom">
-                                    10
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 3</span>
-                                    <span className='d-block d-md-none'>T3</span>
-                                </p>
-                                <p className="day-bottom">
-                                    11
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 4</span>
-                                    <span className='d-block d-md-none'>T4</span>
-                                </p>
-                                <p className="day-bottom">
-                                    12
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 5</span>
-                                    <span className='d-block d-md-none'>T5</span>
-                                </p>
-                                <p className="day-bottom">
-                                    13
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 6</span>
-                                    <span className='d-block d-md-none'>T6</span>
-                                </p>
-                                <p className="day-bottom">
-                                    14
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>Thứ 7</span>
-                                    <span className='d-block d-md-none'>T7</span>
-                                </p>
-                                <p className="day-bottom">
-                                    15
-                                </p>
-                            </li>
-                            <li className="day-item">
-                                <p className="day-top">
-                                    <span className='d-none d-md-block'>C.Nhật</span>
-                                    <span className='d-block d-md-none'>CN</span>
-                                </p>
-                                <p className="day-bottom">
-                                    16
-                                </p>
-                            </li> 
+                            {showDay()}
                         </ul>
                     </div>
                     

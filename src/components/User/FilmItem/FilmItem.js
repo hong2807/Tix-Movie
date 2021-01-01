@@ -39,6 +39,21 @@ export default function FilmItem(props) {
                     </div>
                   </div>
                 </div>
+
+                <div className="film-group-btn d-flex d-md-none">
+                  <div className="film-btn" onClick={()=> {
+                      props.modal(props.filmInfo.trailer)
+                    }}>
+                    <p className="text-center">
+                      <FontAwesomeIcon className="icon" icon={faPlayCircle} /> Trailer
+                    </p>
+                  </div>
+                  <Link to={`/phim/${props.filmInfo.maPhim}`} className="film-btn">
+                    <p className="text-center">
+                      <FontAwesomeIcon className="icon" icon={faInfoCircle} /> Detail
+                    </p>
+                  </Link>
+                </div>
               </div>
         </div>
     )

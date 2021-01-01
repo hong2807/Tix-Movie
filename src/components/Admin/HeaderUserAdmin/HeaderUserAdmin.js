@@ -2,16 +2,16 @@ import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./HeaderUserAdmin.scss";
-import {  Input, Button, Select, Form, Modal } from 'antd';
-import { useState } from "react";
+import {   Modal } from 'antd';
 import Swal from "sweetalert2";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AdminApi from "../../../api/services/AdminApi";
 import { useDispatch, useSelector } from "react-redux";
-import { createUserAdmin, getKindOfUserAction } from "../../../redux/actions/AdminUserManagementAction";
+import { createUserAdmin, getKindOfUserAction, getToTalListUserAdmin, setTuKhoa } from "../../../redux/actions/AdminUserManagementAction";
 import { getListUserAdmin } from "../../../redux/actions/AdminUserManagementAction";
 import { useEffect } from "react";
+import { useRef } from "react";
 
 
 
@@ -107,13 +107,48 @@ export default function HeaderUserAdmin() {
 
     console.log("VALUES",formik.values);
 
+    let inputSearch = useRef(null);
+
+    const searchUser = () => {
+        let valueInput = inputSearch.current.value;
+        console.log('valueInput',valueInput);
+        if(valueInput !== "") {
+            AdminApi.searchUser(valueInput,1,10)
+            .then(response => {
+                console.log(response.data);
+                dispatch(getListUserAdmin(response.data.items));
+                dispatch(getToTalListUserAdmin(response.data));
+                dispatch(setTuKhoa(valueInput))
+            })
+            .catch(error=> {
+                console.log(error.response.data);
+            })
+        } else {
+            AdminApi.listUser(1, 20)
+                .then((response) => {
+                    console.log("list user pagination", response.data);
+                    dispatch(getListUserAdmin(response.data.items));
+                    dispatch(getToTalListUserAdmin(response.data));
+                })
+                .catch((errorr) => {
+                    console.log("errorr list user pagination", errorr.response.data);
+                });
+        }
+        
+    }
+
+  
+
     return (
         <div className="usermanagement__title">
             <h3 className="title mb-0">Thành Viên</h3>
             <div className="usermanagement__title-right">
                 <div className="mr-3 search">
-                <input type="text" placeholder="Tìm thành viên.." />
-                    <FontAwesomeIcon className="icon" icon={faSearch} />
+                <input type="text" 
+                        placeholder="Tìm thành viên.." 
+                        ref={inputSearch}
+                        />
+                    <FontAwesomeIcon className="icon" icon={faSearch} onClick={searchUser}/>
                 </div>
                 <button className="add" onClick={addNewUser}>
                     <FontAwesomeIcon className="icon mr-2" icon={faPlus} />

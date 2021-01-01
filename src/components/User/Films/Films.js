@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Films.scss";
-import { Tabs } from "antd";
+import {  Col, Row, Tabs } from "antd";
 import ModalVideo from "react-modal-video";
 import FilmApi from "../../../api/services/FilmApi";
 import FilmItem from "../FilmItem/FilmItem";
 import utils from "../../../helper/utils";
+import Slider from "react-slick";
+
 
 export default function Films() {
   // Tab anzt
@@ -46,11 +48,22 @@ export default function Films() {
     setVideoId(utils.getVideoIdFromYoutubeLink(videoLink));
   }
 
+   // Slider
+   const settings = {
+    dots: false,
+    infinite: true,
+    arrows: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <div id="films-component" className="films-component component-padding">
       <div className="container">
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
+          <div className="d-none d-md-block">
           {listFilm.length > 0 && <Coverflow
               // width={960}
               height={"580"}
@@ -59,16 +72,18 @@ export default function Films() {
               enableHeading={false}
               enableScroll={false}
             >
-              {/* <div
-                // onClick={() => fn()}
-                // onKeyDown={() => fn()}
-                role="menuitem"
-                tabIndex="0"
-              >
-                <img src="/images/slider1.jpg" alt="" style={{ display: "block", width: "100%" }} />
-              </div> */}
               {renderListFilm()}
             </Coverflow>}
+            </div>
+
+            <Row className="film-slider-mobile justify-content-center d-flex d-md-none">
+              <Col xs={20} >
+                <Slider {...settings}>
+                  {renderListFilm()}
+                </Slider>
+              </Col>
+            </Row>
+
             <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={videoID} onClose={() => setOpen(false)} />
           </TabPane>
           <TabPane tab="PHIM SẮP CHIẾU" key="2">

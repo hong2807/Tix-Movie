@@ -65,10 +65,10 @@
                           background-image: url('/images/seat-yellow.png') !important;
                         }
 
-                        &:hover {
-                          color: $color-black-0 !important;
-                          background-image: url('/images/seat-yellow.png') !important;
-                        }
+                        // &:hover {
+                        //   color: $color-black-0 !important;
+                        //   background-image: url('/images/seat-yellow.png') !important;
+                        // }
 
                         &.normal {
                           background-image: url('/images/seat-blue.png');
@@ -332,11 +332,11 @@
   .booking-component {
     .booking__left {
       .booking-line-wrapper {
-        max-width: 10%;
+        max-width: 13%;
       }
 
       .booking-seats-wrapper {
-        max-width: 80%;
+        max-width: 74%;
       }
 
       .booking-viewseat {
@@ -345,20 +345,20 @@
                 width: unset;
 
                 li {
-                  width: 16px;
-                  height: 19px;
-                  line-height: 21px;
-                  margin-right: 3px;
-                  font-size: 12px;
+                  width: rem(16);
+                  height: rem(19);
+                  line-height: rem(21);
+                  margin-right: rem(3);
+                  font-size: rem(12);
                 }
               }
         }
         .booking-seats {
           ul {
             li {
-              width: 14px;
-              height: 16px;
-              line-height: 15px;
+              width: calc((100% - (1.75px * 16)) / 16);;
+              height: rem(16);
+              line-height: rem(15);
               font-size: rem(8);
             }
           }
@@ -368,3 +368,21 @@
   }
 }
    
+@media screen and (min-width: 1025px) {
+  .booking-component {
+    .booking__left {
+      .booking-viewseat {
+        .booking-seats {
+          ul {
+            li {
+              &:hover {
+                color: $color-black-0 !important;
+                background-image: url('/images/seat-yellow.png') !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  }
