@@ -39,13 +39,11 @@ export default function Header(props) {
     }, []);
 
     const handleOnClick = () => {
-        document.getElementsByClassName("main-menu")[0].classList.toggle("act");
-        if (document.getElementsByClassName("main-menu")[0].classList.contains("act")) {
+        document.getElementsByClassName("hamburger-button")[0].classList.toggle("act");
+        if (document.getElementsByClassName("hamburger-button")[0].classList.contains("act")) {
             document.getElementsByClassName("main-menu")[0].classList.add("act");
-            document.getElementsByClassName("hamburger-button")[0].classList.add("act");
         } else {
             document.getElementsByClassName("main-menu")[0].classList.remove("act");
-            document.getElementsByClassName("hamburger-button")[0].classList.remove("act");
         }
     };
     
