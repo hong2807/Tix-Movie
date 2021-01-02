@@ -1,43 +1,36 @@
 import React from 'react'
 import './MovieManagement.scss'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faSearch,} from '@fortawesome/free-solid-svg-icons';
+
 import TableMovieAdmin from '../../../components/Admin/TableMovieAdmin/TableMovieAdmin';
-
-
+import { Redirect } from 'react-router-dom'
+import HeaderFilmAdmin from '../../../components/Admin/HeaderFilmAdmin/HeaderFilmAdmin';
+import { setPreloader } from "../../../redux/actions/PreloaderAction";
+import { useDispatch } from "react-redux";
+import { TIME_SHOW_PRELOADER } from "../../../redux/constants/PreloaderConstant";
+import { useEffect } from 'react';
 
 export default function MovieManagement() {
-     
+    const dispatch = useDispatch();
 
-   
-    return (
-        <div className="moviemanagement-component">
-            <div className="container-fluid">
-             <div className="moviemanagement__content">
-                    <div className="moviemanagement__title">
-                        <h3 className="title mb-0">Phim</h3>
-                        <div className="moviemanagement__title-right">
-                            <div className="mr-3 search">
-                                <input type="text" placeholder="Tìm phim.."/>
-                                <FontAwesomeIcon className="icon" icon={faSearch} />
-                            </div>
+    useEffect(() => {
+        dispatch(setPreloader(true));
+        setTimeout(() => dispatch(setPreloader(false)), TIME_SHOW_PRELOADER);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-                            <button className="add">
-                                <FontAwesomeIcon className="icon mr-2" icon={faPlus} />
-                                Thêm phim
-                            </button>
-                        </div>
+    if (localStorage.getItem('token') && localStorage.getItem('maLoaiNguoiDung') === "QuanTri") {
+        return (
+            <div className="moviemanagement-component">
+                <div className="container-fluid">
+                <div className="moviemanagement__content">
+                        <HeaderFilmAdmin/>
+                        <TableMovieAdmin/>       
                     </div>
-                    <TableMovieAdmin/>
-                   
-
-                    
                 </div>
             </div>
-
-
-
-            
-        </div>
+        )
+    }
+    return (
+        <Redirect to='/' />
     )
 }

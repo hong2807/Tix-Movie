@@ -7,8 +7,19 @@ import utils from '../../../helper/utils';
 // import { Link } from "react-scroll";
 import { Link } from "react-scroll";
 import { Link  as Linkreact } from "react-router-dom";
+import { setPreloader } from "../../../redux/actions/PreloaderAction";
+import { useDispatch } from "react-redux";
+import { TIME_SHOW_PRELOADER } from "../../../redux/constants/PreloaderConstant";
 
 export default function DetailCinema(props) {
+    // Moment
+    let moment = require('moment')
+    
+    const maRap = props.match.params.marapphim;
+    const maChiTietRap = props.match.params.chitietrapphim;
+
+    const dispatch = useDispatch();
+
     const [cinemaDetail,setCinemaDetail] = useState({});
     
     const [cinemaBranch,setCinemaBranch] = useState({});
@@ -16,14 +27,15 @@ export default function DetailCinema(props) {
     const [filmList,setFilmList] = useState();
 
     
-
-    const maRap = props.match.params.marapphim;
-    const maChiTietRap = props.match.params.chitietrapphim;
+    useEffect(() => {
+        dispatch(setPreloader(true));
+        setTimeout(() => dispatch(setPreloader(false)), TIME_SHOW_PRELOADER);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect( () => {
         CinemaApi.getCinemaDetailList(maRap)
         .then(response => {
-            console.log('cinemaDetailList',response.data);
             const cinemaFilter = response.data[0].lstCumRap.filter((item) => {
                 return item.maCumRap === maChiTietRap
             })
@@ -39,12 +51,12 @@ export default function DetailCinema(props) {
         .catch(error => {
             console.log('cinemaDetailList',error.response.data)
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[maRap,maChiTietRap])
+
 
     const renderCinemaBranch = () => {
         return Array.isArray(cinemaBranch) && cinemaBranch.map((item,index) => {
-            console.log(props.match.params.marapphim)
-            console.log(item.maCumRap)
             return  <Link to={`/rapphim/${props.match.params.marapphim}/${item.maCumRap}`} className="btn branch" key={index}>
                         <FontAwesomeIcon className="icon" icon={faLandmark} />
                         {item.tenCumRap}
@@ -103,8 +115,6 @@ export default function DetailCinema(props) {
         })
     }
 
-    // Moment
-    let moment = require('moment')
 
     const showDay = () => {
         const dayHTML = [];
@@ -113,7 +123,7 @@ export default function DetailCinema(props) {
             let tomorrow  = moment(today).add(i,'days');
             let day = tomorrow.get('days');
             let thu = tomorrow.get('date');
-            dayHTML.push(<li className={i === 0 ? 'active day-item' : 'day-item'}>
+            dayHTML.push(<li key={i} className={i === 0 ? 'active day-item' : 'day-item'}>
                 <p className="day-top">
                     <span className="d-none d-sm-block"> {day === 6 ?  utils.converday(day) : `Thứ ${utils.converday(day)}` }</span>
                     <span className='d-block d-sm-none'>{day === 6 ?  'CN' : `T ${utils.converday(day)}` }</span>

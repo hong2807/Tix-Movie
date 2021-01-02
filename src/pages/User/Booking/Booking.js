@@ -4,28 +4,49 @@ import './Booking.scss'
 import { Redirect } from 'react-router-dom'
 import Swal from "sweetalert2";
 import { Modal } from 'antd';
+import { setPreloader } from "../../../redux/actions/PreloaderAction";
+import { useDispatch } from "react-redux";
+import { TIME_SHOW_PRELOADER } from "../../../redux/constants/PreloaderConstant";
 
 export default function Booking(props) {
-    
+    const dispatch = useDispatch();
+
     const[chairList,setChairList] = useState([]);
 
     const[filmInfo,setFilmInfo] = useState({});
 
     const[chairSelected,setChairSelected] = useState([]);
 
-     //Modal add new
-    const [visible, setVisible] = React.useState(false);
-   
+    const [visible, setVisible] = useState(false);  //Modal add new
+
+
+    useEffect(() => {
+        dispatch(setPreloader(true));
+        setTimeout(() => dispatch(setPreloader(false)), TIME_SHOW_PRELOADER);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect( () => {
+        BookingApi.getChairList(props.match.params.maLichChieu)
+        .then ( response => {
+            setChairList(response.data.danhSachGhe);
+            setFilmInfo(response.data.thongTinPhim);
+        })
+        .catch (error => {
+            console.log('chairList',error.response.data)
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
+
     const showTicket = () => {
         setVisible(true);
     };
 
     const hideTicket = () => {
-        console.log('hide ticket');
         setVisible(false);
         BookingApi.getChairList(props.match.params.maLichChieu)
         .then ( response => {
-            console.log('chairList',response.data);
             setChairList(response.data.danhSachGhe);
             setChairSelected([]);
         })
@@ -33,19 +54,6 @@ export default function Booking(props) {
             console.log('chairList',error.response.data)
         })
     };
-   
-
-    useEffect( () => {
-        BookingApi.getChairList(props.match.params.maLichChieu)
-        .then ( response => {
-            console.log('chairList',response.data);
-            setChairList(response.data.danhSachGhe);
-            setFilmInfo(response.data.thongTinPhim);
-        })
-        .catch (error => {
-            console.log('chairList',error.response.data)
-        })
-    },[])
 
     const renderChairList =  () => {
         return chairList.map((item,index) => {
@@ -93,7 +101,6 @@ export default function Booking(props) {
 
         BookingApi.booking(data)
             .then(response => {
-                console.log('booking', response.data);
                 Swal.fire({
                     title: 'Bạn đã mua vé thành công',
                     icon: 'success',
@@ -109,7 +116,6 @@ export default function Booking(props) {
                     }else {
                         BookingApi.getChairList(props.match.params.maLichChieu)
                         .then ( response => {
-                            console.log('chairList',response.data);
                             setChairList(response.data.danhSachGhe);
                             setChairSelected([]);
                         })
@@ -125,7 +131,6 @@ export default function Booking(props) {
     }
     
    
-    console.log('chairSelected',chairSelected);
     if (localStorage.getItem('token')) {
         return (
             <div className="booking-component component-padding">

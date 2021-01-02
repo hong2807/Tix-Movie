@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/User/Home/Home';
-import Login from './pages/Share/Login/Login';
 import PageNotFound from './pages/Share/PageNotFound/PageNotFound';
 import { AdminTemplate } from './templates/AdminTemplate';
 import { UserTemplate } from './templates/UserTemplate';
@@ -30,8 +29,6 @@ function App() {
             <UserTemplate exact path='/nguoidung' Component={DetailUser}></UserTemplate>
             <UserTemplate exact path='/datve/:maLichChieu' Component={Booking}></UserTemplate>
 
-
-            <AdminTemplate exact path='/login' Component={Login}></AdminTemplate>
             <AdminTemplate exact path='/quanlyphim' Component={MovieManagement}></AdminTemplate>
             <AdminTemplate exact path='/quanlynguoidung' Component={UserManagement}></AdminTemplate>
 

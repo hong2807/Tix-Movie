@@ -128,3 +128,21 @@
         } 
     }
 }
+
+@include responsive('large') {
+}
+
+@include responsive('medium') {
+}
+
+@include responsive('small') {
+    .detailuser-component {
+        .detailuser__info {
+            .addUserModal__form { 
+                .ant-form-item {
+                    width: 100%;
+                }
+            }
+        }
+    } 
+}

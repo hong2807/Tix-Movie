@@ -16,8 +16,12 @@ import { useRef } from "react";
 
 
 export default function HeaderUserAdmin() {
+
     const dispatch = useDispatch();
 
+    const dsMaLoaiNguoiDung = useSelector(state =>  state.AdminUserManagementReducer.maLoaiNguoiDung)
+
+    let inputSearch = useRef(null);
 
     //Modal add new
     const [visibleadd, setVisibleadd] = React.useState(false);
@@ -29,18 +33,8 @@ export default function HeaderUserAdmin() {
         setVisibleadd(false);
     };
 
-    const loadListUser = () => {
-        AdminApi.listUser(1,10)
-        .then(response => {
-            console.log('response',response.data.items);
-            dispatch(getListUserAdmin(response.data.items));
-        })
-        .catch(error => {console.log(error)})
-    }
-
-
     // Yup
-    const DetailUserSchema = Yup.object().shape({
+    const HeaderUserAdminSchema = Yup.object().shape({
         taiKhoan: Yup.string().required('Đây là trường bắt buộc'),
         matKhau: Yup.string().required('Đây là trường bắt buộc'),
         hoTen: Yup.string().required('Đây là trường bắt buộc'),
@@ -58,14 +52,12 @@ export default function HeaderUserAdmin() {
             soDt: '',
             maLoaiNguoiDung: 'KhachHang',
             // maLoaiNguoiDung: 'QuanTri',
-            maNhom: 'GP12'
+            maNhom: 'GP01'
         },
-        validationSchema: DetailUserSchema,
+        validationSchema: HeaderUserAdminSchema,
         onSubmit: (values, {resetForm}) => {
-            console.log(values);
             AdminApi.createUser(values)
             .then(response => {
-                console.log('createAccount',response.data);
                 dispatch(createUserAdmin(response.data));
                 loadListUser();
                 resetForm({values: ''});
@@ -86,18 +78,25 @@ export default function HeaderUserAdmin() {
         },
     });
 
-    const dsMaLoaiNguoiDung = useSelector(state =>  state.AdminUserManagementReducer.maLoaiNguoiDung)
 
     useEffect( () => {
         AdminApi.listKindOfUser()
         .then(response => {
-            console.log('listKindOfUser', response.data)
             dispatch(getKindOfUserAction(response.data))
         })
         .catch(error => {
             console.log('listKindOfUser', error.response.data)
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+
+    const loadListUser = () => {
+        AdminApi.listUser(1,10)
+        .then(response => {
+            dispatch(getListUserAdmin(response.data.items));
+        })
+        .catch(error => {console.log(error)})
+    }
 
     const loadListKindOfUser = () => { 
         return dsMaLoaiNguoiDung.map((item,index) => {
@@ -105,17 +104,12 @@ export default function HeaderUserAdmin() {
         })
     }
 
-    console.log("VALUES",formik.values);
-
-    let inputSearch = useRef(null);
-
     const searchUser = () => {
         let valueInput = inputSearch.current.value;
-        console.log('valueInput',valueInput);
+        
         if(valueInput !== "") {
             AdminApi.searchUser(valueInput,1,10)
             .then(response => {
-                console.log(response.data);
                 dispatch(getListUserAdmin(response.data.items));
                 dispatch(getToTalListUserAdmin(response.data));
                 dispatch(setTuKhoa(valueInput))
@@ -126,7 +120,6 @@ export default function HeaderUserAdmin() {
         } else {
             AdminApi.listUser(1, 20)
                 .then((response) => {
-                    console.log("list user pagination", response.data);
                     dispatch(getListUserAdmin(response.data.items));
                     dispatch(getToTalListUserAdmin(response.data));
                 })
@@ -137,7 +130,6 @@ export default function HeaderUserAdmin() {
         
     }
 
-  
 
     return (
         <div className="usermanagement__title">
@@ -177,7 +169,6 @@ export default function HeaderUserAdmin() {
                                             <input type="text" 
                                             name="hoTen" 
                                             className="form-control"  
-                                            placeholder="Họ Tên" 
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.hoTen}/>
@@ -188,7 +179,6 @@ export default function HeaderUserAdmin() {
                                             <input type="email" 
                                             name="email" 
                                             className="form-control" 
-                                            placeholder="Email" 
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.email}/>
@@ -199,7 +189,6 @@ export default function HeaderUserAdmin() {
                                         <input type="text" 
                                         name="soDt" 
                                         className="form-control" 
-                                        placeholder="Số điện thoại" 
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         value={formik.values.soDt}/>
@@ -214,7 +203,6 @@ export default function HeaderUserAdmin() {
                                             <input type="text" 
                                             name="taiKhoan" 
                                             className="form-control"  
-                                            placeholder="Tên tài khoản"
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.taiKhoan}/>
@@ -225,7 +213,6 @@ export default function HeaderUserAdmin() {
                                             <input type="password" 
                                             name="matKhau" 
                                             className="form-control" 
-                                            placeholder="Mật khẩu" 
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
                                             value={formik.values.matKhau}/>

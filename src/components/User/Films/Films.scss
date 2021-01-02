@@ -131,6 +131,33 @@
         opacity: 1 !important;
     }
 
+    .modal-video {
+        padding: 0 rem(20);
+    }
+
+    .modal-video-movie-wrap {
+        background-color: unset;
+    }
+
+    .modal-video-close-btn {
+        top: 2px;
+        right: 0;
+        width: rem(30);
+        height: rem(30);
+
+        &::before {
+            background: $color-yellow-default;
+        }
+
+        &::after {
+            background: $color-yellow-default;
+        }
+
+        &:focus {
+            outline: unset;
+        }
+    }
+
 }
 
 

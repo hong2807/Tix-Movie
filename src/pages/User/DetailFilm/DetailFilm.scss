@@ -40,7 +40,7 @@
 
         .detailFilm__infoLeft {
             img {
-                height: 350px;
+                height: rem(350);
                 object-fit: cover;
             }
         }
@@ -278,15 +278,19 @@
         }
         
         .detailFilm__infoLeft {
-            max-width: 80%;
+            max-width: 75%;
             margin: auto;
             margin-bottom: 30px;
+
+            img {
+                height: rem(420);
+            }
         }
 
         .detailFilm__infoRight-wrapper {
             position: absolute;
-            top: 0;
-            right: 10px;
+            top: 3px;
+            right: 18px;
 
             .detailFilm__infoRight {
                 .borderRating {

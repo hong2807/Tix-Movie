@@ -2,9 +2,23 @@ import React from 'react'
 import './Sidebar.scss'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faSignOutAlt, faUserCircle, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
+    const taikhoan = localStorage.getItem("userName");
+
+    console.log('props',props)
+
+    const clearLocalstorage = () => {
+        localStorage.removeItem("userName");
+        localStorage.removeItem("maLoaiNguoiDung");
+        localStorage.removeItem("token");
+        localStorage.removeItem("email");
+        localStorage.removeItem("soDt");
+        props.history.push("/dangnhap");
+    };
+
     return (
         <div className="sidebar-component">
             <div className="sidebar__content">
@@ -23,10 +37,10 @@ export default function Sidebar() {
 
                     <div className="sidebar__user-title">
                         <span>Admin</span>
-                        <p className="mb-0">John Doe</p>
+                        <p className="mb-0">{taikhoan}</p>
                     </div>
 
-                    <div className="sidebar__user-btn">
+                    <div className="sidebar__user-btn" onClick={clearLocalstorage}>
                         <FontAwesomeIcon className="icon" icon={faSignOutAlt} />
                     </div>
 		        </div>
@@ -34,23 +48,23 @@ export default function Sidebar() {
                 <div className="sidebar__nav">
                     <ul>
                         <li className="sidebar__nav-item">
-                            <a href="./">
-                                <FontAwesomeIcon className="icon" icon={faUserCircle} />
+                            <Link to="./quanlyphim" className={props.location.pathname === "/quanlyphim" ? "activeMenu" : ""}>
+                                <FontAwesomeIcon className="icon" icon={faFilm} />
                                 Phim
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar__nav-item">
-                            <a href="./">
-                                <FontAwesomeIcon className="icon" icon={faUserCircle} />
+                            <Link to="./quanlynguoidung" className={props.location.pathname === "/quanlynguoidung" ? "activeMenu" : ""}>
+                                <FontAwesomeIcon className="icon" icon={faUsers} />
                                 Thành viên
-                            </a>
+                            </Link>
                         </li>
-                        <li className="sidebar__nav-item">
-                            <a href="./">
+                        {/* <li className="sidebar__nav-item">
+                            <Link to="./">
                                 <FontAwesomeIcon className="icon" icon={faUserCircle} />
                                 Lịch chiếu
-                            </a>
-                        </li>
+                            </Link>
+                        </li> */}
                     </ul>
                 </div>
             </div>

@@ -1,20 +1,23 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import './Preloader.scss'
 
 
 export default function Preloader() {
-    const [isShow, setIsShow] = React.useState(true);
+    // const [isShow, setIsShow] = React.useState(true);
 
-    const hidePreloader = () => {
-        setTimeout(() => {
-            setIsShow(false);
-        }, 2000);
-    }
+    // const hidePreloader = () => {
+    //     setTimeout(() => {
+    //         setIsShow(false);
+    //     }, 2000);
+    // }
 
-    window.onload = hidePreloader;
+    // window.onload = hidePreloader;
+
+    const isShow = useSelector(state => state.PreloaderReducer.isShow);
 
     return (
-        isShow && (<div className="preloader-component">
+        <div className={["preloader-component", isShow ? 'show' : ''].join(' ')}>
             <div className="smooth-transition-loader">
                 <div className="wrapper-loader">
                     <div className="logo"><span>Tix</span>Movie</div>
@@ -23,6 +26,6 @@ export default function Preloader() {
                     </div>
                 </div>
             </div>
-        </div>)
+        </div>
     )
 }

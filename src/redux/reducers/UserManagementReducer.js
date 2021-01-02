@@ -12,7 +12,7 @@ const UserManagementReducer = (state = stateDefault, action) => {
     switch (action.type) {
 
         case GET_INFO_USER: {
-            console.log(state, action);
+            console.log('thongTinUser',state, action);
             state.thongTinUser = action.listInfoUser;
             return {...state}
         }

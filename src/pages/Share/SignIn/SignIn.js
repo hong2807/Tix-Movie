@@ -7,11 +7,13 @@ import Swal from "sweetalert2";
 import UserApi from "../../../api/services/UserApi";
 
 export default function SignIn(props) {
+  // Yup
   const SignupSchema = Yup.object().shape({
     taiKhoan: Yup.string().required('Đây là trường bắt buộc'),
     matKhau: Yup.string().required('Đây là trường bắt buộc'),
   });
 
+  // Formik
   const formik = useFormik({
     initialValues: {
         taiKhoan: '',
@@ -21,14 +23,12 @@ export default function SignIn(props) {
     onSubmit: (values) => {
         console.log(values);
         UserApi.signIn(values).then(response => {
-          console.log(response.data);
           localStorage.setItem('userName', response.data.taiKhoan);
           localStorage.setItem('token', response.data.accessToken);
           localStorage.setItem('maLoaiNguoiDung', response.data.maLoaiNguoiDung);
           localStorage.setItem('email', response.data.email);
           localStorage.setItem('hoTen', response.data.hoTen);
           localStorage.setItem('soDT', response.data.soDT);
-          console.log("props.history",props.history.length);
           props.history.goBack();
         }).catch(error => {
           console.log('error',error.response.data);
@@ -56,20 +56,20 @@ export default function SignIn(props) {
                     </NavLink>
                 </div>
                 <div className="sign__group">
+                    <label>Tên tài khoản</label>
                     <input type="text" 
                     name="taiKhoan"
                     className="form-control"  
-                    placeholder="Tên tài khoản" 
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.taiKhoan}/>
                     {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger">{formik.errors.taiKhoan}</small>}
                 </div>
                 <div className="sign__group">
+                    <label>Mật khẩu</label>
                     <input type="password" 
                     name="matKhau"
                     className="form-control" 
-                    placeholder="Mật khẩu" 
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.matKhau}/>

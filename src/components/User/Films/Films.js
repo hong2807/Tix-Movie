@@ -18,38 +18,8 @@ export default function Films() {
   // Coverflow
   var Coverflow = require("react-coverflow");
 
-  // Popup video
-  const [isOpen, setOpen] = useState(false);
-
-  const [listFilm, setListFilm] = useState([]);
-
-  const [videoID, setVideoId] = useState();
-
-  useEffect(() => {
-    FilmApi.getFilmList()
-      .then((response) => {
-        console.log("response", response.data);
-        setListFilm(response.data)
-      })
-      .catch((error) => {
-        console.log("error", error.response.data);
-      });
-  }, []);
-
-
-  const renderListFilm = () => {
-    return listFilm.map((value,index) => {
-      return <FilmItem key={index} filmInfo={value} modal={modal}/>
-    })
-  }
-  
-  const modal = (videoLink) => {
-    setOpen(true);
-    setVideoId(utils.getVideoIdFromYoutubeLink(videoLink));
-  }
-
-   // Slider
-   const settings = {
+  // Slider
+  const settings = {
     dots: false,
     infinite: true,
     arrows: true,
@@ -58,6 +28,50 @@ export default function Films() {
     slidesToScroll: 1,
   };
 
+  const [isOpen, setOpen] = useState(false); // Popup video
+  const [listFilm, setListFilm] = useState([]);
+  const [listFilmCommingSoon, setListFilmCommingSoon] = useState([]);
+  const [videoID, setVideoId] = useState();
+
+  useEffect(() => {
+    FilmApi.getFilmList()
+      .then((response) => {
+        setListFilm(response.data)
+      })
+      .catch((error) => {
+        console.log("error", error.response.data);
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    FilmApi.getFilmCommingSoonList()
+      .then((response) => {
+        setListFilmCommingSoon(response.data)
+      })
+      .catch((error) => {
+        console.log("error", error.response.data);
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const modal = (videoLink) => {
+    setOpen(true);
+    setVideoId(utils.getVideoIdFromYoutubeLink(videoLink));
+  }
+
+  const renderListFilm = () => {
+    return listFilm.map((value,index) => {
+      return <FilmItem key={index} filmInfo={value} modal={modal}/>
+    })
+  }
+
+  const renderListFilmCommingSoon = () => {
+    return listFilmCommingSoon.map((value,index) => {
+      return <FilmItem key={index} filmInfo={value} modal={modal}/>
+    })
+  }
+  
   return (
     <div id="films-component" className="films-component component-padding">
       <div className="container">
@@ -86,20 +100,30 @@ export default function Films() {
 
             <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={videoID} onClose={() => setOpen(false)} />
           </TabPane>
+
           <TabPane tab="PHIM SẮP CHIẾU" key="2">
-            <Coverflow width={960} height={480} displayQuantityOfSide={2} navigation={false} enableHeading={false} enableScroll={false}>
-              <div
-                // onClick={() => fn()}
-                // onKeyDown={() => fn()}
-                role="menuitem"
-                tabIndex="0"
-              >
-                <img src="/images/slider3.png" alt="" style={{ display: "block", width: "100%" }} />
-              </div>
-              <img src="/images/slider1.jpg" alt="" data-action="" />
-              <img src="/images/slider2.jpg" alt="" data-action="" />
-              <img src="/images/slider3.png" alt="" data-action="" />
-            </Coverflow>
+          <div className="d-none d-md-block">
+          {listFilmCommingSoon.length > 0 && <Coverflow
+              // width={960}
+              height={"580"}
+              displayQuantityOfSide={2}
+              navigation={false}
+              enableHeading={false}
+              enableScroll={false}
+            >
+              {renderListFilmCommingSoon()}
+            </Coverflow>}
+            </div>
+
+            <Row className="film-slider-mobile justify-content-center d-flex d-md-none">
+              <Col xs={20} >
+                <Slider {...settings}>
+                  {renderListFilmCommingSoon()}
+                </Slider>
+              </Col>
+            </Row>
+
+            <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={videoID} onClose={() => setOpen(false)} />
           </TabPane>
         </Tabs>
        

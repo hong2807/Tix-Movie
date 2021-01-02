@@ -26,9 +26,12 @@
         }
        
         img {
-            width: 50px;
-            height: 50px;
+            width: rem(100);
+            height: rem(50);
             margin-bottom: rem(10);
+            background-color: $color-white-default;
+            padding: rem(5);
+            object-fit: contain;
         }
 
         li {

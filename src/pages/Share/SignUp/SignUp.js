@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import UserApi from '../../../api/services/UserApi';
 
 export default function SignUp(props) {
+    // Yup
     const SignupSchema = Yup.object().shape({
         taiKhoan: Yup.string().required('Đây là trường bắt buộc'),
         matKhau: Yup.string().required('Đây là trường bắt buộc'),
@@ -15,6 +16,7 @@ export default function SignUp(props) {
         soDt: Yup.string().required('Đây là trường bắt buộc').matches(/^[0-9]+$/, 'Số điện thoại không hợp lệ')
     });
 
+    // Formik
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',
@@ -27,7 +29,6 @@ export default function SignUp(props) {
         },
         validationSchema: SignupSchema,
         onSubmit: (values, {resetForm}) => {
-            console.log(values);
             UserApi.createUser(values).then(response => {
                 Swal.fire({
                     title: 'Bạn đã tạo tài khoản thành công',
@@ -56,18 +57,6 @@ export default function SignUp(props) {
         },
     });
 
-   
-
-    // Modal confirm
-    const HandleClick = () => {   
-        Swal.fire({
-            title: 'Tạo tài khoản không thành công',
-            icon: 'error',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Thử lại',
-          })
-    }
     
     return (
         <div className="signup-component">
@@ -84,20 +73,20 @@ export default function SignUp(props) {
                         <div className="form-left">
                             <h2>Thông tin đăng nhập</h2>
                             <div className="sign__group">
+                                <label>Tên tài khoản</label>
                                 <input type="text" 
                                 name="taiKhoan" 
                                 className="form-control"  
-                                placeholder="Tên tài khoản"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.taiKhoan}/>
                                 {formik.errors.taiKhoan && formik.touched.taiKhoan && <small className="text-danger">{formik.errors.taiKhoan}</small>}
                             </div>
                             <div className="sign__group">
+                                <label>Mật khẩu</label>
                                 <input type="password" 
                                 name="matKhau" 
                                 className="form-control" 
-                                placeholder="Mật khẩu" 
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.matKhau}/>
@@ -109,30 +98,30 @@ export default function SignUp(props) {
                         <div className="form-right">
                             <h2>Thông tin cá nhân</h2>
                             <div className="sign__group">
+                                <label>Họ tên</label>
                                 <input type="text" 
                                 name="hoTen" 
                                 className="form-control"  
-                                placeholder="Họ Tên" 
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.hoTen}/>
                                  {formik.errors.hoTen && formik.touched.hoTen && <small className="text-danger">{formik.errors.hoTen}</small>}
                             </div>
                             <div className="sign__group">
+                                <label>Email</label>
                                 <input type="email" 
                                 name="email" 
                                 className="form-control" 
-                                placeholder="Email" 
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.email}/>
                                 {formik.errors.email && formik.touched.email && <small className="text-danger">{formik.errors.email}</small>}
                             </div>
                             <div className="sign__group">
+                                <label>Số điện thoại</label>
                                 <input type="text" 
                                 name="soDt" 
                                 className="form-control" 
-                                placeholder="Số điện thoại" 
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 value={formik.values.soDt}/>

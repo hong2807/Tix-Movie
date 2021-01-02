@@ -1,0 +1,2 @@
+export const SET_PRELOADER = 'SET_PRELOADER';
+export const TIME_SHOW_PRELOADER = 2000;

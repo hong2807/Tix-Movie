@@ -7,192 +7,181 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import UserApi from "../../../api/services/UserApi";
-import { useState } from "react";
 import { getInfoUserAction } from "../../../redux/actions/UserManagementAction";
 
 export default function Header(props) {
-  const clearLocalstorage = () => {
-    console.log('clearLocalstorage');
-    localStorage.removeItem('userName');
-    localStorage.removeItem('maLoaiNguoiDung');
-    localStorage.removeItem('token');
-    localStorage.removeItem('email');
-    localStorage.removeItem('soDt');
-    props.history.push('/dangnhap');
-  }
+    const dispatch = useDispatch();
 
- 
+    const hoTen = useSelector((state) => state.UserManagementReducer.thongTinUser.hoTen);
 
-  const dispatch = useDispatch();
+    const clearLocalstorage = () => {
+        localStorage.removeItem("userName");
+        localStorage.removeItem("maLoaiNguoiDung");
+        localStorage.removeItem("token");
+        localStorage.removeItem("email");
+        localStorage.removeItem("soDt");
+        props.history.push("/dangnhap");
+    };
 
-  useEffect( () => {
-    const data = {  
-        "taiKhoan": localStorage.getItem('userName')
-    }
-  
-    UserApi.userInfo(data)
-      .then(response => {
-          console.log(response.data);
-          dispatch(getInfoUserAction(response.data));
-      })
-      .catch(error => {
-          console.log("error");
-      })
-  },[])
+    useEffect(() => {
+        const data = {
+            taiKhoan: localStorage.getItem("userName"),
+        };
 
-  const hoTen = useSelector(state => state.UserManagementReducer.thongTinUser.hoTen);
- 
+        UserApi.userInfo(data)
+            .then((response) => {
+                dispatch(getInfoUserAction(response.data));
+            })
+            .catch((error) => {
+                console.log("error");
+            });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
+    const handleOnClick = () => {
+        document.getElementsByClassName("main-menu")[0].classList.toggle("act");
+        if (document.getElementsByClassName("main-menu")[0].classList.contains("act")) {
+            document.getElementsByClassName("main-menu")[0].classList.add("act");
+            document.getElementsByClassName("hamburger-button")[0].classList.add("act");
+        } else {
+            document.getElementsByClassName("main-menu")[0].classList.remove("act");
+            document.getElementsByClassName("hamburger-button")[0].classList.remove("act");
+        }
+    };
+    
+    return (
+        <div className="header-component">
+            <div className="container">
+                <div className="header__content d-none d-md-flex ">
+                    <ul className="header__left">
+                        <li className="nav-item">
+                            <Link className="nav-text" to="films-component" spy={true} smooth={true} offset={-80} duration={500}>
+                                LỊCH CHIẾU
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-text" to="cinema-component" spy={true} smooth={true} offset={-80} duration={500}>
+                                CỤM RẠP
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-text" to="mobileapp-component" spy={true} smooth={true} offset={-80} duration={500}>
+                                ỨNG DỤNG
+                            </Link>
+                        </li>
+                    </ul>
+                    <div className="header__logo animate__swing">
+                        <NavLink exact to="/">
+                            <span>Tix</span>Movie
+                        </NavLink>
+                    </div>
+                    <div className="header__right">
+                        {localStorage.getItem("token") ? (
+                            <div className="header__user">
+                                Xin chào,
+                                <div className="header__avatar">
+                                    <FontAwesomeIcon className="icon" icon={faUserCircle} />
+                                </div>
+                                <div className="header__text">
+                                    <NavLink className="nav-text text-capitalize" exact to="/nguoidung">
+                                        {hoTen}
+                                    </NavLink>
+                                </div>
+                                <li className="signout" onClick={clearLocalstorage}>
+                                    <p className="nav-text">ĐĂNG XUẤT</p>
+                                </li>
+                            </div>
+                        ) : (
+                            <ul className="header__sign">
+                                <li className="signup">
+                                    <NavLink className="nav-text" exact to="/dangky">
+                                        ĐĂNG KÝ
+                                    </NavLink>
+                                </li>
+                                <li className="signin">
+                                    <NavLink className="nav-text" exact to="/dangnhap">
+                                        ĐĂNG NHẬP
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        )}
+                    </div>
+                </div>
 
-  const handleOnClick = () => {
-    document.getElementsByClassName('menuBtn')[0].classList.toggle('act');
-      if( document.getElementsByClassName('menuBtn')[0].classList.contains('act')) {
-        document.getElementsByClassName('mainMenu')[0].classList.add('act');
-      }
-      else {
-        document.getElementsByClassName('mainMenu')[0].classList.remove('act');
-      }
-  }
+                <div className="header__mobile d-flex d-lg-none">
+                    <header className={localStorage.getItem("token") ? "has-login" : ""}>
+                        {localStorage.getItem("token") && (
+                            <div className="header__avatar">
+                                <NavLink className="nav-text" exact to="/nguoidung">
+                                    <FontAwesomeIcon className="icon" icon={faUserCircle} />
+                                </NavLink>
+                            </div>
+                        )}
 
-  return (
-    <div className="header-component">
-      <div className="container">
-        <div className="header__content d-none d-md-flex ">
-          <ul className="header__left">
-            <li className="nav-item">
-              <Link
-                className="nav-text"
-                to="films-component"
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-              >
-                LỊCH CHIẾU
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-text"
-                to="cinema-component"
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-              >
-                CỤM RẠP
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-text"
-                to="mobileapp-component"
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-              >
-                ỨNG DỤNG
-              </Link>
-            </li>
-          </ul>
-          <div className="header__logo animate__swing">
-            <NavLink exact to="/">
-              
-              <span>Tix</span>Movie
-            </NavLink>
-          </div>
-          <div className="header__right">
-            {localStorage.getItem('token') ? <div className="header__user">
-              Xin chào,
-              <div className="header__avatar">
-                <FontAwesomeIcon className="icon" icon={faUserCircle} />
-              </div>
-              <div className="header__text">
-                <NavLink className="nav-text text-capitalize" exact to="/nguoidung">
-                  {hoTen}
-                </NavLink>
-              </div>
-              <li className="signout" onClick={clearLocalstorage}>
-                <p className="nav-text">
-                  ĐĂNG XUẤT
-                </p>
-              </li>
-            </div> :  <ul className="header__sign">
-              <li className="signup">
-                <NavLink className="nav-text" exact to="/dangky">
-                  ĐĂNG KÝ
-                </NavLink>
-              </li>
-              <li className="signin">
-                <NavLink className="nav-text" exact to="/dangnhap">
-                  ĐĂNG NHẬP
-                </NavLink>
-              </li>
-            </ul>}
-            
+                        <div className="header__logo animate__swing">
+                            <NavLink exact to="/">
+                                <span>Tix</span>Movie
+                            </NavLink>
+                        </div>
 
-           
-          </div>
+                        <a class="hamburger-button" onClick={handleOnClick}>
+                            <span class="lines"></span>
+                        </a>
+                        
+                        <nav class="main-menu">
+                            <ul>
+                                <li className="nav-item">
+                                    <div className="header__logo animate__swing">
+                                        <NavLink exact to="/">
+                                            <span>Tix</span>Movie
+                                        </NavLink>
+                                    </div>
+                                    {localStorage.getItem("token") && (
+                                        <span className="sub-logo">
+                                            Xin chào, <span>{hoTen}</span>
+                                        </span>
+                                    )}
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-text" to="films-component" spy={true} smooth={true} offset={-80} duration={500} onClick={() => document.getElementsByClassName("hamburger-button")[0].click()}>
+                                        LỊCH CHIẾU
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-text" to="cinema-component" spy={true} smooth={true} offset={-80} duration={500}>
+                                        CỤM RẠP
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-text" to="mobileapp-component" spy={true} smooth={true} offset={-80} duration={500} onClick={() => document.getElementsByClassName("hamburger-button")[0].click()}>
+                                        ỨNG DỤNG
+                                    </Link>
+                                </li>
+                                {!localStorage.getItem("token") ? (
+                                    <React.Fragment>
+                                        <li className="signup">
+                                            <NavLink className="nav-text" exact to="/dangky">
+                                                ĐĂNG KÝ
+                                            </NavLink>
+                                        </li>
+                                        <li className="signin">
+                                            <NavLink className="nav-text" exact to="/dangnhap">
+                                                ĐĂNG NHẬP
+                                            </NavLink>
+                                        </li>
+                                    </React.Fragment>
+                                ) : (
+                                    <li className="signout">
+                                        <Link className="nav-text" onClick={clearLocalstorage}>
+                                            ĐĂNG XUẤT
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
+                        </nav>
+                    </header>
+                </div>
+            </div>
         </div>
-
-        <div className="header__mobile d-none d-md-none">
-        <div className="phone">
-        <div className="content">
-          
-          <nav role="navigation">
-            <div id="menuToggle">
-              <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-            <ul id="menu">
-              <li><a href="./">Lịch Chiếu</a></li>
-              <li><a href="./">Cụm Rạp</a></li>
-              <li><a href="./">Ứng Dụng</a></li>
-              <li><a href="./">Đăng nhập</a></li>
-              <li><a href="./">Đăng ký</a></li>
-            </ul>
-          <p>Tix Movie</p>
-           </div>
-          </nav>
-        </div>
-       </div>
-        </div>
-
-
-        {/* <div className="header__test">
-          <div class="mobile">
-	          <div class="mainContainer">
-		          <header>
-                <a href="#" class="logo">logo</a>
-                <a href="#" class="menuBtn" onClick={handleOnClick}>
-                  <span class="lines"></span>
-                </a>
-                <nav class="mainMenu">
-                  <ul>
-                    <li>
-                      <a href="#">Intro</a>
-                    </li>
-                    <li>
-                      <a href="#">Services</a>
-                    </li>
-                    <li>
-                      <a href="#">Team</a>
-                    </li>
-                    <li>
-                      <a href="#">Pricing</a>
-                    </li>
-                    <li>
-                      <a href="#" class="suBtn">Sing Up</a>
-                    </li>
-                  </ul>
-			          </nav>
-		          </header>
-	          </div>
-          </div>
-        </div> */}
-      </div>
-    </div>
-  );
+    );
 }

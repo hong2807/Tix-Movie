@@ -21,24 +21,24 @@ export default function Cinema() {
     useEffect(() => {
         CinemaApi.getCinemaList()
             .then((response) => {
-                console.log("cinemaList", response.data);
                 setCinemaList(response.data)
             })
             .catch((error) => {
                 console.log("error", error.response.data);
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         CinemaApi.getCinemaDetailList(selectedActive)
             .then((response) => {
-                console.log("cinemaDetailList", response.data[0].lstCumRap);
                 setCinemaDetailList(response.data[0].lstCumRap)
                 setShowtimeDetailList(response.data[0].lstCumRap[0].danhSachPhim)
             })
             .catch((error) => {
                 console.log("error", error.response.data);
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const renderCinemaList = () => {
@@ -55,7 +55,6 @@ export default function Cinema() {
         setSelectedActive(idCinema);
         CinemaApi.getCinemaDetailList(idCinema)
         .then((response) => {
-            console.log("cinemaDetailList", response.data[0].lstCumRap);
             setCinemaDetailList(response.data[0].lstCumRap)
             setShowtimeDetailList(response.data[0].lstCumRap[0].danhSachPhim)
         })

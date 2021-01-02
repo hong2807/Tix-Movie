@@ -10,8 +10,18 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Swal from "sweetalert2";
 import { Redirect } from 'react-router-dom';
+import { setPreloader } from "../../../redux/actions/PreloaderAction";
+import { TIME_SHOW_PRELOADER } from "../../../redux/constants/PreloaderConstant";
 
 export default function DetailUser() {
+    const dispatch = useDispatch();
+
+    const bookingHistory = useSelector(state => state.UserManagementReducer.thongTinUser.thongTinDatVe);
+
+    // Set initial value of form
+    const valueform = useSelector(state => state.UserManagementReducer.thongTinUser);
+   
+
     // Ant Design
     const { TabPane } = Tabs;
     function callback(key) {
@@ -48,9 +58,8 @@ export default function DetailUser() {
         onSubmit: (values) => {
             values['maLoaiNguoiDung'] = 'KhachHang';
             // values.maLoaiNguoiDung = 'KhachHang';
-            console.log(values);
             UserApi.editUserInfo(values).then(response => {
-                console.log('editUserInfo',response.data);
+
                 dispatch(editInfoUserAction(response.data));
                 Swal.fire({
                     title: 'Bạn đã cập nhật thành công',
@@ -68,49 +77,28 @@ export default function DetailUser() {
         },
     });
 
-   
-    // const[bookingHistory, setBookingHistory] = useState([]);
-    const bookingHistory = useSelector(state => state.UserManagementReducer.thongTinUser.thongTinDatVe);
-    console.log("bookingHistory",bookingHistory)
-    const dispatch = useDispatch();
-    
+    useEffect(() => {
+        dispatch(setPreloader(true));
+        setTimeout(() => dispatch(setPreloader(false)), TIME_SHOW_PRELOADER);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    // useEffect( () => {
-    //     const data = {  
-    //         "taiKhoan": localStorage.getItem('userName')
-    //     }
-      
-    //     UserApi.userInfo(data)
-    //     .then(response => {
-    //         console.log(response.data);
-    //         setBookingHistory(response.data.thongTinDatVe);
-    //         formik.setValues(response.data);
-    //         dispatch(getInfoUserAction(response.data));
-    //     })
-    //     .catch(error => {
-    //         console.log("abc");
-    //     })
-    // },[])
-
-    // Set initial value of form
-    const valueform = useSelector(state => state.UserManagementReducer.thongTinUser);
-    console.log('valueform',valueform)
     useEffect( () => {
         formik.setValues(valueform);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[valueform])
 
-    // console.log('userInfo', userInfo);
 
     const renderTransaction = () => {
         return Array.isArray(bookingHistory) && bookingHistory.map((item,index) => {
             return <div className="detailuser__history-item mb-5" key={index}>
             <div className="row">
-                <div className="col-2">
+                <div className="col-12 col-md-2">
                     <div>
                         <img style={{width: 100, height: 120}} src="/images/test.png" alt=""></img>
                     </div>
                 </div>
-                <div className="col-10">
+                <div className="col-12 col-md-10">
                 <div>
                     <p>Phim {item.tenPhim}</p>
                     {item.danhSachGhe.map((value,index) => {
@@ -126,17 +114,6 @@ export default function DetailUser() {
         })
     }
 
-    // const renderChairInfo = () => {
-    //     return bookingHistory.map((item) => {
-    //         return item.danhSachGhe.map((value,index) => {
-    //             return <>
-    //                 <p>{value.tenHeThongRap} - L3-Bitexco Icon 68, 2 Hải Triều, Quận 1</p>
-    //                 <p>Ngày đặt: 11.10.2020 - {value.tenRap} - Ghế {value.tenGhe}</p>
-    //             </>
-    //         })
-            
-    //     })
-    // }
 
     if (localStorage.getItem('token')) {
         return (
@@ -144,9 +121,6 @@ export default function DetailUser() {
                 <div className="container">
                 <Tabs defaultActiveKey="1" onChange={callback}>
                     <TabPane tab="Thông tin cá nhân" key="1">
-                    {/* <div className="addUserModal__title">
-                        <h4 className="title">Thêm Thành Viên</h4>
-                    </div> */}
                     <div className="detailuser__info">
                         <div className="detailuser__info-content">
                             <Form
@@ -163,7 +137,6 @@ export default function DetailUser() {
                                     <Input type="text"  
                                     name="hoTen" 
                                     className="form-control"  
-                                    placeholder="Họ Tên" 
                                     onChange={formik.handleChange}
                                     onBlur={formik.handleBlur}
                                     value={formik.values.hoTen}/>

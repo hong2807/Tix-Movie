@@ -11,7 +11,6 @@ import {
 
 
 export const getListUserAdmin = (data) => {
-    console.log("getListUserAdmin",data)
     return  {
             type: GET_LIST_USER_ADMIN,
             listUserAdmin: data
@@ -19,7 +18,6 @@ export const getListUserAdmin = (data) => {
 }
 
 export const getToTalListUserAdmin = (data) => {
-    console.log("getToTalListUserAdmin ",data)
     return  {
             type: GET_TOTAL_LIST_USER_ADMIN,
             totalListUserAdmin: data
@@ -27,7 +25,6 @@ export const getToTalListUserAdmin = (data) => {
 }
 
 export const getDetailUserAdmin = (data) => {
-    console.log("getDetailUserAdmin",data)
     return  {
             type: GET_DETAIL_USER_ADMIN,
             detailUserAdmin: data
@@ -42,7 +39,6 @@ export const getKindOfUserAction = (data) => {
 }
 
 export const createUserAdmin = (data) => {
-    console.log("createUserAdmin",data)
     return  {
             type: CREATE_USER_ADMIN,
             createUserAdmin: data

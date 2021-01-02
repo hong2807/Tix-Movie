@@ -1,23 +1,23 @@
 @font-face {
     font-family: 'SourceSansPro Regular';
     src: url('/fonts/SourceSansPro-Regular.ttf') format('truetype');
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: 'SourceSansPro Bold';
     src: url('/fonts/SourceSansPro-Bold.ttf') format('truetype');
-}
-
-@font-face {
+  }
+  
+  @font-face {
     font-family: 'SourceSansPro SemiBold';
     src: url('/fonts/SourceSansPro-SemiBold.ttf') format('truetype');
-}
-
-
-@font-face {
+  }
+  
+  
+  @font-face {
     font-family: 'Ranchers Regular';
     src: url('/fonts/Ranchers-Regular.ttf') format('truetype');
-}
+  }
 
 body {
     font-family: 'SourceSansPro Regular';
@@ -70,6 +70,18 @@ a:hover {
 
 .page-content {
     padding-top: 80px;
+}
+
+select option {
+    margin: 40px;
+    background: #1a191f;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+// calendar icon input
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 @include responsive('large') {

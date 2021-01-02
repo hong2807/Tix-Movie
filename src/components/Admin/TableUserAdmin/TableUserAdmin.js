@@ -1,7 +1,7 @@
 import { faEdit, faTrashAlt, faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Input, Select, Form, Modal } from "antd";
-import React, { useEffect, useState } from "react";
+import { Modal } from "antd";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import AdminApi from "../../../api/services/AdminApi";
@@ -13,17 +13,21 @@ import UserApi from "../../../api/services/UserApi";
 import { editInfoUserAction } from "../../../redux/actions/UserManagementAction";
 import Pagination from "react-bootstrap-4-pagination";
 
+
 export default function TableUserAdmin() {
   const dispatch = useDispatch();
 
-  // Form
-  const [componentSize, setComponentSize] = useState("default");
-  const onFormLayoutChange = ({ size }) => {
-    setComponentSize(size);
-  };
+  //Modal edit
+  const [visible, setVisible] = React.useState(false);
+
+  const listUser = useSelector((state) => state.AdminUserManagementReducer.danhSachUserAdmin);
+  const totalListUser = useSelector((state) => state.AdminUserManagementReducer.sumDanhSachUserAdmin);
+  const dsMaLoaiNguoiDung = useSelector((state) => state.AdminUserManagementReducer.maLoaiNguoiDung);
+  const valueform = useSelector((state) => state.AdminUserManagementReducer.chiTietUserAdmin);
+  const tukhoa = useSelector((state) => state.AdminUserManagementReducer.tuKhoa);
 
   // Yup
-  const DetailUserSchema = Yup.object().shape({
+  const TableUserAdminSchema = Yup.object().shape({
     taiKhoan: Yup.string().required("Đây là trường bắt buộc"),
     matKhau: Yup.string().required("Đây là trường bắt buộc"),
     hoTen: Yup.string().required("Đây là trường bắt buộc"),
@@ -42,16 +46,15 @@ export default function TableUserAdmin() {
       email: "",
       soDt: "",
       maLoaiNguoiDung: "KhachHang",
-      maNhom: "GP12",
+      maNhom: "GP01",
     },
-    validationSchema: DetailUserSchema,
+    validationSchema: TableUserAdminSchema,
     onSubmit: (values) => {
       values["soDT"] = values.soDt;
-      values["maNhom"] = "GP12";
+      values["maNhom"] = "GP01";
       console.log(values);
       UserApi.editUserInfo(values)
         .then((response) => {
-          console.log("editUserInfo", response.data);
           dispatch(editInfoUserAction(response.data));
           loadList();
           Swal.fire({
@@ -71,13 +74,16 @@ export default function TableUserAdmin() {
     },
   });
 
-  const listUser = useSelector((state) => state.AdminUserManagementReducer.danhSachUserAdmin);
+  useEffect(() => {
+    formik.setValues(valueform);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [valueform]);
 
-  const totalListUser = useSelector((state) => state.AdminUserManagementReducer.sumDanhSachUserAdmin);
+  useEffect(() => {
+    loadList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  console.log("totalListUser", totalListUser);
-
-  const dsMaLoaiNguoiDung = useSelector((state) => state.AdminUserManagementReducer.maLoaiNguoiDung);
 
   const loadListKindOfUser = () => {
     return dsMaLoaiNguoiDung.map((item, index) => {
@@ -89,15 +95,7 @@ export default function TableUserAdmin() {
     });
   };
 
-  //Modal edit
-  const [visible, setVisible] = React.useState(false);
-  // const [confirmLoading, setConfirmLoading] = React.useState(false);
-  // const [modalText, setModalText] = React.useState('Content of the modal');
-  const valueform = useSelector((state) => state.AdminUserManagementReducer.chiTietUserAdmin);
-  console.log("valueform", valueform);
-  useEffect(() => {
-    formik.setValues(valueform);
-  }, [valueform]);
+  // Modal
   const showModal = () => {
     setVisible(true);
     // Set initial value of form
@@ -107,13 +105,10 @@ export default function TableUserAdmin() {
     setVisible(false);
   };
 
-  console.log("ERROR", formik.errors);
 
   const loadList = () => {
     AdminApi.listUser(1, 20)
       .then((response) => {
-        console.log("response", response.data.items);
-        console.log("response", response.data.items);
         dispatch(getListUserAdmin(response.data.items));
         dispatch(getToTalListUserAdmin(response.data));
       })
@@ -122,7 +117,7 @@ export default function TableUserAdmin() {
       });
   };
 
-  const tukhoa = useSelector((state) => state.AdminUserManagementReducer.tuKhoa);
+
   let paginationConfig = {
     totalPages: totalListUser.totalPages,
     currentPage: totalListUser.currentPage,
@@ -132,12 +127,10 @@ export default function TableUserAdmin() {
     prevNext: true,
     onClick: function (page) {
       console.log("tukhoa", tukhoa);
-      console.log(page);
 
       if (tukhoa !== "") {
         AdminApi.searchUser(tukhoa, page, 10)
           .then((response) => {
-            console.log(response.data);
             dispatch(getListUserAdmin(response.data.items));
             dispatch(getToTalListUserAdmin(response.data));
           })
@@ -147,25 +140,16 @@ export default function TableUserAdmin() {
       } else {
         AdminApi.listUser(page, 20)
           .then((response) => {
-            console.log("list user pagination", response.data);
             dispatch(getListUserAdmin(response.data.items));
             dispatch(getToTalListUserAdmin(response.data));
           })
           .catch((errorr) => {
-            console.log("errorr list user pagination", errorr.response.data);
+            console.log(errorr.response.data);
           });
       }
     },
   };
-  // console.log("listUser",listUser)
-
-  // const[listUser,SetListUser] = useState([]);
-
-  // const[detailUser,SetDetailUser] = useState({});
-
-  useEffect(() => {
-    loadList();
-  }, []);
+ 
 
   const renderListUser = () => {
     return listUser.map((item, index) => {
@@ -230,9 +214,7 @@ export default function TableUserAdmin() {
       }
     });
   };
-  // const loadInfoUser = (item) => {
-  //     SetDetailUser(item);
-  // }
+
 
   return (
     <div className="usermanagement__table mt-3">
@@ -243,7 +225,7 @@ export default function TableUserAdmin() {
             <th>Họ Tên</th>
             <th>Email</th>
             <th>Số điện thoại</th>
-            <th>Mã loại người dùng</th>
+            <th>Loại người dùng</th>
             <th>Thao tác</th>
           </tr>
         </thead>
@@ -270,22 +252,24 @@ export default function TableUserAdmin() {
             </div>
           </div>
           <div className="editUserModal__action">
-            <button className="btn btn-delete">Xóa thành viên</button>
+            <button className="btn btn-delete" onClick={() => {
+                deleteUser(formik.values.taiKhoan);
+              }}>Xóa thành viên</button>
           </div>
         </div>
 
         <div className="editUserModal__details">
           <div className="row">
-            <div className="col-12 col-md-8">
+            <div className="col-12">
               <div className="editUserModal__details-left">
                 <h5 className="title">Chi tiết thành viên</h5>
-                
+
                 <form className="editUserModal__form" onSubmit={formik.handleSubmit}>
                   <div className="row">
                     <div className="col-6">
                       <div className="form__item">
                         <label>Họ tên</label>
-                        <input type="text" name="hoTen" className="form-control" placeholder="Họ Tên" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.hoTen} />
+                        <input type="text" name="hoTen" className="form-control" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.hoTen} />
                         {formik.errors.hoTen && formik.touched.hoTen && <small className="text-danger">{formik.errors.hoTen}</small>}
                       </div>
                     </div>
@@ -296,7 +280,6 @@ export default function TableUserAdmin() {
                           type="text"
                           name="taiKhoan"
                           className="form-control"
-                          placeholder="Tên tài khoản"
                           onChange={formik.handleChange}
                           onBlur={formik.handleBlur}
                           value={formik.values.taiKhoan}
@@ -307,21 +290,21 @@ export default function TableUserAdmin() {
                     <div className="col-6">
                       <div className="form__item">
                         <label>Email</label>
-                        <input type="email" name="email" className="form-control" placeholder="Email" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
+                        <input type="email" name="email" className="form-control" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
                         {formik.errors.email && formik.touched.email && <small className="text-danger">{formik.errors.email}</small>}
                       </div>
                     </div>
                     <div className="col-6">
                       <div className="form__item">
-                        <label>Mã nhóm</label>
-                        <input type="text" name="maNhom" className="form-control" placeholder="Mã nhóm" onChange={formik.handleChange} onBlur={formik.handleBlur} value="GP12" />
-                        {formik.errors.maNhom && formik.touched.maNhom && <small className="text-danger">{formik.errors.maNhom}</small>}
+                        <label>Mật khẩu</label>
+                        <input type="text" name="matKhau" className="form-control" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
+                        {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
                       </div>
                     </div>
                     <div className="col-6">
                       <div className="form__item">
                         <label>Số điện thoại</label>
-                        <input type="text" name="soDt" className="form-control" placeholder="Số điện thoại" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.soDt} />
+                        <input type="text" name="soDt" className="form-control" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.soDt} />
                         {formik.errors.soDt && formik.touched.soDt && <small className="text-danger">{formik.errors.soDt}</small>}
                       </div>
                     </div>
@@ -333,6 +316,13 @@ export default function TableUserAdmin() {
                         </select>
                       </div>
                     </div>
+                    <div className="col-6">
+                      <div className="form__item">
+                        <label>Mã nhóm</label>
+                        <input type="text" name="maNhom" className="form-control" onChange={formik.handleChange} onBlur={formik.handleBlur} value="GP01" />
+                        {formik.errors.maNhom && formik.touched.maNhom && <small className="text-danger">{formik.errors.maNhom}</small>}
+                      </div>
+                    </div>
                   </div>
                   <button type="submit" className="btn-update">
                     Cập nhật
@@ -340,7 +330,7 @@ export default function TableUserAdmin() {
                 </form>
               </div>
             </div>
-            <div className="col-12 col-md-4">
+            {/* <div className="col-12 col-md-4">
               <div className="editUserModal__details-right">
                 <h5 className="title">Thay đổi mật khẩu</h5>
                 <form className="editUserModal__form" onSubmit={formik.handleSubmit}>
@@ -348,21 +338,21 @@ export default function TableUserAdmin() {
                     <div className="col-12">
                       <div className="form__item">
                         <label>Mật khẩu cũ</label>
-                        <input type="password" name="matKhau" className="form-control" placeholder="Mật khẩu" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
+                        <input type="password" name="matKhau" className="form-control" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
                         {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
                       </div>
                     </div>
                     <div className="col-12">
                       <div className="form__item">
                         <label>Mật khẩu mới</label>
-                        <input type="password" name="matKhau" className="form-control" placeholder="Mật khẩu" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
+                        <input type="password" name="matKhau" className="form-control"  onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
                         {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
                       </div>
                     </div>
                     <div className="col-12">
                       <div className="form__item">
                         <label>Nhập lại mật khẩu</label>
-                        <input type="password" name="matKhau" className="form-control" placeholder="Mật khẩu" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
+                        <input type="password" name="matKhau" className="form-control"  onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.matKhau} />
                         {formik.errors.matKhau && formik.touched.matKhau && <small className="text-danger">{formik.errors.matKhau}</small>}
                       </div>
                     </div>
@@ -372,7 +362,7 @@ export default function TableUserAdmin() {
                   </button>
                 </form>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </Modal>

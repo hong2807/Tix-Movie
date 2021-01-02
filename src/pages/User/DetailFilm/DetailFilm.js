@@ -7,10 +7,15 @@ import utils from '../../../helper/utils';
 import ModalVideo from "react-modal-video";
 import { Link } from "react-scroll";
 import { Link  as Linkreact } from "react-router-dom";
- // Moment
- 
+import { setPreloader } from "../../../redux/actions/PreloaderAction";
+import { useDispatch } from "react-redux";
+import { TIME_SHOW_PRELOADER } from "../../../redux/constants/PreloaderConstant";
+
  export default function DetailFilm(props) {
     let moment = require('moment')
+
+    const dispatch = useDispatch();
+
     const [filmDetail,setFilmDetail] = useState([]);
 
     const [cinemaList,setCinemaList] = useState([]);
@@ -19,14 +24,18 @@ import { Link  as Linkreact } from "react-router-dom";
 
     const [cinemaDetailList,setCinemaDetailList] = useState([]);
 
-    // Popup video
-    const [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(false); // Popup video
+
+    useEffect(() => {
+        dispatch(setPreloader(true));
+        setTimeout(() => dispatch(setPreloader(false)), TIME_SHOW_PRELOADER);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     useEffect( () => {
         const maPhim = props.match.params.maphim
         FilmApi.getFilmDetail(maPhim)
         .then(response => {
-            console.log('filmdetail',response.data);
             setFilmDetail(response.data);
             setCinemaList(response.data.heThongRapChieu);
             setCinemaDetailList(response.data.heThongRapChieu[0].cumRapChieu);
@@ -34,6 +43,7 @@ import { Link  as Linkreact } from "react-router-dom";
         .catch(error => {
             console.log('error',error.response.data);
         })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const renderCinemaList = () => {
@@ -48,7 +58,6 @@ import { Link  as Linkreact } from "react-router-dom";
 
     const renderTicket = (timeList) => {
         return timeList.map((item,index) => {
-            console.log("detailfilm",item)
             return <li key={index}><Linkreact to={`/datve/${item.maLichChieu}`}>{utils.handleTime(item.ngayChieuGioChieu)}</Linkreact></li>
         })
     }
