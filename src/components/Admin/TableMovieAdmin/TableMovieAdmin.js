@@ -21,6 +21,17 @@ export default function TableMovieAdmin() {
 
     const dispatch = useDispatch();
 
+    const listMovie = useSelector((state) => state.AdminFilmManagementReducer.danhSachFilmAdmin);
+    const valueform = useSelector((state) => state.AdminFilmManagementReducer.chiTietFilmAdmin);
+    const [cinemaList, setCinemaList] = useState([]);
+    const [selectedActive, setSelectedActive] = useState("BHDStar");
+    const [cinemaDetailList, setCinemaDetailList] = useState([]);
+    const [cinemaRoomDetailList, setCinemaRoomDetailList] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [imageUrl, setImageUrl] = useState("");
+    const [fileImageUpload, setFileImageUpload] = useState(null);
+
+
     //Modal edit
     const [visible, setVisible] = React.useState(false);
     const showModal = () => {
@@ -149,7 +160,7 @@ export default function TableMovieAdmin() {
             giaVe: 0,
         },
         validationSchema: filmScheduleSchema,
-        onSubmit: (values) => {
+        onSubmit: (values, {resetForm}) => {
             const data = values;
             data.ngayChieuGioChieu = moment(data.ngayChieuGioChieu).format("DD/MM/yyyy hh:mm:ss");
             data.maPhim = valueform.maPhim;
@@ -160,6 +171,7 @@ export default function TableMovieAdmin() {
                         icon: "success",
                         confirmButtonColor: "#3085d6",
                     });
+                    resetForm({values: ''});
                 })
                 .catch((error) => {
                     Swal.fire({
@@ -171,16 +183,6 @@ export default function TableMovieAdmin() {
                 });
         },
     });
-
-    const listMovie = useSelector((state) => state.AdminFilmManagementReducer.danhSachFilmAdmin);
-    const valueform = useSelector((state) => state.AdminFilmManagementReducer.chiTietFilmAdmin);
-    const [cinemaList, setCinemaList] = useState([]);
-    const [selectedActive, setSelectedActive] = useState("BHDStar");
-    const [cinemaDetailList, setCinemaDetailList] = useState([]);
-    const [cinemaRoomDetailList, setCinemaRoomDetailList] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [imageUrl, setImageUrl] = useState("");
-    const [fileImageUpload, setFileImageUpload] = useState(null);
 
     useEffect(() => {
         loadListMovie();
@@ -390,7 +392,7 @@ export default function TableMovieAdmin() {
 
     return (
         <div className="moviemanagement__table mt-3">
-            <table class="table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Hình ảnh</th>

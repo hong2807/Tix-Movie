@@ -4,7 +4,7 @@ import { Tabs } from 'antd';
 import { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import UserApi from '../../../api/services/UserApi';
-import { editInfoUserAction } from '../../../redux/actions/UserManagementAction';
+import { editInfoUserAction, getInfoUserAction } from '../../../redux/actions/UserManagementAction';
 import { useSelector, useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -20,7 +20,21 @@ export default function DetailUser() {
 
     // Set initial value of form
     const valueform = useSelector(state => state.UserManagementReducer.thongTinUser);
-   
+    
+    useEffect(() => {
+        const data = {
+            taiKhoan: localStorage.getItem("userName"),
+        };
+
+        UserApi.userInfo(data)
+            .then((response) => {
+                dispatch(getInfoUserAction(response.data));
+            })
+            .catch((error) => {
+                console.log("error");
+            });
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // Ant Design
     const { TabPane } = Tabs;
@@ -59,7 +73,7 @@ export default function DetailUser() {
             values['maLoaiNguoiDung'] = 'KhachHang';
             // values.maLoaiNguoiDung = 'KhachHang';
             UserApi.editUserInfo(values).then(response => {
-
+                response.data.thongTinDatVe = bookingHistory;
                 dispatch(editInfoUserAction(response.data));
                 Swal.fire({
                     title: 'Bạn đã cập nhật thành công',
@@ -93,14 +107,14 @@ export default function DetailUser() {
         return Array.isArray(bookingHistory) && bookingHistory.map((item,index) => {
             return <div className="detailuser__history-item mb-5" key={index}>
             <div className="row">
-                <div className="col-12 col-md-2">
+                {/* <div className="col-12 col-md-2">
                     <div>
                         <img style={{width: 100, height: 120}} src="/images/test.png" alt=""></img>
                     </div>
-                </div>
-                <div className="col-12 col-md-10">
+                </div> */}
+                <div className="col-12 col-md-12">
                 <div>
-                    <p>Phim {item.tenPhim}</p>
+                    <p className="name-film">Phim {item.tenPhim}</p>
                     {item.danhSachGhe.map((value,index) => {
                         return <div key={index}>
                         <p>{value.tenHeThongRap} - L3-Bitexco Icon 68, 2 Hải Triều, Quận 1</p>

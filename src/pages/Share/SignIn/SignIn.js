@@ -29,7 +29,7 @@ export default function SignIn(props) {
           localStorage.setItem('email', response.data.email);
           localStorage.setItem('hoTen', response.data.hoTen);
           localStorage.setItem('soDT', response.data.soDT);
-          props.history.goBack();
+          props.history.push('./');
         }).catch(error => {
           console.log('error',error.response.data);
           Swal.fire({

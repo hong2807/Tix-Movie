@@ -31,7 +31,7 @@ export default function DetailCinema(props) {
         dispatch(setPreloader(true));
         setTimeout(() => dispatch(setPreloader(false)), TIME_SHOW_PRELOADER);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [maChiTietRap]);
 
     useEffect( () => {
         CinemaApi.getCinemaDetailList(maRap)
@@ -57,10 +57,10 @@ export default function DetailCinema(props) {
 
     const renderCinemaBranch = () => {
         return Array.isArray(cinemaBranch) && cinemaBranch.map((item,index) => {
-            return  <Link to={`/rapphim/${props.match.params.marapphim}/${item.maCumRap}`} className="btn branch" key={index}>
+            return  <Linkreact to={`/rapphim/${props.match.params.marapphim}/${item.maCumRap}`} className="btn branch" key={index}>
                         <FontAwesomeIcon className="icon" icon={faLandmark} />
                         {item.tenCumRap}
-                    </Link>
+                    </Linkreact>
         })
     }
 

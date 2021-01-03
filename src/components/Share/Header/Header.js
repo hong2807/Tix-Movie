@@ -50,7 +50,7 @@ export default function Header(props) {
     return (
         <div className="header-component">
             <div className="container">
-                <div className="header__content d-none d-md-flex ">
+                <div className="header__content d-none d-lg-flex ">
                     <ul className="header__left">
                         <li className="nav-item">
                             <Link className="nav-text" to="films-component" spy={true} smooth={true} offset={-80} duration={500}>
@@ -122,7 +122,7 @@ export default function Header(props) {
                             </NavLink>
                         </div>
 
-                        <a class="hamburger-button" onClick={handleOnClick}>
+                        <a href="#!" class="hamburger-button" onClick={handleOnClick}>
                             <span class="lines"></span>
                         </a>
                         

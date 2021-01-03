@@ -26,6 +26,20 @@ export default function Films() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 567,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
 
   const [isOpen, setOpen] = useState(false); // Popup video
@@ -77,7 +91,7 @@ export default function Films() {
       <div className="container">
         <Tabs defaultActiveKey="1" onChange={callback}>
           <TabPane tab="PHIM ĐANG CHIẾU" key="1">
-          <div className="d-none d-md-block">
+          <div className="d-none d-lg-block">
           {listFilm.length > 0 && <Coverflow
               // width={960}
               height={"580"}
@@ -90,7 +104,7 @@ export default function Films() {
             </Coverflow>}
             </div>
 
-            <Row className="film-slider-mobile justify-content-center d-flex d-md-none">
+            <Row className="film-slider-mobile justify-content-center d-flex d-lg-none">
               <Col xs={20} >
                 <Slider {...settings}>
                   {renderListFilm()}
@@ -102,7 +116,7 @@ export default function Films() {
           </TabPane>
 
           <TabPane tab="PHIM SẮP CHIẾU" key="2">
-          <div className="d-none d-md-block">
+          <div className="d-none d-lg-block">
           {listFilmCommingSoon.length > 0 && <Coverflow
               // width={960}
               height={"580"}
@@ -115,7 +129,7 @@ export default function Films() {
             </Coverflow>}
             </div>
 
-            <Row className="film-slider-mobile justify-content-center d-flex d-md-none">
+            <Row className="film-slider-mobile justify-content-center d-flex d-lg-none">
               <Col xs={20} >
                 <Slider {...settings}>
                   {renderListFilmCommingSoon()}

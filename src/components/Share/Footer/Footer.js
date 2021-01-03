@@ -9,7 +9,7 @@ export default function Footer() {
                 <div className="footer__policy">
                     <div className="footer__policyContent">
                         <div className="row">
-                            <div className="col-6 col-md-3">
+                            <div className="col-6 col-md-6 col-lg-3 mb-md-4">
                                 <div className="footer__tix">
                                     <h5>TIX</h5>
                                     <ul>
@@ -18,7 +18,7 @@ export default function Footer() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-6 col-md-3">
+                            <div className="col-6 col-md-6 col-lg-3 mb-md-4">
                                 <div className="footer__tixPolicy">
                                     <h5>Điều khoản sử dụng</h5>
                                     <ul>
@@ -27,7 +27,7 @@ export default function Footer() {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="col-12 col-md-3">
+                            <div className="col-12 col-md-6 col-lg-3 mb-md-4">
                                 <div className="footer__tixFollowus">
                                     <h5>Kết nối với chúng tôi</h5>
                                     <ul>
@@ -41,7 +41,7 @@ export default function Footer() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-12 col-md-3">
+                            <div className="col-12 col-md-6 col-lg-3 mb-md-4">
                                 <div className="footer__tixPay">
                                     <h5>Thanh toán</h5>
                                     <ul>
@@ -63,12 +63,12 @@ export default function Footer() {
                 <div className="footer__address">
                     <div className="footer__addressContent">
                         <div className="row">
-                            <div className="col-12 col-md-2">
+                            <div className="col-12 col-md-3 col-lg-2">
                                 <div className="footer__addressLogo">
                                     <img src="/images/zion-logo.jpg" alt=''></img>
                                 </div>
                             </div>
-                            <div className="col-12 col-md-10">
+                            <div className="col-12 col-md-9 col-lg-10">
                                 <div className="footer__addressText">
                                 <h5>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</h5>
                                 <p>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam..</p>

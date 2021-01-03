@@ -40,7 +40,7 @@ export default function FilmItem(props) {
                   </div>
                 </div>
 
-                <div className="film-group-btn d-flex d-md-none">
+                <div className="film-group-btn d-flex d-lg-none">
                   <div className="film-btn" onClick={()=> {
                       props.modal(props.filmInfo.trailer)
                     }}>

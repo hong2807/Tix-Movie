@@ -92,14 +92,15 @@ export default function Cinema() {
     }
 
     const renderShowTimeDetailList = () => {
+        console.log('showtimeDetailList',showtimeDetailList)
         return showtimeDetailList.map((item,index) => {
             return <div className="cinema__showtimeItem" key={index}>
             <div className="inside">
                 <div className="row">
                     <div className="col-2">
-                        <div className="inside-img">
+                        <Link to={`/phim/${item.maPhim}`}  className="inside-img">
                             <img src={item.hinhAnh} alt=""></img>
-                        </div>
+                        </Link>
                     </div>
                     <div className="col-10">
                         <div className="inside-text">
@@ -107,7 +108,7 @@ export default function Cinema() {
                                 <span className="film-version">2D DUB</span>
                                 <span className="film-rating">C18</span>
                             </div>
-                            <p>{item.tenPhim}</p>
+                            <p className="name-film">{item.tenPhim}</p>
                             <p>100 phút</p>
                         </div>
                     </div>
@@ -123,7 +124,7 @@ export default function Cinema() {
     }
 
     return (
-        <div id="cinema-component" className="cinema-component d-none d-md-block">
+        <div id="cinema-component" className="cinema-component d-none d-lg-block">
             <div className="container">
                 <div className="cinema-content">
                     <div className="cinema__brand">

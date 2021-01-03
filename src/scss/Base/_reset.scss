@@ -89,7 +89,13 @@ select option {
 }
 
 @include responsive('medium') {
+  html {
+    font-size: 18px;
+  }
 
+  .page-content {
+    padding-top: 65px;
+    }
 }
 
 @include responsive('small') {

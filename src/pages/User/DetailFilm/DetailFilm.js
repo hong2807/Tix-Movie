@@ -102,8 +102,8 @@ import { TIME_SHOW_PRELOADER } from "../../../redux/constants/PreloaderConstant"
             let thu = tomorrow.get('date');
             dayHTML.push(<li className={i === 0 ? 'active day-item' : 'day-item'}>
                 <p className="day-top">
-                    <span className="d-none d-sm-block"> {day === 6 ?  utils.converday(day) : `Thứ ${utils.converday(day)}` }</span>
-                    <span className='d-block d-sm-none'>{day === 6 ?  'CN' : `T ${utils.converday(day)}` }</span>
+                    <span className="d-none d-sm-block"> {day === 0 ?  utils.converday(day) : `Thứ ${utils.converday(day)}` }</span>
+                    <span className='d-block d-sm-none'>{day === 0 ?  'CN' : `T ${utils.converday(day)}` }</span>
                 </p>
                 <p className="day-bottom">
                     {thu}
