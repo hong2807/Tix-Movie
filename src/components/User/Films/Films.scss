@@ -165,9 +165,6 @@
 }
 
 @include responsive('medium') {
-}
-
-@include responsive('small') {
     .films-component {
         .ant-tabs-tab {
             margin-left: rem(15);
@@ -202,4 +199,8 @@
             }
         }
     }
+}
+
+@include responsive('small') {
+    
 }
